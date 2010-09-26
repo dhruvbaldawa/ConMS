@@ -45,6 +45,20 @@
 	        function update($data,$where){
 		         $this->db->update($this->_table,$data,$where);
         	}
+	
+		function author_details($data){
+                $CI =& get_instance();
+                $CI->load->model('authors_model');
+		$CI->authors_model->get_details($data);
+                $this->_authors_model = $CI->authors_model;		
+		}
+	
+		function paper_details($data){
+                $CI =& get_instance();
+                $CI->load->model('Paper_model');
+		$CI->Paper_model->get($data);
+                $this->_Paper_model = $CI->Paper_model;
+		}
 	}
 
 

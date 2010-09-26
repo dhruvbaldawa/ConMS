@@ -33,6 +33,7 @@
                 $CI->load->model('Payment_model');
 		$CI->Payment_model->payment_status($data);
                 $this->_Payment_model = $CI->Payment_model;
+		}			
 
 
 		function get_track($data){
@@ -46,6 +47,14 @@
             	$this->db->update($this->_table,$data,$where);
  	        }
 
+		function get_author($data){
+	
+                $CI =& get_instance();
+                $CI->load->model('authors_model');
+		$CI->authors_model->get_details($data);
+                $this->_authors_model = $CI->authors_model;
+		}
+		
 
 	}
 ?>
