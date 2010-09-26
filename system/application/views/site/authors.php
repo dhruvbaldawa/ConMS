@@ -58,13 +58,13 @@
 			<!-- CONTENT BOXES -->
 			<div class="content-box">
 				<div class="box-header clear">
-					<h2>Content Box</h2>
+					<h2>Authors</h2>
 				</div>
 				
 				<div class="box-body clear">
 					<!-- TABLE -->
 					<div id="data-table">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in porta lectus. Maecenas dignissim enim quis ipsum mattis aliquet. Maecenas id velit et elit gravida bibendum. Duis nec rutrum lorem.</p> 
+						<p></p>
 					
 						<form method="post" action="#">
 						
@@ -72,175 +72,30 @@
 						<thead>
 							<tr>
 								<th class="bSortable"><input type="checkbox" class="checkbox select-all" /></th>
-								<th>Column 1</th>
-								<th>Column 2</th>
-								<th>Column 3</th>
-								<th>Column 4</th>
-								<th>Column 5</th>
-								<th>Column 6</th>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Username</th>
+								<th>Actions</th>
 							</tr>
 						</thead>
 						<tbody>
+                        <?php
+                            foreach($rows as $arow){ ?>
 							<tr>
 								<td><input type="checkbox" class="checkbox" /></td>
-								<td>Lorem ipsum dolor</td>
-								<td><a href="#">John</a></td>
-								<td>5/6/2010</td>
-								<td><input type="text" name="input1" id="input1" value="235" class="text" size="10" /></td>
-								<td>sed in porta lectus</td>
-								<td>
+								<td><?php echo $arow['id']; ?></td>
+								<td><a href="#"><?php echo $arow['name']; ?></a></td>
+                                <td><?php echo $arow['username']; ?></td>
+                                <td>
 									<a href="#"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
 									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
 									<a href="#"><img src="<?php echo base_url(); ?>images/ico_settings_16.png" class="icon16 fl-space2" alt="" title="settings" /></a>
 								</td>
 							</tr>
-                                                        
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td>Dignissim enim</td>
-								<td><a href="#">Admin</a></td>
-								<td>5/6/2010</td>
-								<td><input type="text" name="input2" id="input2" value="124" class="text" size="10" /></td>
-								<td>duis nec rutrum</td>
-								<td>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_settings_16.png" class="icon16 fl-space2" alt="" title="settings" /></a>
-								</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td>Maecenas velit</td>
-								<td><a href="#">Admin</a></td>
-								<td>5/6/2010</td>
-								<td><input type="text" name="input3" id="input3" value="58" class="text" size="10" /></td>
-								<td>porta lectus</td>
-								<td>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_settings_16.png" class="icon16 fl-space2" alt="" title="settings" /></a>
-								</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td>Maecenas velit</td>
-								<td><a href="#">Admin</a></td>
-								<td>5/6/2010</td>
-								<td><input type="text" name="input4" id="input4" value="58" class="text" size="10" /></td>
-								<td>porta lectus</td>
-								<td>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_settings_16.png" class="icon16 fl-space2" alt="" title="settings" /></a>
-								</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td>Maecenas velit</td>
-								<td><a href="#">Admin</a></td>
-								<td>5/6/2010</td>
-								<td><input type="text" name="input5" id="input5" value="58" class="text" size="10" /></td>
-								<td>porta lectus</td>
-								<td>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_settings_16.png" class="icon16 fl-space2" alt="" title="settings" /></a>
-								</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td>Maecenas velit</td>
-								<td><a href="#">Admin</a></td>
-								<td>5/6/2010</td>
-								<td><input type="text" name="input6" id="input6" value="58" class="text" size="10" /></td>
-								<td>porta lectus</td>
-								<td>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_settings_16.png" class="icon16 fl-space2" alt="" title="settings" /></a>
-								</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td>Maecenas velit</td>
-								<td><a href="#">Admin</a></td>
-								<td>5/6/2010</td>
-								<td><input type="text" name="input7" id="input7" value="58" class="text" size="10" /></td>
-								<td>porta lectus</td>
-								<td>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_settings_16.png" class="icon16 fl-space2" alt="" title="settings" /></a>
-								</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td>Maecenas velit</td>
-								<td><a href="#">Admin</a></td>
-								<td>5/6/2010</td>
-								<td><input type="text" name="input8" id="input8" value="58" class="text" size="10" /></td>
-								<td>porta lectus</td>
-								<td>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_settings_16.png" class="icon16 fl-space2" alt="" title="settings" /></a>
-								</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td>Maecenas velit</td>
-								<td><a href="#">Admin</a></td>
-								<td>5/6/2010</td>
-								<td><input type="text" name="input9" id="input9" value="58" class="text" size="10" /></td>
-								<td>porta lectus</td>
-								<td>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_settings_16.png" class="icon16 fl-space2" alt="" title="settings" /></a>
-								</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td>Maecenas velit</td>
-								<td><a href="#">Admin</a></td>
-								<td>5/6/2010</td>
-								<td><input type="text" name="input10" id="input10" value="58" class="text" size="10" /></td>
-								<td>porta lectus</td>
-								<td>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_settings_16.png" class="icon16 fl-space2" alt="" title="settings" /></a>
-								</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td>Duis nec rutrum</td>
-								<td><a href="#">John</a></td>
-								<td>5/6/2010</td>
-								<td><input type="text" name="input11" id="input11" value="10" class="text" size="10" /></td>
-								<td>enim quis ipsum</td>
-								<td>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_settings_16.png" class="icon16 fl-space2" alt="" title="settings" /></a>
-								</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td>Elit gravida</td>
-								<td><a href="#">Admin</a></td>
-								<td>5/6/2010</td>
-								<td><input type="text" name="input12" id="input12" value="356" class="text" size="10" /></td>
-								<td>dolor sit amet</td>
-								<td>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_settings_16.png" class="icon16 fl-space2" alt="" title="settings" /></a>
-								</td>
-							</tr>
+                            <?php } ?>
 						</tbody>
 						</table>
-						
+
 						<div class="tab-footer clear fl">
 							<div class="fl">
 								<select name="dropdown" class="fl-space">

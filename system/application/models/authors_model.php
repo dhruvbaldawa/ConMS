@@ -4,6 +4,12 @@
             parent::Model();
             $this->_table = 'authors';
             $this->_paper_table = 'papers';
+            $this->_user_table = 'users' ;
+        }
+
+        function list_authors(){
+            $query = $this->db->query("SELECT * FROM ".$this->_user_table." WHERE id IN (SELECT id FROM ".$this->_table.")");
+            return $query->row_array();
         }
 
         function get_details($id){
@@ -12,13 +18,15 @@
         }
 
         function get_papers($data){
-            $this->load->model('papers_model');
-            return $this->paper_model->get_details($data) ;
+            $CI =& get_instance();
+            $CI->load->model('papers_model');
+            return $CI->paper_model->get_details($data) ;
         }
 
         function get_payment_details($data){
-            $this->load->model('payments_model');
-            return $this->payments_model->get_details($data); 
+            $CI =& get_instance();
+            $CI->load->model('payments_model');
+            return $CI->payments_model->get_details($data);
         }
 
         function create($data){
@@ -29,6 +37,13 @@
             $this->db->update($this->_table,$data,$where);
         }
 
+        function add_paper($data){
+            $this->db->insert('author_paper',$data);
+        }
+
+        function add_payment($data){
+            $this->db->insert('payments',$data);
+        }
     }
 /* End of file authors_model.php */
 /* Location: ./system/application/models/authors_model.php */
