@@ -41,6 +41,11 @@
 			$query=$this->db->where($table,$data);
 			return ($query->result() as $row);
 		}
+		
+	        function update($data,$where){
+		         $this->db->update($this->_table,$data,$where);
+        	}
+	}
 
 
 ?>

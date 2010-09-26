@@ -18,7 +18,7 @@
 
         function get_payment_details($data){
             $this->load->model('payments_model');
-            return $this->payments_model->get_details($data);
+            return $this->payments_model->get_details($data); 
         }
 
         function create($data){

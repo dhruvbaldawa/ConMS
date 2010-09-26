@@ -42,6 +42,10 @@
 		}		
 		
 					
+		function update($data,$where){
+            	$this->db->update($this->_table,$data,$where);
+ 	        }
+
 
 	}
 ?>
