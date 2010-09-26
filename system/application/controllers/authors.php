@@ -14,6 +14,16 @@ class Authors extends Controller {
         $this->load->view('site/authors',$data);
 
     }
+
+    function get_all_info(){
+        if($this->input->post('ajax')==1){
+            $row = $this->authors_model->get_details($this->input->post('id'));
+            $data['content'] = $row;
+            $this->load->view('site/author_info',$data);
+        }
+        else
+            $this->index();
+    }
 }
 /* End of file authors.php */
 /* Location: ./system/application/controllers/authors.php */

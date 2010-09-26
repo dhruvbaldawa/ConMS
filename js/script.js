@@ -70,7 +70,7 @@ function InitTables () {
 		'bLengthChange': true,
 		'bPaginate': true,
 		'sPaginationType': 'full_numbers',
-		'iDisplayLength': 5,
+		'iDisplayLength': -1,
 		'bInfo': false,
 		'oLanguage': 
 		{
@@ -82,16 +82,7 @@ function InitTables () {
 				'sFirst': '&lt;&lt;',
 				'sPrevious': '&lt;'
 			}
-		},		
-		'aoColumns': [ 
-			{ "bSortable": false },
-			null,
-			null,
-			null,
-			null,
-			null,
-			null
-		]	
+		}
 	});
 }
 
@@ -197,7 +188,7 @@ function InitQuickEdit () {
                 $(this).parent().parent().find('td.edit-field').click();
                 return false;
         });
-        
+
         $('.edit-textfield').editable('http://www.google.com/', {
                 'type': 'text'
         });

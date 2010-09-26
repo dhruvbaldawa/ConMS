@@ -1,9 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
-
-<!-- Mirrored from www.ait.sk/uniadmin/ by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 20 Jul 2010 00:37:25 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="description"  content=""/>
@@ -34,7 +30,19 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/cufon.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/Geometr231_Hv_BT_400.font.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/script.js"></script>
-
+<script type="text/javascript">
+$('#author').live("click",function (){
+    $.fancybox.showActivity();
+    $.ajax({
+        type:"POST",
+        url:"<?php echo base_url(); ?>authors/get_all_info",
+        data:"ajax=1&id="+this.rel,
+        success:function (data){
+            $.fancybox(data);
+        }
+    });
+});
+</script>
 </head>
 
 <body>
@@ -60,14 +68,14 @@
 				<div class="box-header clear">
 					<h2>Authors</h2>
 				</div>
-				
+
 				<div class="box-body clear">
 					<!-- TABLE -->
 					<div id="data-table">
 						<p></p>
-					
+
 						<form method="post" action="#">
-						
+
 						<table class="datatable">
 						<thead>
 							<tr>
@@ -84,7 +92,7 @@
 							<tr>
 								<td><input type="checkbox" class="checkbox" /></td>
 								<td><?php echo $arow['id']; ?></td>
-								<td><a href="#"><?php echo $arow['name']; ?></a></td>
+								<td><a href="#" id="author" rel="<?php echo $arow['id']; ?>"><?php echo $arow['name']; ?></a></td>
                                 <td><?php echo $arow['username']; ?></td>
                                 <td>
 									<a href="#"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
@@ -118,5 +126,4 @@
 	</div>
 </div>
 </body>
-<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 </html>

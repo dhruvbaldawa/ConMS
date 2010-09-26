@@ -9,11 +9,11 @@
 
         function list_authors(){
             $query = $this->db->query("SELECT * FROM ".$this->_user_table." WHERE id IN (SELECT id FROM ".$this->_table.")");
-            return $query->row_array();
+            return $query->result_array();
         }
 
         function get_details($id){
-            $query = $this->db->get_where($this->_table,array('id'=>$id));
+            $query = $this->db->get_where($this->_user_table,array('id'=>$id));
             return $query->row_array();
         }
 
