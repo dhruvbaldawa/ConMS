@@ -33,7 +33,7 @@
 
 		function get_track($data){
 			$this->db->select('track');
-			return ($this->db->where('Paper',$data));
+			return ($this->db->where('paper',$data));
 		}		
 		
 					
