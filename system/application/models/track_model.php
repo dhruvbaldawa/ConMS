@@ -13,8 +13,9 @@
 		funtion get_papers($id){
 		$CI =& get_instance();
                 $CI->load->model('Paper_model');
-		$CI->Paper_model->Paper_status(array('track_id'=$id));
+		$query=$CI->Paper_model->Paper_status(array('track_id'=$id));
                 $this->_Paper_model = $CI->Paper_model;
+		return $query->row_array();
 		}
 
 	}

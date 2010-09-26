@@ -56,8 +56,9 @@
 		function paper_details($data){
                 $CI =& get_instance();
                 $CI->load->model('Paper_model');
-		$CI->Paper_model->get($data);
+		$query=$CI->Paper_model->get($data);
                 $this->_Paper_model = $CI->Paper_model;
+		return $query->row_array();
 		}
 	}
 
