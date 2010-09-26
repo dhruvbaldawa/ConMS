@@ -1,0 +1,714 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<!-- Mirrored from www.ait.sk/uniadmin/doc/ by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 20 Jul 2010 00:40:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+    <meta http-equiv="Content-Type"     content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="sk" />
+    <meta name="robots"                 content="index, follow" />
+    <meta name="description"            content="" />
+    <meta name="keywords"               content="" />
+    <meta name="author"                 content="" />
+    
+    <link rel="stylesheet" type="text/css" href="css/clear.css"     media="screen, projection" />    
+    <link rel="stylesheet" type="text/css" href="css/layout.css"    media="screen, projection" />
+    <link rel="stylesheet" type="text/css" href="css/textmate.css"   media="screen, projection" />
+    <link rel="stylesheet" type="text/css" href="css/toolbar.css"    media="screen, projection" />
+
+    <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" link="css/ie6.css"    media="screen, projection" />
+    <![endif]-->
+    <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" link="css/ie7.css"    media="screen, projection" />
+    <![endif]-->
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.scrollto.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
+    <title>Documentation | UniAdmin - Backend Template</title>
+</head>
+
+<body>
+<!-- PAGE WRAPPER -->
+<div id="page">
+	<!-- HEADER -->
+	<div id="header">
+		<!-- LOGO -->
+		<div id="logo">
+			<a href="http://www.ait.sk/"><img src="img/logo.png" alt="AIT s.r.o." /></a>
+		</div><!-- /#logo -->
+		
+		<!-- TITLE -->
+		<div id="title">
+			<h1>UniAdmin <span>Static HTML Backend Template Documentation</span></h1>
+		</div><!-- /#title -->
+	</div><!-- /#header-->
+	
+	<!-- CONTENT -->
+	<div id="content">
+		
+		<h2>Contents</h2>
+		
+		<!-- RESUME -->
+		<div id="resume">
+			<ul>
+				<li>
+					<span>1.</span><a href="#basic">Basic Description</a>
+					<ul>
+						<li><span>1.1.</span><a href="#basic_features">Features</a></li>
+						<li><span>1.2.</span><a href="#basic_installation">Installation</a></li>
+						<li><span>1.3.</span><a href="#basic_basic">Basic Page Information</a></li>
+						<li><span>1.4.</span><a href="#basic_login">Login Page Information</a></li>
+					</ul>
+				</li>	
+				<li>
+					<span>2.</span><a href="#data">Data Table</a>
+					<ul>
+						<li><span>2.1.</span><a href="#data_simple">Simple Data Table</a></li>
+						<li><span>2.2.</span><a href="#data_advanced">Advanced Data Table</a></li>
+					</ul>
+				</li>
+				<li>
+					<span>3.</span><a href="#chart">Charts</a>
+					<ul>
+						<li><span>3.1.</span><a href="#chart_creating">Creating Chart</a></li>
+						<li><span>3.2.</span><a href="#chart_type">Setting Chart Type</a></li>
+					</ul>				
+				</li>
+				<li>
+					<span>4.</span><a href="#wysiwyg">WYSIWYG</a>
+					<ul>
+						<li><span>4.1.</span><a href="#wysiwyg_type">jQuery WYSIWYG</a></li>
+						<li><span>4.2.</span><a href="#wysiwyg_tinymce">TinyMCE</a></li>						
+					</ul>				
+				</li>				
+				<li>
+					<span>5.</span><a href="#fancybox">Fancybox</a>
+					<ul>
+						<li><span>5.1.</span><a href="#fancybox_image">Fancybox Image</a></li>
+						<li><span>5.1.</span><a href="#fancybox_gallery">Fancybox Gallery</a></li>
+						<li><span>5.2.</span><a href="#fancybox_modal">Fancybox Modal Window</a></li>						
+					</ul>				
+				</li>												
+				<li>
+					<span>6.</span><a href="#tabs">Tabs</a>
+				</li>												
+				<li>
+					<span>7.</span><a href="#code_validations">Code Validations</a>
+					<ul>
+						<li><span>7.1.</span><a href="#code_validations_html">Valid HTML</a></li>
+						<li><span>7.2.</span><a href="#code_validations_css">Valid CSS</a></li>
+					</ul>				
+				</li>
+				<li>
+					<span>8.</span><a href="#files_structure">The Files Structure</a>
+					<ul>
+						<li><span>8.1.</span><a href="#files_structure_dir">Directories</a></li>
+						<li><span>8.2.</span><a href="#files_structure_html">HTML Files</a></li>
+						<li><span>8.3.</span><a href="#files_structure_css">CSS Files</a></li>
+						<li><span>8.4.</span><a href="#files_structure_js">JavaScript Files</a></li>
+					</ul>
+				</li>
+			</ul>		
+		</div><!-- /#resume -->
+		
+		<!-- Basic description -->
+		<h2 id="basic">1. Basic Description</h2>
+		<p>
+			AIT has created for you an universal HTML/CSS backend template, which is accommodated for use in a wide variety of commercial backends. The main feature of this template is the versatility, color variability and the ability to adapt it to their own needs without any major problems and less skilled programmer.
+		</p>
+		
+		<p>
+			The template was designed by standard conception of classic backends. The template includes one homepage and one standardised login page that can be configured by your backend conception.	
+		</p>
+		
+		<h3 id="basic_installation">1.1. Features</h3>
+
+		<ul>
+			<li>fluid layout</li>
+			<li><a href="http://www.filamentgroup.com/lab/update_to_jquery_visualize_accessible_charts_with_html5_from_designing_with/">charting library</a> </li>
+			<li><a href="http://www.fancybox.net/">Fancybox</a> for lightbox effect and modal windows</li>
+			<li>WYSIWIG editors - <a href="http://tinymce.moxiecode.com/">TinyMCE</a> and <a href="http://code.google.com/p/jwysiwyg/">jQuery WYSIWYG</a></li>
+			<li>well structured HTML &amp; JavaScript code</li>		
+		</ul>
+				
+		<h3 id="basic_installation">1.2. Installation</h3>
+		
+		<p>
+			Template installation is really easy just extract files from archive and copy them to the hosting. It's not recommended to have PHP enabled on the server side.
+		</p>
+
+		<h3 id="basic_basic">1.3. Basic Page Information</h3>
+		
+		<p>
+			Basic page contains all HTML elements needed for backend template. 
+		</p>
+		
+		<ul>
+			<li>Sidebar with two level main navigation</li>			
+			<li>Content boxes</li>
+			<li>Charts</li>
+			<li>Modal window</li>
+			<li>WYSIWYG editors</li>
+			<li>Four variants of notification boxes</li>
+			<li>Simple and advanced data table</li>
+		</ul>
+		
+		<h3 id="basic_login">1.4. Login Page Information</h3>		
+
+		<div class="center">
+			<img src="img/uniadmin-login.png" alt="UniAdmin Login Page" />
+		</div><!-- /.center -->
+				
+		<p>
+			Login page contais only login form used by user to login into the system.
+		</p>				
+
+		<h2 id="data">2. Data Table</h2>
+		
+		<p>
+			Data tables are used to show information in ordered format. We provide two variants of these forms. 
+			First variant is really simple and ready for your customization. Second variant is advanced data table
+			with ready for use pager, column ordering, searching ...
+		</p>
+		
+		<h3 id="data_simple">2.1 Simple Data Table</h3>
+
+		<div class="center">
+			<img src="img/uniadmin-datatable-simple.png" alt="UniAdmin Simple DataTable" />
+		</div><!-- /.center -->		
+		
+		<h4>Simple Data Table HTML Structure</h4>
+
+		<p>
+			If you want to display information in your own way use simple data table. Copy and paste bunch of code below and CSS rules are automatically applied on table but there is no JavaScript code which powers this kind of table.
+		</p>
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>table</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>thead</span><span style='color:#ff8906; '>></span>
+    <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>Column <span style='color:#00a800; '>1</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>Column <span style='color:#00a800; '>2</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>Column <span style='color:#00a800; '>3</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>
+    <span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>thead</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>tbody</span><span style='color:#ff8906; '>></span>
+    <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>Content for column <span style='color:#00a800; '>1</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>Content for column <span style='color:#00a800; '>2</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>Content for column <span style='color:#00a800; '>3</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>                                                                
+    <span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>tbody</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>table</span><span style='color:#ff8906; '>></span>
+</pre>
+		
+		<h3 id="data_advanced">2.2. Advanced Data Table</h3>
+
+		<div class="center">
+			<img src="img/uniadmin-datatable-advanced.png" alt="UniAdmin Advanced DataTable" />
+		</div><!-- /.center -->		
+		
+		<h4>Advanced Data Table HTML Structure</h4>
+
+		<p>
+			The difference between simple and advanced data table in HTML structure is <strong>datatable</strong> class added to advanced HTML code. It is important to add this class to HTML tag <strong>table</strong> which is used to recognize advanced data table by JavaScript.
+		</p>
+		
+		<p>
+			Advanced data table consists of table <strong>head - thead</strong> and <strong>body - tfoot</strong>. Without table thead and tbody the advanced data table will not work correctly and throws JavaScript errors.
+		</p>
+		
+		<p>Main features of using advanced data table are:</p>
+		
+		<ul>
+			<li>Column ordering by clicking on column name</li>
+			<li>Searching in table content</li>
+			<li>Advanced pager</li>
+			<li>Displaying specific number of rows per page</li>
+			<li>Auto pager</li>
+			<li>AJAX loading of rows</li>
+		</ul>
+		
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>table</span> class<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"datatable"</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>thead</span><span style='color:#ff8906; '>></span>
+    <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>Column <span style='color:#00a800; '>1</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>Column <span style='color:#00a800; '>2</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>Column <span style='color:#00a800; '>3</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>
+    <span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>thead</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>tbody</span><span style='color:#ff8906; '>></span>
+    <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>Content for column <span style='color:#00a800; '>1</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>Content for column <span style='color:#00a800; '>2</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>Content for column <span style='color:#00a800; '>3</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>                                                                
+    <span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>tbody</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>table</span><span style='color:#ff8906; '>></span>
+</pre>
+				
+		<h4>Advanced Data Tables Options</h4>
+
+		<p>
+			Advanced data table is created by jQuery plugin which you can download <a href="http://datatables.net/">here</a>. If you want to create advanced data table just create HTML structure described thereinbefore. 
+		</p>
+		
+		<p>
+			This jQuery plugin has a lot of options but we set only the most important options. For more information about plugin's options visit this <a href="http://datatables.net/usage/options">link</a> but the default plugin's options create the most common table.
+		</p>
+		
+		<p>
+			This code is located in <strong>js/script.js</strong> file.
+		</p>
+		
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>function</span> InitTables <span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
+    $<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'.datatable'</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>.</span>dataTable<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>
+        <span style='color:#00c4c4; '>'bLengthChange'</span><span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span><span style='color:#d2cd86; '>,</span>
+        <span style='color:#00c4c4; '>'bPaginate'</span><span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span><span style='color:#d2cd86; '>,</span>
+        <span style='color:#00c4c4; '>'sPaginationType'</span><span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'full_numbers'</span><span style='color:#d2cd86; '>,</span>
+        <span style='color:#00c4c4; '>'iDisplayLength'</span><span style='color:#b060b0; '>:</span> <span style='color:#008c00; '>2</span><span style='color:#d2cd86; '>,</span>
+        <span style='color:#00c4c4; '>'bInfo'</span><span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>false</span><span style='color:#d2cd86; '>,</span>
+        <span style='color:#00c4c4; '>'oLanguage'</span><span style='color:#b060b0; '>:</span> 
+        <span style='color:#b060b0; '>{</span>
+            <span style='color:#00c4c4; '>'sSearch'</span><span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'Search all columns:'</span><span style='color:#d2cd86; '>,</span>
+            <span style='color:#00c4c4; '>'oPaginate'</span><span style='color:#b060b0; '>:</span> 
+            <span style='color:#b060b0; '>{</span>
+                <span style='color:#00c4c4; '>'sNext'</span><span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'&amp;gt;'</span><span style='color:#d2cd86; '>,</span>
+                <span style='color:#00c4c4; '>'sLast'</span><span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'&amp;gt;&amp;gt;'</span><span style='color:#d2cd86; '>,</span>
+                <span style='color:#00c4c4; '>'sFirst'</span><span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'&amp;lt;&amp;lt;'</span><span style='color:#d2cd86; '>,</span>
+                <span style='color:#00c4c4; '>'sPrevious'</span><span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'&amp;lt;'</span>
+            <span style='color:#b060b0; '>}</span>
+        <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>        
+        <span style='color:#00c4c4; '>'aoColumns'</span><span style='color:#b060b0; '>:</span> <span style='color:#d2cd86; '>[</span> 
+            <span style='color:#b060b0; '>{</span> <span style='color:#00c4c4; '>"bSortable"</span><span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>false</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+            <span style='color:#0f4d75; '>null</span><span style='color:#d2cd86; '>,</span>
+            <span style='color:#0f4d75; '>null</span><span style='color:#d2cd86; '>,</span>
+            <span style='color:#0f4d75; '>null</span><span style='color:#d2cd86; '>,</span>
+            <span style='color:#0f4d75; '>null</span><span style='color:#d2cd86; '>,</span>
+            <span style='color:#0f4d75; '>null</span><span style='color:#d2cd86; '>,</span>
+            <span style='color:#0f4d75; '>null</span>
+        <span style='color:#d2cd86; '>]</span>    
+    <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+<span style='color:#b060b0; '>}</span>
+</pre>
+								
+		<!-- Slideshow -->
+		<h2 id="chart">3. Charts</h2>
+
+		<div class="center">
+			<img src="img/uniadmin-charts.png" alt="UniAdmin Charts" />
+		</div><!-- /.center -->		
+		
+		<h4 id="chart_creating">3.1. Creating Chart</h4>
+	
+		<p>
+			Copy and paste bunch of code below and change table cells data by your own data. Adding the <strong>visualize1</strong> class to table is used to recognize chart information for JavaScript. If you want do display chart and table just remove <strong>style</strong> attribute from table.
+		</p>
+		
+		<p>
+			For more information about this jQuery charting plugin visit this <a href="http://www.filamentgroup.com/lab/update_to_jquery_visualize_accessible_charts_with_html5_from_designing_with/">page</a>.
+		</p>
+
+		<p>
+			This code is located in <strong>js/script.js</strong> file.
+		</p>
+				
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>table</span> class<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"visualize1"</span> style<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"</span><span style='color:#904050; '>display</span><span style='color:#d2cd86; '>:</span> none<span style='color:#b060b0; '>;</span><span style='color:#00c4c4; '>"</span><span style='color:#ff8906; '>></span>
+    <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>thead</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+            <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>
+            <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>th</span> scope<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"col"</span><span style='color:#ff8906; '>></span>food<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>
+            <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>th</span> scope<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"col"</span><span style='color:#ff8906; '>></span>auto<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+    <span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>thead</span><span style='color:#ff8906; '>></span>
+    <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>tbody</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+            <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>th</span> scope<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"row"</span><span style='color:#ff8906; '>></span>Mary<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>
+            <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span><span style='color:#00a800; '>120</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>
+            <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span><span style='color:#00a800; '>140</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+            <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>th</span> scope<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"row"</span><span style='color:#ff8906; '>></span>Tom<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>
+            <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span><span style='color:#00a800; '>3</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>
+            <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span><span style='color:#00a800; '>40</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+            <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>th</span> scope<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"row"</span><span style='color:#ff8906; '>></span>Laura<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>th</span><span style='color:#ff8906; '>></span>
+            <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span><span style='color:#00a800; '>80</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>
+            <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span><span style='color:#00a800; '>40</span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>td</span><span style='color:#ff8906; '>></span>
+        <span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>tr</span><span style='color:#ff8906; '>></span>
+    <span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>tbody</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>table</span><span style='color:#ff8906; '>></span>
+</pre>
+		
+		<h4 id="chart_type">3.2. Setting Chart Type</h4>
+		
+		<p>
+			Open <strong>js/script.js</strong> and find <strong>InitGraphs</strong> function. Change <strong>type</strong> attribute to new value from chart types.
+		</p>
+		<p>
+			Chart types:
+		</p>
+		
+		<ul>
+			<li>bar</li>
+			<li>area</li>
+			<li>pie</li>
+			<li>line</li>
+		</ul>
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>function</span> InitGraphs <span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
+    $<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'.visualize1'</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>.</span>visualize<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>
+            <span style='color:#00c4c4; '>'type'</span><span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'pie'</span><span style='color:#d2cd86; '>,</span>
+            <span style='color:#00c4c4; '>'width'</span><span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'200px'</span><span style='color:#d2cd86; '>,</span>
+            <span style='color:#00c4c4; '>'height'</span><span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'200px'</span>
+    <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+
+    $<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'.visualize2'</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>.</span>visualize<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>
+            <span style='color:#00c4c4; '>'type'</span><span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'bar'</span><span style='color:#d2cd86; '>,</span>
+            <span style='color:#00c4c4; '>'width'</span><span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'200px'</span><span style='color:#d2cd86; '>,</span>
+            <span style='color:#00c4c4; '>'height'</span><span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'200px'</span>
+    <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+<span style='color:#b060b0; '>}</span>
+</pre>		
+
+		<h2 id="wysiwyg">4. WYSIWYG</h2>
+
+		<div class="center">
+			<img src="img/uniadmin-wysiwyg.png" alt="UniAdmin WYSIWYGs" />
+		</div><!-- /.center -->		
+		
+		<p>
+			For a big popularity of WYSIWYG editors we implemented two versions of these editors. First version uses jQuery WYSIWYG plugin for simple editor but if you want advanced editor use second version which implements TinyMCE editor.
+		</p>
+				
+		<h3 id="wysiwyg_type">4.1. jQuery WYSIWYG</h3>
+
+		<h4>HTML structure</h4>
+		
+		<p>
+			Create textarea and apply <strong>jwysiwyg</strong> class.
+		</p>
+		
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>textarea</span> rows<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>""</span> cols<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>""</span> class<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"jwysiwyg"</span><span style='color:#ff8906; '>></span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>textarea</span><span style='color:#ff8906; '>></span>
+</pre>
+		
+		<h4>JavaScript code</h4>
+
+		<p>
+			For more information about this jQuery plugin visit this <a href="http://code.google.com/p/jwysiwyg/">page</a> or github <a href="http://github.com/akzhan/jwysiwyg">page</a>.
+		</p>
+		
+		<p>
+			This code is locatend in <strong>js/script.js</strong> file.
+		</p>
+		
+<pre style='color:#d1d1d1;background:#000000;'>$<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'.jwysiwyg'</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>.</span>wysiwyg<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>
+    controls<span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span>
+        strikeThrough <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>false</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+        underline     <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+
+        separator00 <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+
+        justifyLeft   <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+        justifyCenter <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+        justifyRight  <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+        justifyFull   <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+
+        separator01 <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+
+        indent  <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+        outdent <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+
+        separator02 <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+
+        subscript   <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+        superscript <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+
+        separator03 <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+
+        undo <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>false</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+        redo <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>false</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+
+        separator04 <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>false</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+
+        insertOrderedList    <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+        insertUnorderedList  <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+        insertHorizontalRule <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+
+        separator07 <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>false</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+
+        cut   <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>false</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+        copy  <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>false</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span>
+        paste <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span> visible <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>false</span> <span style='color:#b060b0; '>}</span>
+    <span style='color:#b060b0; '>}</span>
+<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+</pre>
+		
+		<h3 id="wysiwyg_tinymce">4.2. TinyMCE</h3>
+
+		<h4>HTML structure</h4>
+
+		<p>
+			Create textarea and apply <strong>tinymce</strong> class.
+		</p>
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>textarea</span> rows<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>""</span> cols<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>""</span> class<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"tinymce"</span><span style='color:#ff8906; '>></span><span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>textarea</span><span style='color:#ff8906; '>></span>
+</pre>
+
+		<h4>JavaScript code</h4>
+
+		<p>
+			For more information about this jQuery plugin visit this <a href="http://tinymce.moxiecode.com/">page</a>.
+		</p>
+		
+		<p>
+			This code is locatend in <strong>js/script.js</strong> file.
+		</p>
+		
+<pre style='color:#d1d1d1;background:#000000;'>$<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'textarea.tinymce'</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>.</span>tinymce<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>
+    <span style='color:#9999a9; '>// Location of TinyMCE script</span>
+    script_url <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>'../js/tiny_mce/tiny_mce.js'</span><span style='color:#d2cd86; '>,</span>
+    <span style='color:#9999a9; '>// General options</span>
+    theme <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"advanced"</span><span style='color:#d2cd86; '>,</span>
+    plugins <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups</span><span style='color:#ffffff; background:#dd0000; '>,</span><span style='color:#00c4c4; '></span>
+<span style='color:#00c4c4; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality</span><span style='color:#ffffff; background:#dd0000; '>,</span><span style='color:#00c4c4; '></span>
+<span style='color:#00c4c4; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist"</span><span style='color:#d2cd86; '>,</span>
+
+    <span style='color:#9999a9; '>// Theme options</span>
+    <span style='color:#9999a9; '>/*</span>
+<span style='color:#9999a9; '>&#xa0;&#xa0;&#xa0;&#xa0;theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,</span>
+<span style='color:#9999a9; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;justifyleft,justifycenter,justifyright,justifyfull,</span>
+<span style='color:#9999a9; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;styleselect,formatselect,fontselect,fontsizeselect",</span>
+<span style='color:#9999a9; '>&#xa0;&#xa0;&#xa0;&#xa0;*/</span>
+    theme_advanced_buttons1 <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"save,newdocument,|,bold,italic,underline,strikethrough,|</span><span style='color:#ffffff; background:#dd0000; '>,</span><span style='color:#00c4c4; '></span>
+<span style='color:#00c4c4; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;justifyleft,justifycenter,justifyright,justifyfull,styleselect"</span><span style='color:#d2cd86; '>,</span>
+    <span style='color:#9999a9; '>/*</span>
+<span style='color:#9999a9; '>&#xa0;&#xa0;&#xa0;&#xa0;theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,</span>
+<span style='color:#9999a9; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,</span>
+<span style='color:#9999a9; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,</span>
+<span style='color:#9999a9; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;preview,|,forecolor,backcolor",</span>
+<span style='color:#9999a9; '>&#xa0;&#xa0;&#xa0;&#xa0;*/</span>
+    theme_advanced_buttons2 <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist</span><span style='color:#ffffff; background:#dd0000; '>,</span><span style='color:#00c4c4; '></span>
+<span style='color:#00c4c4; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink"</span><span style='color:#d2cd86; '>,</span>
+    <span style='color:#9999a9; '>/*</span>
+<span style='color:#9999a9; '>&#xa0;&#xa0;&#xa0;&#xa0;theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,</span>
+<span style='color:#9999a9; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",</span>
+<span style='color:#9999a9; '>&#xa0;&#xa0;&#xa0;&#xa0;*/</span>
+    theme_advanced_buttons3 <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap"</span><span style='color:#d2cd86; '>,</span>
+    theme_advanced_buttons4 <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"insertlayer,moveforward,movebackward,absolute,|</span><span style='color:#ffffff; background:#dd0000; '>,</span><span style='color:#00c4c4; '></span>
+<span style='color:#00c4c4; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;styleprops,|,cite,abbr,acronym,del,ins,attribs,|</span><span style='color:#ffffff; background:#dd0000; '>,</span><span style='color:#00c4c4; '></span>
+<span style='color:#00c4c4; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;visualchars,nonbreaking,template,pagebreak"</span><span style='color:#d2cd86; '>,</span>
+    theme_advanced_toolbar_location <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"top"</span><span style='color:#d2cd86; '>,</span>
+    theme_advanced_toolbar_align <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"left"</span><span style='color:#d2cd86; '>,</span>
+    theme_advanced_statusbar_location <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"bottom"</span><span style='color:#d2cd86; '>,</span>
+    theme_advanced_resizing <span style='color:#b060b0; '>:</span> <span style='color:#0f4d75; '>true</span><span style='color:#d2cd86; '>,</span>
+
+    <span style='color:#9999a9; '>// Example content CSS (should be your site CSS)</span>
+    content_css <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"css/content.css"</span><span style='color:#d2cd86; '>,</span>
+
+    <span style='color:#9999a9; '>// Drop lists for link/image/media/template dialogs</span>
+    template_external_list_url <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"lists/template_list.js"</span><span style='color:#d2cd86; '>,</span>
+    external_link_list_url <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"lists/link_list.js"</span><span style='color:#d2cd86; '>,</span>
+    external_image_list_url <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"lists/image_list.js"</span><span style='color:#d2cd86; '>,</span>
+    media_external_list_url <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"lists/media_list.js"</span><span style='color:#d2cd86; '>,</span>
+
+    <span style='color:#9999a9; '>// Replace values for the template plugin</span>
+    template_replace_values <span style='color:#b060b0; '>:</span> <span style='color:#b060b0; '>{</span>
+        username <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"Some User"</span><span style='color:#d2cd86; '>,</span>
+        staffid <span style='color:#b060b0; '>:</span> <span style='color:#00c4c4; '>"991234"</span>
+    <span style='color:#b060b0; '>}</span>
+<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+</pre>
+
+		<h2 id="fancybox">5. Fancybox</h2>
+
+		<div class="center">
+			<img src="img/uniadmin-modal.png" alt="UniAdmin Fancybox Modal Windows" />
+		</div><!-- /.center -->	
+				
+		<h3 id="fancybox_image">5.1. Fancybox Image</h3>
+		
+		<p>
+			Creating fancybox image is ultra simple step. It is recommended to link an image thumbnail to original image. 
+		</p>
+		
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>a</span> href<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"img/tmp/autumn1.jpg"</span><span style='color:#ff8906; '>></span>
+   <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>img</span> src<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"img/tmp/thumb/autumn1.jpg"</span> alt<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"Envato Image"</span> class<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"fr"</span> <span style='color:#ff8906; '>/></span>
+<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>a</span><span style='color:#ff8906; '>></span>
+</pre>
+		
+		<h3 id="fancybox_gallery">5.2. Fancybox Gallery</h3>
+		
+		<p>
+			 When you have a lot of images and you want switch gallery images on the fly just add rel attribute with group name to link. 
+		</p>
+		
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>a</span> href<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"img/tmp/autumn1.jpg"</span>rel<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"group"</span><span style='color:#ff8906; '>></span>
+    <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>img</span> src<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"img/tmp/thumb/autumn1.jpg"</span> alt<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"Envato Image"</span> class<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"fr"</span> <span style='color:#ff8906; '>/></span>
+<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>a</span><span style='color:#ff8906; '>></span>
+</pre>		
+
+		<h3 id="fancybox_modal">5.3. Fancybox Modal Window</h3>
+		
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>a</span> href<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"#modal"</span> class<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"modal-link"</span><span style='color:#ff8906; '>></span>Open Modal<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>a</span><span style='color:#ff8906; '>></span>
+</pre>					
+
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#9999a9; '>&lt;!-- MODAL WINDOW --></span>
+<span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>div</span> id<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"modal"</span> class<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"modal-window"</span><span style='color:#ff8906; '>></span>
+    <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>p</span><span style='color:#ff8906; '>></span>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit<span style='color:#00a800; '>.</span> &amp;nbsp;&amp;nbsp; 
+        <span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>a</span> onclick<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"$.fancybox.close();"</span> href<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"javascript:;"</span><span style='color:#ff8906; '>></span>Close<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>a</span><span style='color:#ff8906; '>></span>
+    <span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>p</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>div</span><span style='color:#ff8906; '>></span>
+</pre>
+
+		<h2 id="tabs">6. Tabs</h2>
+
+		<div class="center">
+			<img src="img/uniadmin-tabs.png" alt="UniAdmin Tabs" />
+		</div><!-- /.center -->	
+				
+		<h3>HTML Structure</h3>
+		
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#d2cd86; '>&lt;</span>div class<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"content-box"</span><span style='color:#d2cd86; '>></span>
+    <span style='color:#d2cd86; '>&lt;</span>div class<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"box-header clear"</span><span style='color:#d2cd86; '>></span>
+<span style='color:#9999a9; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&lt;!--</span> Box tabs <span style='color:#d2cd86; '>--</span><span style='color:#d2cd86; '>></span>
+        <span style='color:#d2cd86; '>&lt;</span>ul class<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"tabs clear"</span><span style='color:#d2cd86; '>></span>
+            <span style='color:#d2cd86; '>&lt;</span>li<span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>&lt;</span>a href<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"#data-table"</span><span style='color:#d2cd86; '>></span>Data Table<span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>/</span>a<span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>/</span>li<span style='color:#d2cd86; '>></span>
+            <span style='color:#d2cd86; '>&lt;</span>li<span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>&lt;</span>a href<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"#table"</span><span style='color:#d2cd86; '>></span>Table<span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>/</span>a<span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>/</span>li<span style='color:#d2cd86; '>></span>
+        <span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>/</span>ul<span style='color:#d2cd86; '>></span>        
+        <span style='color:#d2cd86; '>&lt;</span>h2<span style='color:#d2cd86; '>></span>Box Title<span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>/</span>h2<span style='color:#d2cd86; '>></span>
+    <span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>/</span>div<span style='color:#d2cd86; '>></span>
+    
+    <span style='color:#d2cd86; '>&lt;</span>div class<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"box-body clear"</span><span style='color:#d2cd86; '>></span>
+<span style='color:#9999a9; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&lt;!--</span> DATA TABLE <span style='color:#d2cd86; '>--</span><span style='color:#d2cd86; '>></span>
+        <span style='color:#d2cd86; '>&lt;</span>div id<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"data-table"</span><span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>/</span>div<span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>></span>        
+<span style='color:#9999a9; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&lt;!--</span> TABLE <span style='color:#d2cd86; '>--</span><span style='color:#d2cd86; '>></span>
+        <span style='color:#d2cd86; '>&lt;</span>div id<span style='color:#d2cd86; '>=</span><span style='color:#00c4c4; '>"table"</span><span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>/</span>div<span style='color:#d2cd86; '>></span>
+    <span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>/</span>div<span style='color:#d2cd86; '>></span> <span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>!</span><span style='color:#d2cd86; '>--</span> <span style='color:#02d045; '>/</span><span style='color:#d2cd86; '>.</span><span style='color:#00c4c4; '>box-body --></span>
+<span style='color:#00c4c4; '>&lt;</span><span style='color:#02d045; '>/</span>div<span style='color:#d2cd86; '>></span> <span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>!</span><span style='color:#d2cd86; '>--</span> <span style='color:#02d045; '>/</span><span style='color:#d2cd86; '>.</span><span style='color:#00c4c4; '>content-box --></span>
+</pre>
+
+		<h3>JavaScript</h3>
+		
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#9999a9; '>/* Tabs */</span>
+$<span style='color:#d2cd86; '>(</span><span style='color:#00c4c4; '>'.content-box .tabs'</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>.</span>idTabs<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+</pre>
+									
+		<!-- Code validations -->
+		<h2 id="code_validations">7.Code Validations</h3>
+	
+		<h3 id="code_validations_html">7.1.Valid HTML</h3>
+		
+		<p>
+			The HTML code is valid as XHTML Strict 7.1 doctype and uses simple tableless design. Validity is tested by w3.org and the design is composed width consideration to Internet Explorers 6+, FireFox, Chrome and Safari. 
+		</p>
+		
+		<div class="center">
+			<img src="img/valid-html.jpg" alt="XHTML Strict 1.1 Valid"/>
+		</div><!-- /.center -->
+		
+		<p>
+			The template was successfully checked as XHTML 1.1 Strict. This means that the resource in question identified itself as "XHTML 1.1 Strict" and that we successfully performed a formal validation using an SGML, HTML5 and/or XML Parser(s) (depending on the markup language used).
+		</p>
+		
+		<h3 id="code_validations_css">7.2 Valid CSS</h3>
+		
+		<p>
+			All CSS styles are valid as CSS 2.1 standard. The validity of CSS files was checked by <a href="http://jigsaw.w3.org/css-validator/">The W3C CSS Validation Service</a>.
+		</p>
+		
+		<div class="center">
+			<img src="img/valid-css.png" alt="CSS 2.1 Valid"/>
+		</div><!-- /.center -->
+						
+		<!-- FILES STRUCTURE -->
+		<h2 id="files_structure">8. The Files Structure</h2>
+		<p>
+			Here is the description of contents that creates template layout and includes basic elements of the website:			
+		</p>
+		
+		<h3 id="files_structure_dir">8.1. Directories</h3>
+		<dl>
+			<dt>css/<dt>
+				<dd><span>CSS files</span></dd>
+			<dt>images/<dt>
+				<dd><span>images which are required by CSS</span></dd>
+			<dt>js/<dt>
+				<dd><span>JavaScript files</span></dd>
+			<dt>lib/<dt>
+				<dd><span>PHP libraries for sending mails and debugging PHP code</span></dd>
+			<dt>doc/<dt>
+				<dd><span>documentation page for Glamorous web template</span></dd>
+		</dl>
+		
+		<h3 id="files_structure_html">8.2. HTML Files</h3>
+		
+		<dl>
+			<dt>index.html<dt>
+				<dd><span>main backend page</span></dd>
+			<dt>login.html<dt>
+				<dd><span>page with login box</span></dd>
+		</dl>
+		
+		<h3 id="files_structure_css">8.3. CSS Files</h3>
+		<dl>
+			<dt>style.css<dt>
+				<dd><span>master CSS file contains main CSS rules</span></dd>
+			<dt>reset.css<dt>
+					<dd><span>this CSS file sets default values for HTML tags</span></dd>
+			<dt>ie7.css<dt>
+				<dd><span>additional CSS rules for Internet Explorer 7</span></dd>
+			<dt>jquery.wysiwyg.css<dt>
+				<dd><span>jQuery WYSIWYG plugin's CSS</span></dd>
+			<dt>visualize.css, visualize-light.css<dt>
+				<dd><span>jQuery Visualize plugin's CSS</span></dd>
+			<dt>fancybox.css<dt>
+				<dd><span>jQuery Fancybox plugin's CSS</span></dd>
+		</dl>
+		
+		<h3 id="files_structure_js">8.4. JavaScript Files</h3>
+		<dl>
+			<dt>jquery.js<dt>
+				<dd><span>jQuery - JavaScript framework</span></dd>
+			<dt>jquery.fancybox.js<dt>
+				<dd><span>jQuery plugin - advanced image lightbox and galleries</span></dd>
+			<dt>jquery.idtabs.js<dt>
+				<dd><span>jQuery plugin - tabbing</span></dd>
+			<dt>jquery.visualize.js<dt>
+				<dd><span>jQuery plugin - creating charts from tables</span></dd>
+			<dt>jquery.wysiswyg.js<dt>
+				<dd><span>jQuery plugin - simple WYSISWYG editor</span></dd>
+			<dt>jquery.datatables.js<dt>
+				<dd><span>jQuery plugin - advanced data tables</span></dd>
+			<dt>script.js<dt>
+				<dd><span>own jQuery code snippets</span></dd>
+			<dt>cufon.js<dt>
+				<dd><span>font replacement</span></dd>
+		</dl>
+	</div><!-- /#content -->
+	
+	<!-- FOOTER -->
+	<div id="footer" class="clear">
+		<div class="fl">
+			<a href="http://www.ait.sk/">Affinity Information Technology, s.r.o.</a> 
+		</div><!-- /.fl -->
+		
+		<div class="fr">
+			Hroncova 5, Košice, Slovakia
+		</div><!-- /.fr -->	
+	</div><!-- /#footer -->
+</div><!-- /#page -->
+
+<div id="toolbar">
+	<ul class="clear">
+		<li class="mail"><a href="mailto:info@ait.sk">E-mail</a></li>
+		<li class="website"><a href="http://www.ait.sk/">Website</a></li>
+		<li class="top fr"><a href="#">Top</a></li>
+	</ul>
+</div><!-- /#toolbar -->
+</body>
+
+<!-- Mirrored from www.ait.sk/uniadmin/doc/ by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 20 Jul 2010 00:41:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

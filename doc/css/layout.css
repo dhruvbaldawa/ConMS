@@ -1,0 +1,67 @@
+/******************************************************************************
+ * Basic elements
+ ******************************************************************************/
+body        { background: #fff; color: #000; font-family: 'Arial', 'Helvetica', sans-serif; font-size: 13px; }
+a           { color: #0086a6; cursor: pointer; text-decoration: underline; }
+a:hover     {}
+h1, h2, h3, 
+h4, h5, h6  { color: #0086a6; }
+ul          { list-style: none; }
+li          { list-style: none; }
+img         { border: 0px; }
+pre 		{ border:4px solid #CCCCCC; margin: 0; padding: 10px; }
+/******************************************************************************
+ * Basic classes
+ ******************************************************************************/
+.clear:after    { clear:both; content:"."; display: block; height:0; overflow:hidden; visibility:hidden; }
+.fl             { float: left !important; }
+.fr             { float: right !important; }
+.bold           { font-weight: bold; }
+.last           { margin-bottom: 0px !important; }
+.hidden         { display: none; }
+.important		{ font-style: italic; }
+.center			{ text-align: center; }
+.red			{ color: #ff0000; }
+.highlight		{ background: yellow;}
+/******************************************************************************
+ * Main structure
+ ******************************************************************************/
+#page { margin: 40px auto 80px auto; width: 960px; }
+
+/******************************************************************************
+ * Header
+ ******************************************************************************/
+#header 			{ height: 96px; margin: 0px 0px 30px 0px; position: relative; width: 960px; }
+#header #logo 		{ bottom: 0px; left: 0px; position: absolute; width: 200px; }
+#header #title 		{ bottom: 0px; position: absolute; right: 0px; text-align: right; }
+#header #title h1 	{ font-size: 23px; font-weight: normal; }
+#header #title span	{ color: #000; display: block; font-size: 12px; margin: 5px 0px 0px 0px; }
+/******************************************************************************
+ * Content
+ ******************************************************************************/
+#content 			{ margin: 0px 0px 30px 0px; }
+/* Basic formatting */
+#content h2					{ font-size: 20px; font-weight: normal; margin: 0px 0px 15px 0px; }
+#content h3					{ border-bottom: 1px solid #0086a6; font-size: 16px; font-weight: normal; line-height: 28px; margin: 0px 0px 15px 0px; }
+#content h4					{ font-size: 14px; font-weight: normal; line-height: 28px; margin: 0px 0px 15px 0px; }
+#content p					{ line-height: 18px; margin: 0px 0px 15px 0px; }
+#content dl 				{ margin: 0px 0px 15px 0px; }
+#content dt 				{ float: left; font-style: italic; line-height: 18px; width: 247px;}
+#content dd 				{ line-height: 18px; }
+#content dd span 			{ display: block; padding: 0px 0px 0px 247px; }
+#content dd span.highlight 	{ display: inline; padding: 0px; }
+#content pre 				{ display: block; margin: 0px 0px 15px 0px; padding: 10px; }
+#content img 				{ border: 5px solid #ccc; margin: 0px 10px 15px 10px; padding: 1px; }
+#content ul 				{ margin: 0px 0px 15px 0px; }
+#content li 				{ color: #000; line-height: 18px; list-style-position: inside; list-style-type: circle; }
+#content li span			{ color: #000; }
+#content #resume 			{ margin: 0px 0px 30px 0px; }
+#content #resume li 		{ line-height: 20px; list-style: none; }
+#content #resume li span 	{ font-family: 'Georgia', serif; font-size: 14px; padding: 0px 10px 0px 0px; }
+#content #resume li a 		{}
+#content #resume li li 		{ padding: 0px 0px 0px 30px; } 
+
+/******************************************************************************
+ * Footer
+ ******************************************************************************/
+#footer { position: relative; }
