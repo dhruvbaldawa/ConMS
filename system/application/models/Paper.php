@@ -1,41 +1,47 @@
 <?php
 
 	class Paper_model extends Model{
-	
+		$table='paper'
 		function Paper_model(){
 			parent::Model();
 		}
 
 		function create($data){
-			$this->db->insert('paper', $data); 
+			$this->db->insert($table, $data); 
 		}
 	
 		function get($data){
-			$query=$this->db->get_where('Paper',$data);
+			$query=$this->db->get_where($table,$data);
 			if($query->num_rows==0)
 			{	echo('Nothing to retrieve');
 				return FALSE;
 			}
 			else
-				return $query;
+				return ($query->result() as $row);
 		}
 		
 
 		function get_reg_status($data){
 			$this->db->select('Paper_status');
-			return ($this->db->where('Paper',$data));
+			$query=$this->db->where($table,$data);
+			return ($query->result() as $row);
 		}
 		
+		
 		function payment_status($data){
-			$this->db->select('Payment_status');
-			return ($this->db->where('Paper',$data));
-		}
+                $CI =& get_instance();
+                $CI->load->model('Payment_model');
+		$CI->Payment_model->payment_status($data);
+                $this->_Payment_model = $CI->Payment_model;
+
 
 		function get_track($data){
 			$this->db->select('track');
-			return ($this->db->where('paper',$data));
+			$query=$this->db->where($table,$data);
+			return ($query->result() as $row);
 		}		
 		
 					
 
 	}
+?>
