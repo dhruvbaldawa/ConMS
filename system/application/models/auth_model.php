@@ -111,6 +111,7 @@
                 return TRUE;
              return FALSE;
          }
+
     }
 /* End of file auth_model.php */
 /* Location: ./system/application/models/auth_model.php */
