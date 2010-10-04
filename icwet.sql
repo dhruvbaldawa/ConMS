@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 14, 2010 at 07:02 AM
+-- Generation Time: Oct 04, 2010 at 07:15 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -36,6 +36,8 @@ CREATE TABLE IF NOT EXISTS `admin` (
 -- Dumping data for table `admin`
 --
 
+INSERT INTO `admin` (`id`) VALUES
+(1);
 
 -- --------------------------------------------------------
 
@@ -54,6 +56,13 @@ CREATE TABLE IF NOT EXISTS `authors` (
 -- Dumping data for table `authors`
 --
 
+INSERT INTO `authors` (`id`) VALUES
+(4),
+(6),
+(7),
+(8),
+(9),
+(10);
 
 -- --------------------------------------------------------
 
@@ -92,6 +101,8 @@ CREATE TABLE IF NOT EXISTS `chairperson` (
 -- Dumping data for table `chairperson`
 --
 
+INSERT INTO `chairperson` (`id`) VALUES
+(5);
 
 -- --------------------------------------------------------
 
@@ -110,6 +121,8 @@ CREATE TABLE IF NOT EXISTS `entry` (
 -- Dumping data for table `entry`
 --
 
+INSERT INTO `entry` (`id`) VALUES
+(3);
 
 -- --------------------------------------------------------
 
@@ -128,6 +141,8 @@ CREATE TABLE IF NOT EXISTS `managers` (
 -- Dumping data for table `managers`
 --
 
+INSERT INTO `managers` (`id`) VALUES
+(2);
 
 -- --------------------------------------------------------
 
@@ -213,14 +228,23 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `name`) VALUES
-(1, 'admin', '2783cc934301698bf1abf85e693f46445f4def40', 'Administrator');
+(1, 'admin', '2783cc934301698bf1abf85e693f46445f4def40', 'Administrator'),
+(2, 'manager', '56e5f73ca475381791b107483a4d578a38c93c18', 'Manager'),
+(3, 'entry', '230eb2bdf770ab658a74b7b35f88508ee6844703', 'Entry'),
+(4, 'author', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author'),
+(5, 'chairperson', '56625fa95bb4d15cfe294da2df8c28f0d2692619', 'Chairperson'),
+(6, 'author1', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 1'),
+(7, 'author2', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 2'),
+(8, 'author3', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 3'),
+(9, 'author4', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 4'),
+(10, 'author5', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 5');
 
 --
 -- Constraints for dumped tables
