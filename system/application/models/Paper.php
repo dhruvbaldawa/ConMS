@@ -17,30 +17,30 @@
 				return FALSE;
 			}
 			else
-				return ($query->result() as $row);
+				return $query->result_array();
 		}
 		
 
 		function get_reg_status($data){
 			$this->db->select('Paper_status');
 			$query=$this->db->where($table,$data);
-			return ($query->result() as $row);
+			return $query->result_array();
 		}
 		
 		
 		function payment_status($data){
                 $CI =& get_instance();
-                $CI->load->model('Payment_model');
+                $CI->load->model('payment_model');
 		$query=$CI->Payment_model->payment_status($data);
                 $this->_Payment_model = $CI->Payment_model;
-		return $query->row_array();
+		return $query->result_array();
 		}			
 
 
 		function get_track($data){
 			$this->db->select('track');
 			$query=$this->db->where($table,$data);
-			return ($query->result() as $row);
+			return $query->result_array();
 		}		
 		
 					
@@ -54,14 +54,9 @@
                 $CI->load->model('authors_model');
 		$query=$CI->authors_model->get_details($data);
                 $this->_authors_model = $CI->authors_model;
-		return $query->row_array();
+		return $query->result_array();
 		}
 		
-		function get_author($id){
-		this->db->select("author_id");
-		$query=this->db->get_where($paper,array('id'=$id));
-		return $query->row_array();
-		}
 		
 
 	}
