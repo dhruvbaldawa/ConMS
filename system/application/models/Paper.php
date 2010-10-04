@@ -10,7 +10,7 @@
 			$this->db->insert($table, $data); 
 		}
 	
-		function get($data){
+		function get_paper_details($data){
 			$query=$this->db->get_where($table,$data);
 			if($query->num_rows==0)
 			{	echo('Nothing to retrieve');
@@ -54,6 +54,12 @@
                 $CI->load->model('authors_model');
 		$query=$CI->authors_model->get_details($data);
                 $this->_authors_model = $CI->authors_model;
+		return $query->row_array();
+		}
+		
+		function get_author($id){
+		this->db->select("author_id");
+		$query=this->db->get_where($paper,array('id'=$id));
 		return $query->row_array();
 		}
 		
