@@ -57,7 +57,9 @@
 		return $query->result_array();
 		}
 		
-		
+		function delete($id){
+		$this->db->delete($table, array('id' => $id)); 
+		}
 
 	}
 ?>
