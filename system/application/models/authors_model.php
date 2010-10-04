@@ -44,6 +44,11 @@
         function add_payment($data){
             $this->db->insert('payments',$data);
         }
+	
+	function delete($data){
+	    $this->db->delete($this->_table, array('id' => $data)); 
+	}
     }
+	
 /* End of file authors_model.php */
 /* Location: ./system/application/models/authors_model.php */
