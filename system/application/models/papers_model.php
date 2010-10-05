@@ -1,13 +1,13 @@
 <?php
 
-	class Paper_model extends Model{
+	class Papers_model extends Model{
 		$table='paper'
 		function Paper_model(){
 			parent::Model();
 		}
 
 		function create($data){
-			$this->db->insert($table, $data); 
+			$this->db->insert($table, $data);
 		}
 	
 		function get_paper_details($data){
