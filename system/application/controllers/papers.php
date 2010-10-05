@@ -1,13 +1,13 @@
 <?php
 class Papers extends Controller {
-    function Authors(){
+    function Papers(){
         parent::Controller();
         $this->load->model('papers_model');
         $this->load->model('auth_model');
     }
 
     function index(){
-        //List all the authors
+        //List all the papers
         $rows = $this->papers_model->list_papers();
         $data['title'] = "Papers";
         $data['rows'] = $rows;

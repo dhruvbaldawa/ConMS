@@ -70,6 +70,7 @@ $('#author').live("click",function (){
 				</div>
 
 				<div class="box-body clear">
+                <pre><?php print_r($rows); ?></pre>
 					<!-- TABLE -->
 					<div id="data-table">
 						<p></p>
