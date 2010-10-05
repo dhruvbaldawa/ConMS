@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 05, 2010 at 10:05 PM
+-- Generation Time: Oct 05, 2010 at 10:43 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -83,6 +83,11 @@ CREATE TABLE IF NOT EXISTS `author_paper` (
 -- Dumping data for table `author_paper`
 --
 
+INSERT INTO `author_paper` (`authors_id`, `paper_id`) VALUES
+(6, 1),
+(7, 2),
+(9, 4),
+(10, 3);
 
 -- --------------------------------------------------------
 
@@ -102,7 +107,11 @@ CREATE TABLE IF NOT EXISTS `chairperson` (
 --
 
 INSERT INTO `chairperson` (`id`) VALUES
-(5);
+(1),
+(2),
+(5),
+(6),
+(9);
 
 -- --------------------------------------------------------
 
@@ -142,7 +151,11 @@ CREATE TABLE IF NOT EXISTS `managers` (
 --
 
 INSERT INTO `managers` (`id`) VALUES
-(2);
+(2),
+(6),
+(7),
+(8),
+(9);
 
 -- --------------------------------------------------------
 
@@ -163,12 +176,17 @@ CREATE TABLE IF NOT EXISTS `paper` (
   UNIQUE KEY `tracks_id_UNIQUE` (`tracks_id`),
   KEY `fk_paper_tracks1` (`tracks_id`),
   KEY `fk_paper_chairperson1` (`chairperson_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `paper`
 --
 
+INSERT INTO `paper` (`id`, `title`, `type`, `description`, `tracks_id`, `chairperson_id`) VALUES
+(1, 'Paper1', 'ltp', 'It is Paper 1', 1, 9),
+(2, 'Paper 2', 'stp', 'It is Paper 2', 2, 6),
+(3, 'Paper 3', 'pst', 'It is Paper 3', 4, 2),
+(4, 'Paper 4', 'ltp', 'It is Paper 4', 3, 5);
 
 -- --------------------------------------------------------
 
@@ -208,12 +226,17 @@ CREATE TABLE IF NOT EXISTS `tracks` (
   PRIMARY KEY (`id`,`managers_id`),
   UNIQUE KEY `managers_id_UNIQUE` (`managers_id`),
   KEY `fk_tracks_managers1` (`managers_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `tracks`
 --
 
+INSERT INTO `tracks` (`id`, `name`, `managers_id`) VALUES
+(1, 'Track 1', 9),
+(2, 'Track 2', 8),
+(3, 'Track 3', 6),
+(4, 'Track 4', 2);
 
 -- --------------------------------------------------------
 
