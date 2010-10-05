@@ -144,7 +144,7 @@ a:hover .thumb		{ border: 1px solid #0084FF; }
 /*** tables ***/
 
 .page table			{ width: 100%; margin: 0px; margin-bottom: 20px; }
-.page tr:hover			{ background: url('../images/bck_white_50.png') top left; }
+.page tr:hover			{ background: #ABC;}
 .page table.mceLayout tr:hover	{ background: none; }
 .page th			{ background: url('../images/header.gif') top left repeat-x #FFFFFF; border-bottom: 1px solid #DDDDDD; text-align: left; line-height: 22px; padding: 4px 6px 4px 6px; color: #333333; white-space: nowrap; }
 .page th.full			{ width: 100%; }
@@ -156,6 +156,20 @@ a:hover .thumb		{ border: 1px solid #0084FF; }
 .page td.vcenter		{ vertical-align: middle; }
 .page td p			{ padding-bottom: 3px; padding-top: 3px; }
 .page tbody th			{ background: url('../images/bck_white_75.png') top left; font-weight: bold; white-space: nowrap; color: #666666; }
+
+.ajax table			{ width: 100%; margin: 20px;}
+.ajax tr:hover			{ background: #ABC;}
+.ajax table.mceLayout tr:hover	{ background: none; }
+.ajax th			{ background: url('../images/header.gif') top left repeat-x #FFFFFF; border-bottom: 1px solid #DDDDDD; text-align: left; line-height: 22px; padding: 4px 6px 4px 6px; color: #333333; white-space: nowrap; }
+.ajax th.full			{ width: 100%; }
+.ajax thead td			{ background: url('../images/header.gif') top left repeat-x #FFFFFF; border-bottom: 1px solid #DDDDDD; text-align: left; line-height: 22px; padding: 4px 6px 4px 6px; white-space: nowrap; }
+.ajax td			{ background: url('../images/bck_white_50.png') top left; border-bottom: 1px solid #DDDDDD; line-height: 22px; padding: 4px 6px 4px 6px; }
+.ajax table .icon16		{ margin-top: 3px; margin-bottom: 3px; }
+.ajax td.title			{ background: url('../images/bck_white_75.png') top left; font-weight: bold; white-space: nowrap; }
+.ajax td.center			{ text-align: center; }
+.ajax td.vcenter		{ vertical-align: middle; }
+.ajax td p			{ padding-bottom: 3px; padding-top: 3px; }
+.ajax tbody th			{ background: url('../images/bck_white_75.png') top left; font-weight: bold; white-space: nowrap; color: #666666; }
 
 /*** forms ***/
 

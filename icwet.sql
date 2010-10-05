@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 04, 2010 at 07:15 PM
+-- Generation Time: Oct 05, 2010 at 10:05 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -226,6 +226,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(100) DEFAULT NULL,
   `password` varchar(256) DEFAULT NULL,
   `name` varchar(250) DEFAULT NULL,
+  `email` varchar(300) NOT NULL,
+  `home_institute` tinyint(1) NOT NULL DEFAULT '0',
+  `phone` varchar(12) NOT NULL,
+  `street` varchar(300) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `pincode` varchar(10) NOT NULL,
+  `state` varchar(50) NOT NULL,
+  `country` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
@@ -234,17 +242,17 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `name`) VALUES
-(1, 'admin', '2783cc934301698bf1abf85e693f46445f4def40', 'Administrator'),
-(2, 'manager', '56e5f73ca475381791b107483a4d578a38c93c18', 'Manager'),
-(3, 'entry', '230eb2bdf770ab658a74b7b35f88508ee6844703', 'Entry'),
-(4, 'author', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author'),
-(5, 'chairperson', '56625fa95bb4d15cfe294da2df8c28f0d2692619', 'Chairperson'),
-(6, 'author1', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 1'),
-(7, 'author2', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 2'),
-(8, 'author3', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 3'),
-(9, 'author4', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 4'),
-(10, 'author5', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 5');
+INSERT INTO `users` (`id`, `username`, `password`, `name`, `email`, `home_institute`, `phone`, `street`, `city`, `pincode`, `state`, `country`) VALUES
+(1, 'admin', '2783cc934301698bf1abf85e693f46445f4def40', 'Administrator', '', 0, '', '', '', '', '', ''),
+(2, 'manager', '56e5f73ca475381791b107483a4d578a38c93c18', 'Manager', '', 0, '', '', '', '', '', ''),
+(3, 'entry', '230eb2bdf770ab658a74b7b35f88508ee6844703', 'Entry', '', 0, '', '', '', '', '', ''),
+(4, 'author', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India'),
+(5, 'chairperson', '56625fa95bb4d15cfe294da2df8c28f0d2692619', 'Chairperson', '', 0, '', '', '', '', '', ''),
+(6, 'author1', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 1', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India'),
+(7, 'author2', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 2', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India'),
+(8, 'author3', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 3', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India'),
+(9, 'author4', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 4', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India'),
+(10, 'author5', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 5', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India');
 
 --
 -- Constraints for dumped tables

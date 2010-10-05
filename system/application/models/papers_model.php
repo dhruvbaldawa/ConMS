@@ -1,7 +1,7 @@
 <?php
 
 	class Papers_model extends Model{
-		$table='paper'
+		$table='paper';
 		function Paper_model(){
 			parent::Model();
 		}
@@ -31,8 +31,7 @@
 		function payment_status($data){
                 $CI =& get_instance();
                 $CI->load->model('payment_model');
-		$query=$CI->Payment_model->payment_status($data);
-                $this->_Payment_model = $CI->Payment_model;
+		        $query=$CI->payment_model->payment_status($data);
 		return $query->result_array();
 		}			
 
@@ -50,15 +49,14 @@
 
 		function get_author($data){
 	
-                $CI =& get_instance();
-                $CI->load->model('authors_model');
-		$query=$CI->authors_model->get_details($data);
-                $this->_authors_model = $CI->authors_model;
-		return $query->result_array();
+            $CI =& get_instance();
+            $CI->load->model('authors_model');
+	    	$query=$CI->authors_model->get_details($data);
+		    return $query->result_array();
 		}
 		
 		function delete($id){
-		$this->db->delete($table, array('id' => $id)); 
+		    $this->db->delete($table, array('id' => $id));
 		}
 
 	}
