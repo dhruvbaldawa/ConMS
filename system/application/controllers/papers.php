@@ -7,11 +7,15 @@ class Papers extends Controller {
     }
 
     function index(){
-        //List all the papers
-        $rows = $this->papers_model->list_papers();
-        $data['title'] = "Papers";
-        $data['rows'] = $rows;
-        $this->load->view('site/papers',$data);
+        if($this->auth_model->logged_in()){
+            //List all the papers
+            $rows = $this->papers_model->list_papers();
+            $data['title'] = "Papers";
+            $data['rows'] = $rows;
+            $this->load->view('site/papers',$data);
+        }else{
+            $this->load->view('site/login');
+        }
 
     }
 

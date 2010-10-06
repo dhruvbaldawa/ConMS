@@ -42,6 +42,18 @@ $('#author').live("click",function (){
         }
     });
 });
+
+$('#author_link').live("click",function (){
+    $.fancybox.showActivity();
+    $.ajax({
+        type:"POST",
+        url:"<?php echo base_url(); ?>authors/get_all_info",
+        data:"ajax=1&id="+this.rel,
+        success:function (data){
+            $.fancybox(data);
+        }
+    });
+});
 </script>
 </head>
 
@@ -63,6 +75,11 @@ $('#author').live("click",function (){
 
 		<div class="page clear">
 			<h1>Authors <a href="#"><img src="<?php echo base_url(); ?>images/ico_help_32.png" class="help" alt="" /></a></h1>
+            <div class="main-icons clear">
+				<ul class="clear">
+				<li><a href="#"><img src="<?php echo base_url(); ?>images/ico_users_64.png" class="icon" alt="" /><span class="text">Add Author</span></a></li>
+				</ul>
+			</div>
 			<!-- CONTENT BOXES -->
 			<div class="content-box">
 				<div class="box-header clear">

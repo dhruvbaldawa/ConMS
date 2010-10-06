@@ -35,7 +35,7 @@ $('#author').live("click",function (){
     $.fancybox.showActivity();
     $.ajax({
         type:"POST",
-        url:"<?php echo base_url(); ?>papers/get_all_info",
+        url:"<?php echo base_url(); ?>authors/get_all_info",
         data:"ajax=1&id="+this.rel,
         success:function (data){
             $.fancybox(data);
@@ -63,6 +63,7 @@ $('#author').live("click",function (){
 
 		<div class="page clear">
 			<h1>Papers <a href="#"><img src="<?php echo base_url(); ?>images/ico_help_32.png" class="help" alt="" /></a></h1>
+<pre><?php print_r($rows); ?></pre>
 			<!-- CONTENT BOXES -->
 			<div class="content-box">
 				<div class="box-header clear">
@@ -70,7 +71,6 @@ $('#author').live("click",function (){
 				</div>
 
 				<div class="box-body clear">
-                <pre><?php print_r($rows); ?></pre>
 					<!-- TABLE -->
 					<div id="data-table">
 						<p></p>
@@ -82,9 +82,13 @@ $('#author').live("click",function (){
 							<tr>
 								<th class="bSortable"><input type="checkbox" class="checkbox select-all" /></th>
 								<th>ID</th>
-								<th>Name</th>
-								<th>Username</th>
-								<th>Actions</th>
+								<th>Title</th>
+								<th>Type</th>
+								<th>Description</th>
+                                <th>Authors</th>
+                                <th>Chairperson</th>
+                                <th>Track</th>
+                                <th>Actions</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -93,8 +97,26 @@ $('#author').live("click",function (){
 							<tr>
 								<td><input type="checkbox" class="checkbox" /></td>
 								<td><?php echo $arow['id']; ?></td>
-								<td><a href="#" id="author" rel="<?php echo $arow['id']; ?>"><?php echo $arow['name']; ?></a></td>
-                                <td><?php echo $arow['username']; ?></td>
+								<td><?php echo $arow['title']; ?></td>
+                                <td><?php
+                                    if($arow['type'] == 'ltp')
+                                        echo "Long Type";
+                                    else if($arow['type'] == 'stp')
+                                        echo "Short Type";
+                                    else
+                                        echo "Poster Type";
+                                 ?></td>
+                                <td><?php echo $arow['description']; ?></td>
+                                <td>
+                                <?php
+                                    foreach($arow['authors'] as $author){?>
+                                        <a href="#" id="author" rel="<?php echo $author['id']; ?>"><?php echo $author['name']; ?></a><br />
+                                   <?php }
+
+                                ?>
+                                </td>
+                                <td><a href="#" id="chairperson" rel="<?php echo $arow['chairperson_id']; ?>"><?php echo $arow['chairperson']['name']; ?></a></td>
+                                <td><?php echo $arow['track']['name']; ?></td>
                                 <td>
 									<a href="#"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
 									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>

@@ -7,7 +7,7 @@
 <meta name="robots" content="ALL,FOLLOW"/>
 <meta name="Author" content="AIT"/>
 <meta http-equiv="imagetoolbar" content="no"/>
-<title>ICWET 2011 - <?php echo $title; ?></title>
+<title>ICWET 2011 - <?php if(isset($title))echo $title; ?></title>
 
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/reset.css" type="text/css"/>
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/screen.css" type="text/css"/>

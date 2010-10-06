@@ -1,10 +1,11 @@
 <?php
 
 	class Papers_model extends Model{
-		function Paper_model(){
+		function Papers_model(){
 			parent::Model();
 	        $this->_table = 'paper';
             $this->_author_paper_table = 'author_paper';
+            $this->_user_table = 'users';
 		}
 
 		function create($data){
@@ -63,9 +64,16 @@
         function list_papers(){
             $query = $this->db->get($this->_table);
             $results = $query->result_array();
-            foreach($results as $result){
-                $temp = $this->db->get($this->_author_paper_table,array('paper_id'=>$result['id']));
-                $result['authors'] = $temp->result_array();
+            for($i=0;$i<sizeof($results);$i++){
+                $temp = $this->db->query("SELECT id,name FROM ".$this->_user_table." WHERE id IN (SELECT authors_id FROM ".$this->_author_paper_table." WHERE paper_id = ".$results[$i]['id'].")");
+                $results[$i]['authors'] = $temp->result_array();
+
+                $temp = $this->db->query("SELECT name FROM ".$this->_user_table." WHERE id = ".$results[$i]['chairperson_id']);
+                $results[$i]['chairperson'] = $temp->row_array();
+
+                $temp = $this->db->query("SELECT name FROM tracks WHERE id = ".$results[$i]['tracks_id']);
+                $results[$i]['track'] = $temp->row_array();
+
             }
             return $results;
         }

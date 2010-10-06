@@ -7,11 +7,15 @@ class Authors extends Controller {
     }
 
     function index(){
+        if($this->auth_model->logged_in()){
         //List all the authors
         $rows = $this->authors_model->list_authors();
         $data['title'] = "Authors";
         $data['rows'] = $rows;
         $this->load->view('site/authors',$data);
+        }else{
+            $this->load->view('site/index');
+        }
 
     }
 

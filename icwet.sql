@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 05, 2010 at 10:43 PM
+-- Generation Time: Oct 06, 2010 at 10:21 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -28,7 +28,6 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 CREATE TABLE IF NOT EXISTS `admin` (
   `id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_admin_users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -48,7 +47,6 @@ INSERT INTO `admin` (`id`) VALUES
 CREATE TABLE IF NOT EXISTS `authors` (
   `id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_author_users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -74,8 +72,6 @@ CREATE TABLE IF NOT EXISTS `author_paper` (
   `authors_id` int(10) unsigned NOT NULL,
   `paper_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`authors_id`,`paper_id`),
-  UNIQUE KEY `authors_id_UNIQUE` (`authors_id`),
-  UNIQUE KEY `paper_id_UNIQUE` (`paper_id`),
   KEY `fk_authors_has_paper_paper1` (`paper_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -86,8 +82,8 @@ CREATE TABLE IF NOT EXISTS `author_paper` (
 INSERT INTO `author_paper` (`authors_id`, `paper_id`) VALUES
 (6, 1),
 (7, 2),
-(9, 4),
-(10, 3);
+(10, 3),
+(9, 4);
 
 -- --------------------------------------------------------
 
@@ -98,7 +94,6 @@ INSERT INTO `author_paper` (`authors_id`, `paper_id`) VALUES
 CREATE TABLE IF NOT EXISTS `chairperson` (
   `id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_chairperson_users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -122,7 +117,6 @@ INSERT INTO `chairperson` (`id`) VALUES
 CREATE TABLE IF NOT EXISTS `entry` (
   `id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_entry_users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -142,7 +136,6 @@ INSERT INTO `entry` (`id`) VALUES
 CREATE TABLE IF NOT EXISTS `managers` (
   `id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_manager_users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -171,9 +164,6 @@ CREATE TABLE IF NOT EXISTS `paper` (
   `tracks_id` int(10) unsigned NOT NULL,
   `chairperson_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`,`tracks_id`,`chairperson_id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  UNIQUE KEY `chairperson_id_UNIQUE` (`chairperson_id`),
-  UNIQUE KEY `tracks_id_UNIQUE` (`tracks_id`),
   KEY `fk_paper_tracks1` (`tracks_id`),
   KEY `fk_paper_chairperson1` (`chairperson_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
@@ -183,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `paper` (
 --
 
 INSERT INTO `paper` (`id`, `title`, `type`, `description`, `tracks_id`, `chairperson_id`) VALUES
-(1, 'Paper1', 'ltp', 'It is Paper 1', 1, 9),
+(1, 'Paper1', 'ltp', 'It is Paper 1. It is going to have a very long long and long description.\r\n\r\nDescription is still going on and on and on and on.', 1, 9),
 (2, 'Paper 2', 'stp', 'It is Paper 2', 2, 6),
 (3, 'Paper 3', 'pst', 'It is Paper 3', 4, 2),
 (4, 'Paper 4', 'ltp', 'It is Paper 4', 3, 5);
@@ -202,7 +192,6 @@ CREATE TABLE IF NOT EXISTS `payments` (
   `remaining` int(11) DEFAULT NULL,
   `details` text,
   PRIMARY KEY (`id`,`author_id`,`paper_id`),
-  UNIQUE KEY `_UNIQUE` (`id`),
   UNIQUE KEY `author_paper_authors_id_UNIQUE` (`author_id`),
   UNIQUE KEY `author_paper_paper_id_UNIQUE` (`paper_id`),
   KEY `fk_payments_author_paper1` (`author_id`,`paper_id`)
@@ -224,7 +213,6 @@ CREATE TABLE IF NOT EXISTS `tracks` (
   `name` varchar(45) DEFAULT NULL,
   `managers_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`,`managers_id`),
-  UNIQUE KEY `managers_id_UNIQUE` (`managers_id`),
   KEY `fk_tracks_managers1` (`managers_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
@@ -257,8 +245,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `pincode` varchar(10) NOT NULL,
   `state` varchar(50) NOT NULL,
   `country` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `username_UNIQUE` (`username`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
