@@ -1,12 +1,13 @@
 <?php
 	class Track_model extends Model{
 		$this->_table='tracks';
+		$this->_user_table='users';
 		function track_model(){
 			parent::Model();
 		}
 
 		 function list_tracks(){
-            		 $query = $this->db->query("SELECT * FROM ".$this->_table);
+            		 $query = $this->db->query("SELECT tracks.id,tracks.name,tracks.managers_id,users.name FROM". 					_table,_user_table."WHERE tracks.id=users.id");
             		 return $query->result_array();
         		}
 
