@@ -1,4 +1,11 @@
 <?php
+/*notes
+*Delete
+*   delete the user entry and also the author and paper relations
+*   and since author and paper relation also stays in payments, i think we should keep payment details as it is.
+*   Alternative : put a status field in author, if you want to delete the author, put the state as deactivated.
+*   Implement whatever appropriate. I would suggest 2nd method.
+*/
     class Authors_model extends Model{
         function Authors_model(){
             parent::Model();
@@ -46,7 +53,9 @@
         }
 
         function update($data,$where){
-            $this->db->update($this->_table,$data,$where);
+            $CI = &get_instance();
+            $CI->load->model('auth_model');
+            return $CI->auth_model->update($data,$where);
         }
 
         function add_paper($data){
@@ -58,7 +67,7 @@
         }
 
 	    function delete($data){
-	        $this->db->delete($this->_table, array('id' => $data));
+	        $a = $this->db->delete($this->_table, array('id' => $data));
 	    }
 
         function link_authors($author_ids,$paper_ids){

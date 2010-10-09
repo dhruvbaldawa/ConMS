@@ -40,6 +40,16 @@
              return false;
          }
 
+         function update($data,$where){
+             if($data['password']!='')
+                $data['password'] = $this->encrypt_password($data['password']);
+             else{
+                 unset($data['password']);
+             }
+             return $this->db->update('users',$data,$where);
+
+         }
+
          function login($username,$password){
              $query = $this->db->get_where('users',array('username' => $username,'password' => $password));
             if($query->num_rows > 0){

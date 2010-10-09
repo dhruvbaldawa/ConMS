@@ -44,11 +44,12 @@ $('#author').live("click",function (){
     });
 });
 
-$('#author_link').live("click",function (){
+$('.author_link,.update_author').live("click",function (){
     $.fancybox.showActivity();
     $.ajax({
-        type:"GET",
+        type:"POST",
         url:this.rel,
+        data:"id="+this.id,
         success:function (data){
             $.fancybox(data);
             $(".message").hide();
@@ -82,6 +83,46 @@ $('#add_author_form').live("submit",function (){
     });
     return false;
 });
+
+$('#update_author_form').live("submit",function (){
+    var data = $(this).serialize();
+    $.ajax({
+        type:"POST",
+        url:"<?php echo base_url(); ?>authors/update",
+        data:"ajax=1&"+data,
+        dataType:"json",
+        beforeSend:function(){
+                $('.loading').fadeIn('slow');
+        },
+        success:function (data){
+            if(data.type == 'success'){
+                    $.fancybox(data.description);
+            }else{
+                    var div = $('.message');
+                    div.removeClass();
+                    div.addClass('message notification '+data.type);
+                    div.children('p').html(data.description);
+                    div.fadeIn('slow');
+                }
+                $('.loading').fadeOut('slow');
+        }
+    });
+    return false;
+});
+
+$('.delete_author').live("click",function(){
+    var thing = confirm("Are you sure you want to delete this author...??");
+    if(thing){
+        $.ajax({
+        type:"POST",
+        url:"<?php echo base_url(); ?>authors/delete",
+        data:'id='+this.id,
+        success:function (data){
+            $.fancybox(data);
+        }
+    });
+    }
+});
 </script>
 </head>
 
@@ -105,7 +146,7 @@ $('#add_author_form').live("submit",function (){
 			<h1>Authors <a href="#"><img src="<?php echo base_url(); ?>images/ico_help_32.png" class="help" alt="" /></a></h1>
             <div class="main-icons clear">
 				<ul class="clear">
-				<li><a rel="<?php echo base_url(); ?>authors/view/author_form" id="author_link"><img src="<?php echo base_url(); ?>images/ico_users_64.png" class="icon" alt="" /><span class="text">Add Author</span></a></li>
+				<li><a rel="<?php echo base_url(); ?>authors/view/author_form" class="author_link"><img src="<?php echo base_url(); ?>images/ico_users_64.png" class="icon" alt="" /><span class="text">Add Author</span></a></li>
 				</ul>
 			</div>
 			<!-- CONTENT BOXES -->
@@ -140,10 +181,9 @@ $('#add_author_form').live("submit",function (){
 								<td><a href="#" id="author" rel="<?php echo $arow['id']; ?>"><?php echo $arow['name']; ?></a></td>
                                 <td><?php echo $arow['username']; ?></td>
                                 <td>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_settings_16.png" class="icon16 fl-space2" alt="" title="settings" /></a>
-								</td>
+									<a class="update_author" rel="<?php echo base_url(); ?>authors/view/author_update_form" id="<?php echo $arow['id']; ?>"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
+									<a class="delete_author" id="<?php echo $arow['id'];?>"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
+									</td>
 							</tr>
                             <?php } ?>
 						</tbody>

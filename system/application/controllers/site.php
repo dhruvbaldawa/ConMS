@@ -1,4 +1,11 @@
 <?php
+/*Notes
+*Authentication
+*   The site links however are disabled upon the privileges, but the thing is this system is only available in
+*   side menu as yet. What we need to do is implement this is in the index function and all non-ajax functions
+*   of the controllers.
+*   create a authorisation function for each controller and use it to authorize the access.
+*/
 
 class Site extends Controller {
 

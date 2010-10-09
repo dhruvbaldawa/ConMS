@@ -55,6 +55,40 @@ class Authors extends Controller {
                 $data['description'] = "Error adding the author.";
             }
             echo json_encode($data);
+        }else{
+            $this->index();
+        }
+    }
+
+    function delete(){
+        if($this->authors_model->delete($this->input->post('id')) && $this->auth_model->logged_in()){
+            echo "Author deleted successfully.";
+        }else{
+            echo "Author couldn't be deleted.";
+        }
+
+    }
+
+    function update(){
+        if($this->input->post('ajax')==1 && $this->auth_model->logged_in()){
+            unset($_POST['ajax']);
+            //Form Validation
+            foreach($_POST as $key=>$value){
+                if($value=='' && $key!='password'){
+                    $data['type'] = 'error';
+                    $data['description'] = 'All fields are compulsory.<br>You have left '.$value.' blank.';
+                    die(json_encode($data));
+                }
+            }
+            if($this->authors_model->update($_POST,array('id'=>$_POST['id']))){
+                $data['type'] = 'success';
+                 $data['description'] = 'Author data updated successfully.';
+                 die(json_encode($data));
+            }else{
+                $data['type'] = 'error';
+                $data['description'] = 'Author data couldnot be updated.';
+                die(json_encode($data));
+            }
         }
     }
 
