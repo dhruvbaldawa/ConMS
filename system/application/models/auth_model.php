@@ -29,10 +29,15 @@
          }
 
          function create($data){
+             $data['password'] = $this->encrypt_password($data['password']);
+             $data['id'] = "";
              if($this->db->insert('users',$data)){
-                 return TRUE;
+                 unset($data['id']);
+                 $query = $this->db->get_where('users',$data);
+                 $row = $query->row_array();
+                 return $row;
              }
-             return FALSE;
+             return false;
          }
 
          function login($username,$password){
@@ -110,6 +115,10 @@
              if($this->session->userdata('is_manager') == TRUE)
                 return TRUE;
              return FALSE;
+         }
+
+         function encrypt_password($password){
+             return sha1("123456789987654321".$password);
          }
 
     }

@@ -31,6 +31,7 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/Geometr231_Hv_BT_400.font.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/script.js"></script>
 <script type="text/javascript">
+    InitNotifications();
 $('#author').live("click",function (){
     $.fancybox.showActivity();
     $.ajax({
@@ -46,13 +47,40 @@ $('#author').live("click",function (){
 $('#author_link').live("click",function (){
     $.fancybox.showActivity();
     $.ajax({
-        type:"POST",
-        url:"<?php echo base_url(); ?>authors/get_all_info",
-        data:"ajax=1&id="+this.rel,
+        type:"GET",
+        url:this.rel,
         success:function (data){
             $.fancybox(data);
+            $(".message").hide();
+            $('.loading').hide();
         }
     });
+});
+
+$('#add_author_form').live("submit",function (){
+    var data = $(this).serialize();
+    $.ajax({
+        type:"POST",
+        url:"<?php echo base_url(); ?>authors/add_authors",
+        data:"ajax=1&"+data,
+        dataType:"json",
+        beforeSend:function(){
+                $('.loading').fadeIn('slow');
+        },
+        success:function (data){
+            if(data.type == 'success'){
+                    $.fancybox(data.description);
+            }else{
+                    var div = $('.message');
+                    div.removeClass();
+                    div.addClass('message notification '+data.type);
+                    div.children('p').html(data.description);
+                    div.fadeIn('slow');
+                }
+                $('.loading').fadeOut('slow');
+        }
+    });
+    return false;
 });
 </script>
 </head>
@@ -77,7 +105,7 @@ $('#author_link').live("click",function (){
 			<h1>Authors <a href="#"><img src="<?php echo base_url(); ?>images/ico_help_32.png" class="help" alt="" /></a></h1>
             <div class="main-icons clear">
 				<ul class="clear">
-				<li><a href="#"><img src="<?php echo base_url(); ?>images/ico_users_64.png" class="icon" alt="" /><span class="text">Add Author</span></a></li>
+				<li><a rel="<?php echo base_url(); ?>authors/view/author_form" id="author_link"><img src="<?php echo base_url(); ?>images/ico_users_64.png" class="icon" alt="" /><span class="text">Add Author</span></a></li>
 				</ul>
 			</div>
 			<!-- CONTENT BOXES -->
