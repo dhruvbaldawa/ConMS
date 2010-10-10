@@ -66,6 +66,44 @@ $('.update_paper').live("click",function (){
         data:"id="+this.id,
         success:function (data){
             $.fancybox(data);
+            $.fancybox.resize();
+            $(".message").hide();
+            $('.loading').hide();
+            $("#tracks_id").fcbkcomplete({
+                json_url: "<?php echo base_url(); ?>papers/get_json_tracks",
+                filter_case: false,
+                filter_hide: true,
+			    firstselected: true,
+                filter_selected: true,
+			    maxitems: 1,
+          });
+          $("#chairperson_id").fcbkcomplete({
+                json_url: "<?php echo base_url(); ?>papers/get_json_chairpersons",
+                filter_case: false,
+                filter_hide: true,
+			    firstselected: true,
+                filter_selected: true,
+			    maxitems: 1,
+          });
+          $("#authors_id").fcbkcomplete({
+                json_url: "<?php echo base_url(); ?>papers/get_json_authors",
+                filter_case: false,
+                filter_hide: true,
+			    firstselected: true,
+                filter_selected: true,
+          });
+        }
+    });
+});
+$('.paper_link').live("click",function (){
+    $.fancybox.showActivity();
+    $.ajax({
+        type:"POST",
+        url:this.rel,
+        data:"id="+this.id,
+        success:function (data){
+            $.fancybox(data);
+            $.fancybox.resize();
             $(".message").hide();
             $('.loading').hide();
             $("#tracks_id").fcbkcomplete({
@@ -100,12 +138,12 @@ $('#update_paper_form').live("submit",function (){
         type:"POST",
         url:"<?php echo base_url(); ?>papers/update",
         data:"ajax=1&"+data,
-        //dataType:"json",
+        dataType:"json",
         beforeSend:function(){
                 $('.loading').fadeIn('slow');
         },
         success:function (data){
-            /*if(data.type == 'success'){
+            if(data.type == 'success'){
                     $.fancybox(data.description);
             }else{
                     var div = $('.message');
@@ -114,13 +152,36 @@ $('#update_paper_form').live("submit",function (){
                     div.children('p').html(data.description);
                     div.fadeIn('slow');
                 }
-                $('.loading').fadeOut('slow');*/
-                $.fancybox(data);
+                $('.loading').fadeOut('slow');
         }
     });
     return false;
 });
-
+$('#add_paper_form').live("submit",function (){
+    var data = $(this).serialize();
+    $.ajax({
+        type:"POST",
+        url:"<?php echo base_url(); ?>papers/create",
+        data:"ajax=1&"+data,
+        dataType:"json",
+        beforeSend:function(){
+                $('.loading').fadeIn('slow');
+        },
+        success:function (data){
+            if(data.type == 'success'){
+                    $.fancybox(data.description);
+            }else{
+                    var div = $('.message');
+                    div.removeClass();
+                    div.addClass('message notification '+data.type);
+                    div.children('p').html(data.description);
+                    div.fadeIn('slow');
+                }
+                $('.loading').fadeOut('slow');
+        }
+    });
+    return false;
+});
 </script>
 </head>
 
@@ -142,6 +203,12 @@ $('#update_paper_form').live("submit",function (){
 
 		<div class="page clear">
 			<h1>Papers <a href="#"><img src="<?php echo base_url(); ?>images/ico_help_32.png" class="help" alt="" /></a></h1>
+ <div class="main-icons clear">
+				<ul class="clear">
+				<li><a href="#" rel="<?php echo base_url(); ?>authors/view/paper_form" class="paper_link"><img src="<?php echo base_url(); ?>images/ico_page_64.png" class="icon" alt="" /><span class="text">Add Paper</span></a></li>
+				</ul>
+			</div>
+
 			<!-- CONTENT BOXES -->
 			<div class="content-box">
 				<div class="box-header clear">
@@ -201,7 +268,7 @@ $('#update_paper_form').live("submit",function (){
 </td>
                                 <td><?php echo $arow['track']['name']; ?></td>
                                 <td>
-									<a class="update_paper" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/paper_update_form"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
+									<a href="#" class="update_paper" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/paper_update_form"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
 									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
 								</td>
 							</tr>

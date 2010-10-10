@@ -64,9 +64,35 @@ class Papers extends Controller {
     }
 
     function update(){
-        $_POST['tracks_id'] = $_POST['tracks_id'][0];
-        $_POST['chairperson_id'] = $_POST['chairperson_id'][0];
-        $this->paper_model->update($_POST);
+        if($_POST['ajax'] == 1){
+            $_POST['tracks_id'] = $_POST['tracks_id'][0];
+            $_POST['chairperson_id'] = $_POST['chairperson_id'][0];
+            unset($_POST['ajax']);
+            if($this->papers_model->update($_POST)){
+                $data['type'] = 'success';
+                $data['description'] = 'Paper ('.$_POST['title'].') details updated successfully.';
+                die(json_encode($data));
+            }else{
+                $data['type'] = 'error';
+                $data['description'] = 'Error occured while updated the paper.';
+                die(json_encode($data));
+            }
+        }
+    }
+
+    function create(){
+        if($_POST['ajax'] == 1){
+            unset($_POST['ajax']);
+            if($this->papers_model->create($_POST)){
+                $data['type'] = 'success';
+                $data['description'] = 'Paper ('.$_POST['title'].') added successfully.';
+                die(json_encode($data));
+            }else{
+                $data['type'] = 'error';
+                $data['description'] = 'Error occured while adding the paper.';
+                die(json_encode($data));
+            }
+        }
     }
 }
 /* End of file papers.php */

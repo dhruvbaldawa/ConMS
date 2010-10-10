@@ -23,7 +23,7 @@
 <table class="ajax" width="600px">
     <tr>
         <td><strong>Title</strong></td>
-        <td><input type = "text" name = "name" size = "50" value="<?php echo $row['title']; ?>" /></td>
+        <td><input type = "text" name = "title" size = "50" value="<?php echo $row['title']; ?>" /></td>
     </tr>
     <tr>
         <td><strong>Type</strong></td>

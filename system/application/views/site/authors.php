@@ -147,7 +147,7 @@ $('.delete_author').live("click",function(){
 			<h1>Authors <a href="#"><img src="<?php echo base_url(); ?>images/ico_help_32.png" class="help" alt="" /></a></h1>
             <div class="main-icons clear">
 				<ul class="clear">
-				<li><a rel="<?php echo base_url(); ?>authors/view/author_form" class="author_link"><img src="<?php echo base_url(); ?>images/ico_users_64.png" class="icon" alt="" /><span class="text">Add Author</span></a></li>
+				<li><a href="#" rel="<?php echo base_url(); ?>authors/view/author_form" class="author_link"><img src="<?php echo base_url(); ?>images/ico_users_64.png" class="icon" alt="" /><span class="text">Add Author</span></a></li>
 				</ul>
 			</div>
 			<!-- CONTENT BOXES -->
@@ -182,7 +182,7 @@ $('.delete_author').live("click",function(){
 								<td><a href="#" id="author" rel="<?php echo $arow['id']; ?>"><?php echo $arow['name']; ?></a></td>
                                 <td><?php echo $arow['username']; ?></td>
                                 <td>
-									<a class="update_author" rel="<?php echo base_url(); ?>authors/view/author_update_form" id="<?php echo $arow['id']; ?>"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
+									<a href="#" class="update_author" rel="<?php echo base_url(); ?>authors/view/author_update_form" id="<?php echo $arow['id']; ?>"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
 									<a class="delete_author" id="<?php echo $arow['id'];?>"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
 									</td>
 							</tr>
