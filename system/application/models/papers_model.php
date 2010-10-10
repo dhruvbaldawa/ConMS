@@ -13,13 +13,24 @@
 		}
 
 		function get_paper_details($data){
-			$query =$this->db->get_where($this->_table,$data);
-			if($query->num_rows==0)
-			{	echo('Nothing to retrieve');
-				return FALSE;
-			}
-			else
-				return $query->result_array();
+            $query = $this->db->get_where($this->_table,array('id'=>$data));
+            $results = $query->row_array();
+                $temp = $this->db->query("SELECT id,name FROM ".$this->_user_table." WHERE id IN (SELECT authors_id FROM ".$this->_author_paper_table." WHERE paper_id = ".$results['id'].")");
+                $results['authors'] = ($temp->num_rows  > 0)?$temp->result_array():"Not Assigned";
+
+                if($results['chairperson_id']){
+                    $temp = $this->db->query("SELECT name FROM ".$this->_user_table." WHERE id = ".$results['chairperson_id']);
+                    $results['chairperson'] = $temp->row_array();
+                }else{
+                    $results['chairperson']['name'] = "Not Assigned";
+                }
+                if(isset($results['tracks_id'])){
+                    $temp = $this->db->query("SELECT name FROM tracks WHERE id = ".$results['tracks_id']);
+                    $results['track'] = ($temp->num_rows  > 0)?$temp->row_array():"Not Assigned";
+                }else{
+                    $results['track']['name'] = 'Not Assigned';
+                }
+            return $results;
 		}
 
 
@@ -56,7 +67,7 @@
 	    	$query=$CI->authors_model->get_details($data);
 		    return $query->result_array();
 		}
-		
+
 		function delete($id){
 		    $this->db->delete($this->_table, array('id' => $id));
 		}
@@ -65,14 +76,25 @@
             $query = $this->db->get($this->_table);
             $results = $query->result_array();
             for($i=0;$i<sizeof($results);$i++){
+
                 $temp = $this->db->query("SELECT id,name FROM ".$this->_user_table." WHERE id IN (SELECT authors_id FROM ".$this->_author_paper_table." WHERE paper_id = ".$results[$i]['id'].")");
-                $results[$i]['authors'] = $temp->result_array();
-
-                $temp = $this->db->query("SELECT name FROM ".$this->_user_table." WHERE id = ".$results[$i]['chairperson_id']);
-                $results[$i]['chairperson'] = $temp->row_array();
-
-                $temp = $this->db->query("SELECT name FROM tracks WHERE id = ".$results[$i]['tracks_id']);
-                $results[$i]['track'] = $temp->row_array();
+                if($temp->num_rows > 0){
+                    $results[$i]['authors'] = $temp->result_array();
+                }else{
+                    $results[$i]['authors'] = array(array("name"=>"Not Assigned"));
+                }
+                if($results[$i]['chairperson_id']!=0){
+                    $temp = $this->db->query("SELECT name FROM ".$this->_user_table." WHERE id = ".$results[$i]['chairperson_id']);
+                    $results[$i]['chairperson'] = $temp->row_array();
+                }else{
+                    $results[$i]['chairperson'] = array("name"=>"Not Assigned");
+                }
+                if(isset($results[$i]['tracks_id'])){
+                    $temp = $this->db->query("SELECT name FROM tracks WHERE id = ".$results[$i]['tracks_id']);
+                    $results[$i]['track'] = $temp->row_array();
+                }else{
+                    $results[$i]['track']['name'] = "Not Assigned";
+                }
 
             }
             return $results;

@@ -28,6 +28,46 @@ class Papers extends Controller {
         else
             $this->index();
     }
+
+        function view($name){
+        $this->load->view("site/".$name);
+    }
+
+    function get_json_tracks($name){
+        $name = strtolower($name);
+        $row = $this->db->query("SELECT id,name FROM tracks WHERE LOWER(name) LIKE '%".$name."%'")->result_array();
+        $json = json_encode($row);
+        $search = array('id','name');
+        $replace = array('value','caption');
+
+        echo str_replace($search,$replace,$json);
+    }
+
+    function get_json_chairpersons($name){
+        $name = strtolower($name);
+        $row = $this->db->query("SELECT id,name FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM chairperson)")->result_array();
+        $json = json_encode($row);
+        $search = array('id','name');
+        $replace = array('value','caption');
+
+        echo str_replace($search,$replace,$json);
+    }
+
+    function get_json_authors($name){
+        $name = strtolower($name);
+        $row = $this->db->query("SELECT id,name FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM authors)")->result_array();
+        $json = json_encode($row);
+        $search = array('id','name');
+        $replace = array('value','caption');
+
+        echo str_replace($search,$replace,$json);
+    }
+
+    function update(){
+        $_POST['tracks_id'] = $_POST['tracks_id'][0];
+        $_POST['chairperson_id'] = $_POST['chairperson_id'][0];
+        $this->paper_model->update($_POST);
+    }
 }
 /* End of file papers.php */
 /* Location: ./system/application/controllers/papers.php */

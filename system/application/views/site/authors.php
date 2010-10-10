@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/fancybox.css" type="text/css"/>
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/jquery.wysiwyg.css" type="text/css"/>
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/jquery.ui.css" type="text/css"/>
+
 <!--[if IE 7]>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/ie7.css" />
 <![endif]-->

@@ -1,0 +1,5 @@
+In Site Controller : 
+read Notes in the file
+
+In Author_Model : 
+read Notes in the file
