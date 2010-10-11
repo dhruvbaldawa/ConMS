@@ -6,9 +6,6 @@ class Papers_model extends Model {
 		$this->_author_paper_table = 'author_paper';
 		$this->_user_table = 'users';
 	}
-	function create($data) {
-		$this->db->insert($this->_table, $data);
-	}
 	function get_paper_details($data) {
 		$query = $this->db->get_where($this->_table, array('id' => $data));
 		$results = $query->row_array();
@@ -63,6 +60,24 @@ class Papers_model extends Model {
 			return false;
 		}
 	}
+    function create($data){
+        $authors = $data['authors_id'];
+        unset($data['authors_id']);
+        if(!$this->db->insert($this->_table,$data))
+            return false;
+        $record = $this->db->get_where($this->_table,$data)->row_array();
+        $id = $record['id'];
+        unset($record);
+        if(isset($authors[0])){
+            foreach ($authors as $author) {
+				if (!$this->db->query("REPLACE INTO " . $this->_author_paper_table . " VALUES (" . $author . "," . $id . ")")) {
+					return false;
+				}
+			}
+        }
+        return true;
+
+    }
 	function get_author($data) {
 		$CI = & get_instance();
 		$CI->load->model('authors_model');

@@ -23,8 +23,7 @@
     </tr>
     <tr>
         <td><strong>Description</strong></td>
-        <td><textarea name="description" cols="62" rows="8">
-        </textarea></td>
+        <td><textarea name="description" cols="62" rows="8"></textarea></td>
     </tr>
     <tr>
         <td><strong>Track</strong></td>

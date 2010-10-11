@@ -66,7 +66,10 @@ class Papers extends Controller {
     function update(){
         if($_POST['ajax'] == 1){
             $_POST['tracks_id'] = $_POST['tracks_id'][0];
-            $_POST['chairperson_id'] = $_POST['chairperson_id'][0];
+            if(isset($_POST['chairperson_id'][0])){
+                $_POST['chairperson_id'] = $_POST['chairperson_id'][0];
+                unset($_POST['chairperson_id'][0]);
+            }
             unset($_POST['ajax']);
             if($this->papers_model->update($_POST)){
                 $data['type'] = 'success';
@@ -82,7 +85,12 @@ class Papers extends Controller {
 
     function create(){
         if($_POST['ajax'] == 1){
+            //Form Validation
+            //Please put in the form validation over here. Depending upon the database constraints.
             unset($_POST['ajax']);
+            $_POST['tracks_id'] = $_POST['tracks_id'][0];
+            if(isset($_POST['chairperson_id'][0]))
+                $_POST['chairperson_id'] = $_POST['chairperson_id'][0];
             if($this->papers_model->create($_POST)){
                 $data['type'] = 'success';
                 $data['description'] = 'Paper ('.$_POST['title'].') added successfully.';
