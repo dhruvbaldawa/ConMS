@@ -91,12 +91,18 @@ class Papers_model extends Model {
 		$query = $this->db->get($this->_table);
 		$results = $query->result_array();
 		for ($i = 0; $i < sizeof($results); $i++) {
-			$temp = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ")");
+			$temp = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='active'");
 			if ($temp->num_rows > 0) {
 				$results[$i]['authors'] = $temp->result_array();
 			}
 			else {
+			$temp1 = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='deactivated'");
+			if ($temp1->num_rows > 0) {
+				$results[$i]['authors'] = $temp1->result_array();
+			}
+			else{
 				$results[$i]['authors'] = array(array("name" => "Not Assigned"));
+			}
 			}
 			if ($results[$i]['chairperson_id'] != 0) {
 				$temp = $this->db->query("SELECT name FROM " . $this->_user_table . " WHERE id = " . $results[$i]['chairperson_id']);
