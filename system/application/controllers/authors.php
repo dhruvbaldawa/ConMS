@@ -61,7 +61,7 @@ class Authors extends Controller {
     }
 
     function delete(){
-        if($this->authors_model->deactivate_author($this->input->post('id')) && $this->auth_model->logged_in()){
+       if($this->authors_model->delete($this->input->post('id')) && $this->auth_model->logged_in()){
             echo "Author deleted successfully.";
         }else{
             echo "Author couldn't be deleted.";
