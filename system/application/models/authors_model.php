@@ -16,7 +16,7 @@
         }
 
         function list_authors(){
-            $query = $this->db->query("SELECT * FROM ".$this->_user_table." WHERE id IN (SELECT id FROM ".$this->_table.")");
+            $query = $this->db->query("SELECT * FROM ".$this->_user_table." WHERE id IN (SELECT id FROM ".$this->_table.") and status='active'");
             return $query->result_array();
         }
 
@@ -81,7 +81,15 @@
 
             return true;
         }
-    }
+    
+	function deactivate_author($id){
+		$data = array( 'status' => 'deactivated');
+		$this->db->where('id', $id);
+		$this->db->update('users', $data);
+}
+
+
+}
 
 /* End of file authors_model.php */
 /* Location: ./system/application/models/authors_model.php */
