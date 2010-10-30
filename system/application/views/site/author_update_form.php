@@ -19,14 +19,14 @@
         <td><strong>Name</strong></td>
         <td><input type = "text" name = "name" size = "50" value="<?php echo $row['name']; ?>" /></td>
     </tr>
-    <tr>
+    <?php /*<tr>
         <td><strong>Username</strong></td>
         <td><input type = "text" name = "username" size = "50" value="<?php echo $row['username']; ?>" /></td>
     </tr>
     <tr>
         <td><strong>Password</strong></td>
         <td><input type = "password" name = "password" size = "50"/></td>
-    </tr>
+    </tr> */ ?>
     <tr>
         <td><strong>Email</strong></td>
         <td><input type = "text" name = "email" size = "50" value="<?php echo $row['email']; ?>" /></td>

@@ -39,13 +39,13 @@ class Authors extends Controller {
                     die(json_encode($data));
                 }
             }
-            if($_POST['password'] != $_POST['cpassword']){
+            /*if($_POST['password'] != $_POST['cpassword']){
                 $data['type'] = 'error';
                 $data['description'] = 'Passwords not matching.';
                 die(json_encode($data));
-            }
+            }*/
             unset($_POST['ajax']);
-            unset($_POST['cpassword']);
+            //unset($_POST['cpassword']);
             $return = $this->authors_model->create_author($_POST);
             if($return){
                 $data['type'] = "success";
@@ -76,7 +76,7 @@ class Authors extends Controller {
             foreach($_POST as $key=>$value){
                 if($value=='' && $key!='password'){
                     $data['type'] = 'error';
-                    $data['description'] = 'All fields are compulsory.<br>You have left '.$value.' blank.';
+                    $data['description'] = 'All fields are compulsory.<br>You have left '.$key.' blank.';
                     die(json_encode($data));
                 }
             }

@@ -12,6 +12,7 @@
         <td><strong>Name</strong></td>
         <td><input type = "text" name = "name" size = "50"/></td>
     </tr>
+    <?php /*
     <tr>
         <td><strong>Username</strong></td>
         <td><input type = "text" name = "username" size = "50"/></td>
@@ -23,7 +24,7 @@
     <tr>
         <td><strong>Confirm Password</strong></td>
         <td><input type = "password" name = "cpassword" size = "50"/></td>
-    </tr>
+    </tr>*/ ?>
     <tr>
         <td><strong>Email</strong></td>
         <td><input type = "text" name = "email" size = "50"/></td>
