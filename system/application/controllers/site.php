@@ -106,6 +106,13 @@ class Site extends Controller {
                 $this->dashboard(FALSE);
             }
         }
+
+        function export(){
+            header("Content-type: application/octet-stream");
+            header("Content-Disposition: attachment; filename=\"exported.csv\"");
+            $data=stripcslashes($_REQUEST['csv_text']);
+            echo htmlspecialchars_decode($data);
+        }
 }
 
 /* End of file site.php */

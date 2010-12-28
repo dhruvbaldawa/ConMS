@@ -27,6 +27,7 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.datatables.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.jeditable.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.ui.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>js/table2CSV.js"></script>
 
 <script type="text/javascript" src="<?php echo base_url(); ?>js/excanvas.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/cufon.js"></script>
@@ -182,6 +183,15 @@ $('#add_paper_form').live("submit",function (){
     });
     return false;
 });
+function getCSVData(){
+    var csv_value = $("#data-table").table2CSV({
+        delivery: 'value',
+        exclude:[0,4,6,8]
+    });
+     $("#csv_text").val(csv_value);
+
+    return false;
+}
 </script>
 </head>
 
@@ -218,8 +228,11 @@ $('#add_paper_form').live("submit",function (){
 				<div class="box-body clear">
                 <!-- TABLE -->
 					<div id="data-table">
-						<p></p>
-
+                        <form action="<?php echo base_url(); ?>site/export" method ="post" >
+<input type="hidden" name="csv_text" id="csv_text">
+<input type="submit" value="Export Table"
+       onclick="getCSVData()"  />
+</form>
 						<form method="post" action="#">
 
 						<table class="datatable">
@@ -245,17 +258,18 @@ $('#add_paper_form').live("submit",function (){
 								<td><a href="#" id="paper" rel="<?php echo $arow['id']; ?>"><?php echo $arow['title']; ?></a></td>
                                 <td><?php
                                     if($arow['type'] == 'ltp')
-                                        echo "Long Type";
+                                        echo "No status";
                                     else if($arow['type'] == 'stp')
-                                        echo "Short Type";
+                                        echo "No status";
                                     else
-                                        echo "Poster Type";
+                                        echo "No status";
                                  ?></td>
                                 <td><?php echo $arow['description']; ?></td>
                                 <td>
                                 <?php
+                                    $started = false;
                                     foreach($arow['authors'] as $author){
-                                        if(isset($author['id'])){?><a href="#" id="author" rel="<?php echo $author['id']; ?>"><?php echo $author['name']; ?></a><br /><?php } else{
+                                        if(isset($author['id'])){ if($started) {echo ",";} ?> <a href="#" id="author" rel="<?php echo $author['id']; ?>"><?php  echo $author['name'];if(!$started){$started = true;}?></a><br /><?php } else{
                                             echo $author['name'];
                                    }
                                    }

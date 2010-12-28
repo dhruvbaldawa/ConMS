@@ -45,22 +45,16 @@ class Papers extends Controller {
 
     function get_json_chairpersons($name){
         $name = strtolower($name);
-        $row = $this->db->query("SELECT id,name FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM chairperson)")->result_array();
+        $row = $this->db->query("SELECT id as name,name as caption FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM chairperson)")->result_array();
         $json = json_encode($row);
-        $search = array('id','name');
-        $replace = array('value','caption');
-
-        echo str_replace($search,$replace,$json);
+        echo $json;
     }
 
     function get_json_authors($name){
         $name = strtolower($name);
-        $row = $this->db->query("SELECT id,name FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM authors)")->result_array();
+        $row = $this->db->query("SELECT id as name,name as caption FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM authors)")->result_array();
         $json = json_encode($row);
-        $search = array('id','name');
-        $replace = array('value','caption');
-
-        echo str_replace($search,$replace,$json);
+        echo $json;
     }
 
     function update(){
@@ -68,7 +62,6 @@ class Papers extends Controller {
             $_POST['tracks_id'] = $_POST['tracks_id'][0];
             if(isset($_POST['chairperson_id'][0])){
                 $_POST['chairperson_id'] = $_POST['chairperson_id'][0];
-                unset($_POST['chairperson_id'][0]);
             }
             unset($_POST['ajax']);
             if($this->papers_model->update($_POST)){

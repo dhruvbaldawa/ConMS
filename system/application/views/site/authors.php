@@ -26,6 +26,7 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.datatables.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.jeditable.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.ui.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>js/table2CSV.js"></script>
 
 <script type="text/javascript" src="<?php echo base_url(); ?>js/excanvas.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/cufon.js"></script>
@@ -124,6 +125,15 @@ $('.delete_author').live("click",function(){
     });
     }
 });
+function getCSVData(){
+    var csv_value = $("#data-table").table2CSV({
+        delivery: 'value',
+        exclude:[0,4,6,8]
+    });
+     $("#csv_text").val(csv_value);
+
+    return false;
+}
 </script>
 </head>
 
@@ -158,9 +168,13 @@ $('.delete_author').live("click",function(){
 
 				<div class="box-body clear">
 					<!-- TABLE -->
+                    					<div id="data-table">
+                        <form action="<?php echo base_url(); ?>site/export" method ="post" >
+<input type="hidden" name="csv_text" id="csv_text">
+<input type="submit" value="Export Table"
+       onclick="getCSVData()"  />
+</form>
 					<div id="data-table">
-						<p></p>
-
 						<form method="post" action="#">
 
 						<table class="datatable">
