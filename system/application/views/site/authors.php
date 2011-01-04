@@ -184,6 +184,9 @@ function getCSVData(){
 								<th>ID</th>
 								<th>Name</th>
 								<th>Username</th>
+                                <th>Regsitered</th>
+                                <th>Amount</th>
+                                <th>Extra</th>
 								<th>Actions</th>
 							</tr>
 						</thead>
@@ -195,6 +198,9 @@ function getCSVData(){
 								<td><?php echo $arow['id']; ?></td>
 								<td><a href="#" id="author" rel="<?php echo $arow['id']; ?>"><?php echo $arow['name']; ?></a></td>
                                 <td><?php echo $arow['username']; ?></td>
+                                <td><?php echo $arow['registered']?></td>
+                                <td><?php echo $arow['amount']?></td>
+                                <td><?php echo $arow['extra']?></td>
                                 <td>
 									<a href="#" class="update_author" rel="<?php echo base_url(); ?>authors/view/author_update_form" id="<?php echo $arow['id']; ?>"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
 									<a class="delete_author" id="<?php echo $arow['id'];?>"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>

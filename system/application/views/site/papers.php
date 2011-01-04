@@ -242,10 +242,13 @@ function getCSVData(){
 								<th>ID</th>
 								<th>Title</th>
 								<th>Type</th>
+                                <th>Pages</th>
 								<th>Description</th>
                                 <th>Authors</th>
                                 <th>Chairperson</th>
                                 <th>Track</th>
+                                <th>CRC</th>
+                                <th>Copyright</th>
                                 <th>Actions</th>
 							</tr>
 						</thead>
@@ -264,6 +267,7 @@ function getCSVData(){
                                     else
                                         echo "No status";
                                  ?></td>
+                                 <td><?php echo $arow['pages']?></td>
                                 <td><?php echo $arow['description']; ?></td>
                                 <td>
                                 <?php
@@ -281,6 +285,8 @@ function getCSVData(){
 <?php } else { echo $arow['chairperson']['name']; } ?>
 </td>
                                 <td><?php echo $arow['track']['name']; ?></td>
+                                <td><?php echo $arow['CRC']?></td>
+                                <td><?php echo $arow['copyright']?></td>
                                 <td>
 									<a href="#" class="update_paper" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/paper_update_form"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
 									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
