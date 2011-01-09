@@ -27,11 +27,11 @@
     </tr>
     <tr>
         <td><strong>Type</strong></td>
-        <td><select name="type" size="1" disabled>
+        <td><select name="type" size="1">
                 <option value="pst" selected>No Status</option>
-                <!--<option value="ltp" <?php if ($row['type']=='ltp') echo "selected"; ?>>Long Type</option>
+                <option value="ltp" <?php if ($row['type']=='ltp') echo "selected"; ?>>Long Type</option>
                 <option value="stp" <?php if ($row['type']=='stp') echo "selected"; ?>>Short Type</option>
-                <option value="pst" <?php if ($row['type']=='pst') echo "selected"; ?>>Poster Type</option>    //-->
+                <option value="pst" <?php if ($row['type']=='pst') echo "selected"; ?>>Poster Type</option>
             </select>
         </td>
     </tr>

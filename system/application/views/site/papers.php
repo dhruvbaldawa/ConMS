@@ -261,9 +261,11 @@ function getCSVData(){
 								<td><a href="#" id="paper" rel="<?php echo $arow['id']; ?>"><?php echo $arow['title']; ?></a></td>
                                 <td><?php
                                     if($arow['type'] == 'ltp')
-                                        echo "No status";
+                                        echo "Long Paper";
                                     else if($arow['type'] == 'stp')
-                                        echo "No status";
+                                        echo "Short Paper";
+                                    else if($arow['type'] == 'pst')
+                                        echo "Poster";
                                     else
                                         echo "No status";
                                  ?></td>
