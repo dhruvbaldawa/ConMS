@@ -58,7 +58,7 @@
     </tr>
     <tr>
         <td><strong>Authors</strong></td>
-        <td><select id="authors_id" name="authors_id">
+        <td><select id="authors_id" name="authors_id[]">
         <?php if(isset($author[0])){
             foreach($author as $aauthor){
         ?>

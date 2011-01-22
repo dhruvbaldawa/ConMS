@@ -45,14 +45,14 @@ class Papers extends Controller {
 
     function get_json_chairpersons($name){
         $name = strtolower($name);
-        $row = $this->db->query("SELECT id as name,name as caption FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM chairperson)")->result_array();
+        $row = $this->db->query("SELECT id as value,name as caption FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM chairperson)")->result_array();
         $json = json_encode($row);
         echo $json;
     }
 
     function get_json_authors($name){
         $name = strtolower($name);
-        $row = $this->db->query("SELECT id as name,name as caption FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM authors)")->result_array();
+        $row = $this->db->query("SELECT id as value,name as caption FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM authors)")->result_array();
         $json = json_encode($row);
         echo $json;
     }

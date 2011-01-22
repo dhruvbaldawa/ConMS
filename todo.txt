@@ -1,7 +1,11 @@
-In Site Controller : 
-read Notes in the file
+* Reviewer addition with attribute 'type'
+* Track Manager and Reviewer link up
+* Tracks Managing module
+* Reviewing Module
+* Privelege Based access (V)
 
-In Author_Model : 
-read Notes in the file
+* Settings(D)
 
-Form validation in all the controllers wherever appropriate.
+* Add Mnemonics in Tracks
+* Registration Form
+
