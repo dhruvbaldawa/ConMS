@@ -23,7 +23,7 @@
             <?php }if(!$this->auth_model->is_admin()){?>
             <li><a href="<?php echo base_url(); ?>site/index">Logs</a></li>
             <?php }if(!$this->auth_model->is_admin()||$this->auth_model->is_author()||$this->auth_model->is_chairperson()||$this->auth_model->is_entry()||$this->auth_model->is_manager()){ ?>
-            <li><a href="<?php echo base_url(); ?>site/index">Settings</a></li>
+            <li><a href="<?php echo base_url(); ?>site/settings">Settings</a></li>
             <?php }if(!$this->auth_model->is_admin()||$this->auth_model->is_entry()){ ?>
             <li><a href="<?php echo base_url(); ?>site/wizard">Wizard</a></li>
             <?php } ?>

@@ -4,7 +4,7 @@
 * Reviewing Module
 * Privelege Based access (V)
 
-* Settings(D)
+* Settings DONE !!!!!!!!!!!!!!!
 
 * Add Mnemonics in Tracks
 * Registration Form
