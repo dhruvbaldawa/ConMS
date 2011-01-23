@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.8
+-- version 3.2.4
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 22, 2011 at 11:32 PM
+-- Generation Time: Jan 23, 2011 at 11:33 AM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -56,6 +56,7 @@ CREATE TABLE IF NOT EXISTS `authors` (
 --
 
 INSERT INTO `authors` (`id`, `registered`) VALUES
+(7, 'yes'),
 (14, 'yes'),
 (15, 'yes'),
 (16, 'yes'),
@@ -1096,7 +1097,8 @@ INSERT INTO `authors` (`id`, `registered`) VALUES
 (1051, 'yes'),
 (1052, 'yes'),
 (1053, 'yes'),
-(1054, 'yes');
+(1054, 'yes'),
+(1111, 'yes');
 
 -- --------------------------------------------------------
 
@@ -2466,7 +2468,6 @@ CREATE TABLE IF NOT EXISTS `managers` (
 INSERT INTO `managers` (`id`) VALUES
 (2),
 (6),
-(7),
 (8),
 (9);
 
@@ -3052,6 +3053,23 @@ CREATE TABLE IF NOT EXISTS `payments` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reviewer`
+--
+
+CREATE TABLE IF NOT EXISTS `reviewer` (
+  `id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reviewer`
+--
+
+INSERT INTO `reviewer` (`id`) VALUES
+(6);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `settings`
 --
 
@@ -3139,7 +3157,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1055 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1112 ;
 
 --
 -- Dumping data for table `users`
@@ -3151,7 +3169,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `name`, `email`, `home_instit
 (3, 'entry', '230eb2bdf770ab658a74b7b35f88508ee6844703', 'Entry', '', 0, '', '', '', '', '', '', 'active'),
 (4, 'author', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author', 'dhruvbaldawa@gmail.com', 1, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India', 'active'),
 (5, 'chairperson', '56625fa95bb4d15cfe294da2df8c28f0d2692619', 'Chairperson', '', 0, '', '', '', '', '', '', 'active'),
-(6, 'author1', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 1', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India', 'active'),
+(6, 'reviewer', 'reviewer', 'reviewer', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India', 'active'),
 (7, 'author2', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 2', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India', 'active'),
 (8, 'author3', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 3', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India', 'active'),
 (9, 'author4', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 4', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India', 'active'),
@@ -4200,7 +4218,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `name`, `email`, `home_instit
 (1051, NULL, NULL, 'Deepak Krishnan Unnikrishnan', '', 0, '', '', '', '', '', '', 'active'),
 (1052, NULL, NULL, 'Ajay. Yadav', '', 0, '', '', '', '', '', '', 'active'),
 (1053, NULL, NULL, 'Abheek Misra', '', 0, '', '', '', '', '', '', 'active'),
-(1054, NULL, NULL, 'Mithun Muralidharan', '', 0, '', '', '', '', '', '', 'active');
+(1054, NULL, NULL, 'Mithun Muralidharan', '', 0, '', '', '', '', '', '', 'active'),
+(1111, 'viv', NULL, 'viv', 'abc', 0, '333wg', 'xdvset', 'wq3twe', 'segsd', 'v3tsdgs', 'dgs3twg', 'active');
 
 --
 -- Constraints for dumped tables
@@ -4260,3 +4279,7 @@ ALTER TABLE `payments`
 --
 ALTER TABLE `tracks`
   ADD CONSTRAINT `fk_tracks_managers1` FOREIGN KEY (`managers_id`) REFERENCES `managers` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

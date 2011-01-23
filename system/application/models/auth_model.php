@@ -79,6 +79,12 @@
                 else
                     $data['is_manager'] = FALSE;
 
+                $query = $this->db->get_where('reviewer',array('id'=>$data['id']));
+                if($query->num_rows > 0)
+                    $data['is_reviewer'] = TRUE;
+                else
+                    $data['is_reviewer'] = FALSE;
+
                 $query = $this->db->get_where('entry',array('id'=>$data['id']));
                 if($query->num_rows > 0)
                     $data['is_entry'] = TRUE;
@@ -111,6 +117,12 @@
 
          function is_chairperson(){
              if($this->session->userdata('is_chairperson') == TRUE)
+                return TRUE;
+             return FALSE;
+         }
+
+         function is_reviewer(){
+             if($this->session->userdata('is_reviewer') == TRUE)
                 return TRUE;
              return FALSE;
          }

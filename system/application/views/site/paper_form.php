@@ -14,11 +14,13 @@
     </tr>
     <tr>
         <td><strong>Type</strong></td>
-        <td><select name="type" size="1">
+        <td><?php if ($this->auth_model->is_chairperson() || $this->auth_model->is_reviewer() || $this->auth_model->is_admin() || $this->auth_model->is_manager()){ ?><select name="type" size="1">
                 <option value="ltp">Long Type</option>
                 <option value="stp">Short Type</option>
                 <option value="pst">Poster Type</option>
+
             </select>
+            <?php } ?>
         </td>
     </tr>
     <tr>

@@ -17,6 +17,17 @@ class Papers extends Controller {
             $this->load->view('site/login');
         }
 
+    function index($data){
+        if($this->auth_model->logged_in()){
+            //List all the papers related to id
+            $rows = $this->papers_model->list_papers($data);
+            $data['title'] = "Papers";
+            $data['rows'] = $rows;
+            $this->load->view('site/papers',$data);
+        }else{
+            $this->load->view('site/login');
+        }
+
     }
 
     function get_all_info(){
@@ -28,6 +39,7 @@ class Papers extends Controller {
         else
             $this->index();
     }
+
 
         function view($name){
         $this->load->view("site/".$name);

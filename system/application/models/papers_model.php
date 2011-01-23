@@ -122,4 +122,38 @@ class Papers_model extends Model {
 		return $results;
 	}
 }
+	function list_papers($data) {
+		$query = $this->db->get($this->_table);
+		$results = $query->result_array();
+		for ($i = 0; $i < sizeof($results); $i++) {
+			$temp = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id =" . $data ." and status='active'");
+			if ($temp->num_rows > 0) {
+				$results[$i]['authors'] = $temp->result_array();
+			}
+			else {
+			$temp1 = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id =" . $data . " and status='deactivated'");
+			if ($temp1->num_rows > 0) {
+				$results[$i]['authors'] = $temp1->result_array();
+			}
+			else{
+				$results[$i]['authors'] = array(array("name" => "Not Assigned"));
+			}
+			}
+			if ($results[$i]['chairperson_id'] != 0) {
+				$temp = $this->db->query("SELECT name FROM " . $this->_user_table . " WHERE id = " . $results[$i]['chairperson_id']);
+				$results[$i]['chairperson'] = $temp->row_array();
+			}
+			else {
+				$results[$i]['chairperson'] = array("name" => "Not Assigned");
+			}
+			if (isset ($results[$i]['tracks_id'])) {
+				$temp = $this->db->query("SELECT name FROM tracks WHERE id = " . $results[$i]['tracks_id']);
+				$results[$i]['track'] = $temp->row_array();
+			}
+			else {
+				$results[$i]['track']['name'] = "Not Assigned";
+			}
+		}
+		return $results;
+	}
 ?>

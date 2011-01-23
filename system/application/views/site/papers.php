@@ -287,7 +287,7 @@ function getCSVData(){
 <?php } else { echo $arow['chairperson']['name']; } ?>
 </td>
                                 <td><?php echo $arow['track']['name']; ?></td>
-                                <td><?php echo $arow['CRC']?></td>
+                                <td><?php echo $arow['crc']?></td>
                                 <td><?php echo $arow['copyright']?></td>
                                 <td>
 									<a href="#" class="update_paper" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/paper_update_form"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
