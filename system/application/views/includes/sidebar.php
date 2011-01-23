@@ -17,7 +17,7 @@
             <?php }if($this->auth_model->is_admin() || $this->auth_model->is_chairperson() || $this->auth_model->is_entry() || $this->auth_model->is_author() || $this->auth_model->is_reviewer()){ ?>
             <li><a href="<?php echo base_url(); ?>papers">Papers</a></li>
             <?php }if($this->auth_model->is_admin() || $this->auth_model->is_manager()){?>
-            <li><a href="<?php echo base_url(); ?>site/index">Tracks</a></li>
+            <li><a href="<?php echo base_url(); ?>tracks">Tracks</a></li>
             <?php }if($this->auth_model->is_admin()){?>
             <li><a href="<?php echo base_url(); ?>site/index">Users</a></li>
             <?php }if($this->auth_model->is_admin()){?>

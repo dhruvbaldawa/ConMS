@@ -1,11 +1,11 @@
-* Reviewer addition with attribute 'type'
+* Reviewer addition with attribute 'type' DONE !!!!!!!!!!!!
 * Track Manager and Reviewer link up
-* Tracks Managing module
+* Tracks Managing module DONE !!!!!!!!!!!!!!
 * Reviewing Module
 * Privelege Based access (V)
 
 * Settings DONE !!!!!!!!!!!!!!!
 
-* Add Mnemonics in Tracks
+* Add Mnemonics in Tracks DONE !!!!!!!!!!!!
 * Registration Form
 

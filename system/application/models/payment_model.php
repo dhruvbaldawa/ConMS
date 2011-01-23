@@ -1,5 +1,4 @@
 <?php
-
 	class Payment_model extends Model{
 		$table='payment';
 		function Payment_model(){
@@ -61,7 +60,3 @@
 		return $query->row_array();
 		}
 	}
-
-
-?>
-		

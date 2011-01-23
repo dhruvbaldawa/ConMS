@@ -70,7 +70,7 @@ function InitTables () {
 		'bLengthChange': true,
 		'bPaginate': true,
 		'sPaginationType': 'full_numbers',
-		'iDisplayLength': 5,
+		'iDisplayLength': -1,
 		'bInfo': false,
 		'oLanguage': 
 		{

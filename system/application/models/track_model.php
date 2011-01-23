@@ -1,35 +1,28 @@
 <?php
-	class Track_model extends Model{
-		$this->_table='tracks';
-		$this->_user_table='users';
-		$this->_paper_table='paper';
-		function track_model(){
-			parent::Model();
-		}
+class Track_model extends Model {
+	function track_model() {
+		parent :: Model();
+        $this->_table = 'tracks';
+	}
+    function list_tracks(){
+        $data = $this->db->query("SELECT id,name,mne FROM ".$this->_table)->result_array();
+        $returnData = array();
+        $i = 0;
+        foreach($data as $line){
+            $temp = $this->db->query("SELECT COUNT(*) AS count FROM paper WHERE tracks_id = '".$line['id']."'")->row_array();
+            $returnData[$i]['count'] = $temp['count'];
+            $returnData[$i]['id'] = $line['id'];
+            $returnData[$i]['name'] = $line['name'].' ('.$line['mne'].')';
+            $i++;
+        }
+        return $returnData;
+    }
 
-		 function list_tracks(){
-            		 $query = $this->db->query("SELECT tracks.id,tracks.name,tracks.managers_id,users.name 		FROM"._table,_user_table."WHERE tracks.id=users.id");
-		 $results = $query->result_array();
-            		  for($i=0;$i<sizeof($results);$i++){
-$temp = $this->db->query("SELECT count(`id`) from"._paper_table." where tracks_id=".results[$i]['id']);
-$results[$i]['papercount'] = $temp->result_array();
-           		 }	
-            		 return $results;
-        		}
-
-        		function get_details($id){
-            		$query = $this->db->get_where($this->_table,array('id'=>$id));
-            		return $query->row_array();
-		}
-
-		funtion get_papers($id){
-		$CI =& get_instance();
-                	$CI->load->model('paper_model');
-		$query=$CI->paper_model->paper_status(array('track_id'=$id));
-                	$this->paper_model = $CI->paper_model;
+	function get_details($id) {
+		$query = $this->db->get_where($this->_table, array('id' => $id));
 		return $query->row_array();
-		}
-
 	}
 
-?>
+}
+/* End of file track_model.php */
+/* Location: ./system/application/models/track_model.php */
