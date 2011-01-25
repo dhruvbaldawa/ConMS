@@ -1,11 +1,21 @@
-* Reviewer addition with attribute 'type' DONE !!!!!!!!!!!!
+
 * Track Manager and Reviewer link up
-* Tracks Managing module DONE !!!!!!!!!!!!!!
+
 * Reviewing Module
 * Privelege Based access (V)
 
-* Settings DONE !!!!!!!!!!!!!!!
-
-* Add Mnemonics in Tracks DONE !!!!!!!!!!!!
 * Registration Form
 
+* phpexcel (V)
+* Payment module
+* Paper State
+* Paper details updation (V)
+* Track Report generation
+
+* Display individual paper/author details as per new database structure
+
+
+Dashboard
+* Author - his paper details
+* Track manager- State of all papers in his track
+ 

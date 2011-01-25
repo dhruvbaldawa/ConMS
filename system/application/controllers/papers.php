@@ -16,8 +16,9 @@ class Papers extends Controller {
         }else{
             $this->load->view('site/login');
         }
+    }
 
-    function index($data){
+/*    function index($data){
         if($this->auth_model->logged_in()){
             //List all the papers related to id
             $rows = $this->papers_model->list_papers($data);
@@ -29,7 +30,7 @@ class Papers extends Controller {
         }
 
     }
-
+ */
     function get_all_info(){
         if($this->input->post('ajax')==1){
             $row = $this->papers_model->get_paper_details($this->input->post('id'));
