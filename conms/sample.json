@@ -1,0 +1,154 @@
+http://www.jsonlint.com/
+{
+    "authors": {
+        "state": "authors",
+        "valid_words": [
+            "authors",
+            "details",
+            "with"
+        ],
+        "default_attributes": [
+            "id",
+            "name"
+        ],
+        "tables": [
+            "users",
+            "authors"
+        ],
+        "default_conditions": [
+            "1",
+            "AND users.id = authors.id"
+        ],
+        "attributes": [
+            "id",
+            "name"
+        ],
+        "references": [
+            "authors.id",
+            "users.name"
+        ]
+    }
+}
+
+
+[
+    {
+        "id": 0,
+        "name": "get",
+        "transitions": [
+            {
+                "input": "authors",
+                "next_state": 1
+            }
+        ],
+        "triggers": false,
+        "final": false
+    },
+    {
+        "id": 1,
+        "name": "authors",
+        "transitions": [
+            {
+                "input": "details",
+                "next_state": 2
+            },
+            {
+                "input": "with",
+                "next_state": 5
+            }
+        ],
+        "triggers": true,
+        "trigger_data": [
+            {
+                "type": "change_state",
+                "next_state": "authors"
+            }
+        ],
+        "final": true
+    },
+    {
+        "id": 2,
+        "name": "details",
+        "transitions": [
+            {
+                "input": "(",
+                "next_state": 3
+            },
+            {
+                "input": "with",
+                "next_state": 5
+            }
+        ],
+        "triggers": false,
+        "final": true
+    },
+    {
+        "id": 3,
+        "name": "attributes",
+        "transitions": [
+            {
+                "input": "",
+                "next_state": 4
+            }
+        ],
+        "triggers": true,
+        "trigger_data": [
+            {
+                "type": "attributes"
+            }
+        ],
+        "final": false
+    },
+    {
+        "id": 4,
+        "name": "end_attributes",
+        "transitions": [
+            {
+                "input": "with",
+                "next_state": 5
+            }
+        ],
+        "triggers": false,
+        "final": true
+    },
+    {
+        "id": 5,
+        "name": "with",
+        "transitions": [
+            {
+                "input": "(",
+                "next_state": 6
+            }
+        ],
+        "triggers": false,
+        "final": false
+    },
+    {
+        "id": 6,
+        "name": "conditions",
+        "transitions": [
+            {
+                "next_state": 7
+            }
+        ],
+        "triggers": true,
+        "trigger_data": [
+            {
+                "type": "condition"
+            }
+        ],
+        "final": false
+    },
+    {
+        "id": 7,
+        "name": "end_condition",
+        "transitions": [
+            {
+                "input": "having",
+                "next_state": 8
+            }
+        ],
+        "triggers": false,
+        "final": true
+    }
+]
