@@ -75,10 +75,25 @@ class Compiler {
 		$this->_main_states = '{"authors":{"state":"authors","valid_words":["authors","details","with"],"default_attributes":["id","name"],"tables":["users","authors"],"default_conditions":["1","AND users.id = authors.id"],"attributes":["id","name"],"references":["authors.id","users.name"]}}';
         $this->_states = '[{"id":0,"name":"get","transitions":[{"input":"authors","next_state":1}],"triggers":false,"final":false},{"id":1,"name":"authors","transitions":[{"input":"details","next_state":2},{"input":"with","next_state":5}],"triggers":true,"trigger_data":[{"type":"change_state","next_state":"authors"}],"final":true},{"id":2,"name":"details","transitions":[{"input":"(","next_state":3},{"input":"with","next_state":5}],"triggers":false,"final":true},{"id":3,"name":"attributes","transitions":[{"input":"","next_state":4}],"triggers":true,"trigger_data":[{"type":"attributes"}],"final":false},{"id":4,"name":"end_attributes","transitions":[{"input":"with","next_state":5}],"triggers":false,"final":true},{"id":5,"name":"with","transitions":[{"input":"(","next_state":6}],"triggers":false,"final":false},{"id":6,"name":"conditions","transitions":[{"next_state":7}],"triggers":true,"trigger_data":[{"type":"condition"}],"final":false},{"id":7,"name":"end_condition","transitions":[{"input":"having","next_state":8}],"triggers":false,"final":true}]';
 
-	$this->_text = "get authors details";
+	$this->_text = "get authors with ( asas jgjg hghg hggh ) having ( asdasd asdasd asdasd asasdasdasd )";
         $this->_main_states = json_decode($this->_main_states);
         $this->_states = json_decode($this->_states);
         $this->_words = explode(" ",$this->_text);
+			$i = 0;
+        while($i < sizeof($this->_words)){
+        		if($this->_words[$i] == "("){
+        			$j = $i;
+        			while($this->_words[$i] != ")"){
+        				$this->_words[$j] = $this->_words[$j]." ".$this->_words[$i];
+        				unset($this->_words[$i]);
+        				$i++;
+        			}
+        			unset($this->_words[$i]);
+        		}
+        		else{
+        			$i++;
+        		}
+        }
         $this->_query = new QueryBuilder();
         $this->_current_main_state = "start";
         $this->_previous_main_state = "start";
@@ -98,6 +113,10 @@ class Compiler {
         	}
         	$i = 1;
         	while($i < sizeof($this->_words) && !$this->_error){
+        		if(!isset($this->_words[$i])){
+        			echo $i." is empty. <br />";
+        			$i++;
+        		}
             		$checked = array();
             		for($j=0;$j<sizeof($this->_states[$this->_current_state]->transitions);$j++){
                 		$checked[] = "'".$this->_states[$this->_current_state]->transitions[$j]->input."'";
@@ -129,6 +148,7 @@ class Compiler {
         	}
         	
         	echo "<pre>";
+        	print_r($this->_words);
         	print_r($this->_main_states);
         	print_r($this->_states);
         	echo "</pre>";
