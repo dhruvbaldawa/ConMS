@@ -16,7 +16,8 @@
         }
 
         function list_authors(){
-            $query = $this->db->query("SELECT * FROM ".$this->_user_table." WHERE id IN (SELECT id FROM ".$this->_table.")");
+
+            $query = $this->db->query("SELECT users.id,username,name,registered FROM ".$this->_user_table.",".$this->_table." WHERE users.id=authors.id");
             return $query->result_array();
         }
 
