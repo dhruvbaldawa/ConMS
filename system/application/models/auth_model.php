@@ -97,6 +97,9 @@
             return false;
          }
 
+         function get_user(){
+             return $this->session->userdata('id');        
+         }
          function logged_in(){
              if($this->session->userdata('logged_in') == TRUE)
                 return TRUE;

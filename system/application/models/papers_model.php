@@ -2,6 +2,7 @@
 class Papers_model extends Model {
 	function Papers_model() {
 		parent :: Model();
+		$this->load->model('auth_model');
 		$this->_table = 'paper';
 		$this->_author_paper_table = 'author_paper';
 		$this->_user_table = 'users';
@@ -87,42 +88,190 @@ class Papers_model extends Model {
 	function delete($id) {
 		$this->db->delete($this->_table, array('id' => $id));
 	}
+
 	function list_papers() {
-		$query = $this->db->get($this->_table);
-		$results = $query->result_array();
-		for ($i = 0; $i < sizeof($results); $i++) {
-			$temp = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='active'");
-			if ($temp->num_rows > 0) {
-				$results[$i]['authors'] = $temp->result_array();
+		if($this->auth_model-> is_admin()){
+			$query = $this->db->get($this->_table);
+			$results = $query->result_array();
+			for ($i = 0; $i < sizeof($results); $i++) {
+				$temp = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='active'");
+				if ($temp->num_rows > 0) {
+					$results[$i]['authors'] = $temp->result_array();
+				}
+				else {
+					$temp1 = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='deactivated'");
+					if ($temp1->num_rows > 0) {
+						$results[$i]['authors'] = $temp1->result_array();
+					}
+					else{
+						$results[$i]['authors'] = array(array("name" => "Not Assigned"));
+					}
+				}
+				if ($results[$i]['chairperson_id'] != 0) {
+					$temp = $this->db->query("SELECT name FROM " . $this->_user_table . " WHERE id = " . $results[$i]['chairperson_id']);
+					$results[$i]['chairperson'] = $temp->row_array();
+				}
+				else {
+					$results[$i]['chairperson'] = array("name" => "Not Assigned");
+				}
+				if (isset ($results[$i]['tracks_id'])) {
+					$temp = $this->db->query("SELECT name FROM tracks WHERE id = " . $results[$i]['tracks_id']);
+					$results[$i]['track'] = $temp->row_array();
+				}
+				else {
+					$results[$i]['track']['name'] = "Not Assigned";
+				}
 			}
-			else {
-			$temp1 = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='deactivated'");
-			if ($temp1->num_rows > 0) {
-				$results[$i]['authors'] = $temp1->result_array();
-			}
-			else{
-				$results[$i]['authors'] = array(array("name" => "Not Assigned"));
-			}
-			}
-			if ($results[$i]['chairperson_id'] != 0) {
-				$temp = $this->db->query("SELECT name FROM " . $this->_user_table . " WHERE id = " . $results[$i]['chairperson_id']);
-				$results[$i]['chairperson'] = $temp->row_array();
-			}
-			else {
-				$results[$i]['chairperson'] = array("name" => "Not Assigned");
-			}
-			if (isset ($results[$i]['tracks_id'])) {
-				$temp = $this->db->query("SELECT name FROM tracks WHERE id = " . $results[$i]['tracks_id']);
-				$results[$i]['track'] = $temp->row_array();
-			}
-			else {
-				$results[$i]['track']['name'] = "Not Assigned";
-			}
+			return $results;
 		}
-		return $results;
+
+		if($this->auth_model-> is_manager()){
+			$managerid=$this->auth_model->get_user();
+			$query = $this->db->query("select * from paper where tracks_id in (select id from tracks where managers_id=".$managerid.")");
+			$results = $query->result_array();
+			for ($i = 0; $i < sizeof($results); $i++) {
+				$temp = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='active'");
+				if ($temp->num_rows > 0) {
+					$results[$i]['authors'] = $temp->result_array();
+				}
+				else {
+					$temp1 = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='deactivated'");
+					if ($temp1->num_rows > 0) {
+						$results[$i]['authors'] = $temp1->result_array();
+					}
+					else{
+						$results[$i]['authors'] = array(array("name" => "Not Assigned"));
+					}
+				}
+				if ($results[$i]['chairperson_id'] != 0) {
+					$temp = $this->db->query("SELECT name FROM " . $this->_user_table . " WHERE id = " . $results[$i]['chairperson_id']);
+					$results[$i]['chairperson'] = $temp->row_array();
+				}
+				else {
+					$results[$i]['chairperson'] = array("name" => "Not Assigned");
+				}
+				if (isset ($results[$i]['tracks_id'])) {
+					$temp = $this->db->query("SELECT name FROM tracks WHERE id = " . $results[$i]['tracks_id']);
+					$results[$i]['track'] = $temp->row_array();
+				}
+				else {
+					$results[$i]['track']['name'] = "Not Assigned";
+				}
+			}
+			return $results;
+		}
+
+		if($this->auth_model-> is_author()){
+			$authorid=$this->auth_model->get_user();
+			$query = $this->db->query("select * from paper where id in (select paper_id from author_paper where authors_id=".$authorid.")");
+			$results = $query->result_array();
+			for ($i = 0; $i < sizeof($results); $i++) {
+				$temp = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='active'");
+				if ($temp->num_rows > 0) {
+					$results[$i]['authors'] = $temp->result_array();
+				}
+				else {
+					$temp1 = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='deactivated'");
+					if ($temp1->num_rows > 0) {
+						$results[$i]['authors'] = $temp1->result_array();
+					}
+					else{
+						$results[$i]['authors'] = array(array("name" => "Not Assigned"));
+					}
+				}
+				if ($results[$i]['chairperson_id'] != 0) {
+					$temp = $this->db->query("SELECT name FROM " . $this->_user_table . " WHERE id = " . $results[$i]['chairperson_id']);
+					$results[$i]['chairperson'] = $temp->row_array();
+				}
+				else {
+					$results[$i]['chairperson'] = array("name" => "Not Assigned");
+				}
+				if (isset ($results[$i]['tracks_id'])) {
+					$temp = $this->db->query("SELECT name FROM tracks WHERE id = " . $results[$i]['tracks_id']);
+					$results[$i]['track'] = $temp->row_array();
+				}
+				else {
+					$results[$i]['track']['name'] = "Not Assigned";
+				}
+			}
+			return $results;
+		}
+
+/*		if($this->auth_model-> is_chairperson()){
+			$chairpersonid=$this->auth_model->get_user();
+			$query = $this->db->query("select * from paper where chairperson_id=".$chairpersonid.");
+			$results = $query->result_array();
+			for ($i = 0; $i < sizeof($results); $i++) {
+				$temp = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='active'");
+				if ($temp->num_rows > 0) {
+					$results[$i]['authors'] = $temp->result_array();
+				}
+				else {
+					$temp1 = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='deactivated'");
+					if ($temp1->num_rows > 0) {
+						$results[$i]['authors'] = $temp1->result_array();
+					}
+					else{
+						$results[$i]['authors'] = array(array("name" => "Not Assigned"));
+					}
+				}
+				if ($results[$i]['chairperson_id'] != 0) {
+					$temp = $this->db->query("SELECT name FROM " . $this->_user_table . " WHERE id = " . $results[$i]['chairperson_id']);
+					$results[$i]['chairperson'] = $temp->row_array();
+				}
+				else {
+					$results[$i]['chairperson'] = array("name" => "Not Assigned");
+				}
+				if (isset ($results[$i]['tracks_id'])) {
+					$temp = $this->db->query("SELECT name FROM tracks WHERE id = " . $results[$i]['tracks_id']);
+					$results[$i]['track'] = $temp->row_array();
+				}
+				else {
+					$results[$i]['track']['name'] = "Not Assigned";
+				}
+			}
+			return $results;
+		}
+
+*/
+		if($this->auth_model-> is_reviewer()){
+			$reviewerid=$this->auth_model->get_user();
+			$query = $this->db->query("select * from paper where id in (select paper_id from reviewer_paper where reviewer_id=".$reviewerid.")");
+			$results = $query->result_array();
+			for ($i = 0; $i < sizeof($results); $i++) {
+				$temp = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='active'");
+				if ($temp->num_rows > 0) {
+					$results[$i]['authors'] = $temp->result_array();
+				}
+				else {
+					$temp1 = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='deactivated'");
+					if ($temp1->num_rows > 0) {
+						$results[$i]['authors'] = $temp1->result_array();
+					}
+					else{
+						$results[$i]['authors'] = array(array("name" => "Not Assigned"));
+					}
+				}
+				if ($results[$i]['chairperson_id'] != 0) {
+					$temp = $this->db->query("SELECT name FROM " . $this->_user_table . " WHERE id = " . $results[$i]['chairperson_id']);
+					$results[$i]['chairperson'] = $temp->row_array();
+				}
+				else {
+					$results[$i]['chairperson'] = array("name" => "Not Assigned");
+				}
+				if (isset ($results[$i]['tracks_id'])) {
+					$temp = $this->db->query("SELECT name FROM tracks WHERE id = " . $results[$i]['tracks_id']);
+					$results[$i]['track'] = $temp->row_array();
+				}
+				else {
+					$results[$i]['track']['name'] = "Not Assigned";
+				}
+			}
+			return $results;
+		}
 	}
-}
-	function list_papers($data) {
+}	
+function list_papers($data) {
 		$query = $this->db->get($this->_table);
 		$results = $query->result_array();
 		for ($i = 0; $i < sizeof($results); $i++) {
