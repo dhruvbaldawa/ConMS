@@ -27,7 +27,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter User Guide Version 1.7.2</h1></td>
+<td><h1>CodeIgniter User Guide Version 2.0.2</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
 </tr>
 </table>
@@ -83,10 +83,10 @@ class&nbsp;Blogmodel&nbsp;extends&nbsp;Model&nbsp;{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;var $content = '';<br />
 &nbsp;&nbsp;&nbsp;&nbsp;var $date&nbsp;&nbsp;&nbsp; = '';<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;Blogmodel()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;__construct()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Call the Model constructor<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::Model();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;get_last_ten_entries()<br />
@@ -128,9 +128,9 @@ want this type of organization.</p>
 <code>
 class&nbsp;<var>Model_name</var>&nbsp;extends&nbsp;Model&nbsp;{<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;<var>Model_name</var>()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;<var>__construct</var>()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::Model();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }</code>
 
@@ -142,9 +142,9 @@ Make sure your class extends the base Model class.</p>
 <code>
 class&nbsp;<var>User_model</var>&nbsp;extends&nbsp;Model&nbsp;{<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;<var>User_model</var>()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;<var>__construct</var>()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::Model();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }</code>
 
@@ -212,7 +212,7 @@ class&nbsp;Blog_controller&nbsp;extends&nbsp;Controller&nbsp;{<br />
 <li>You can tell the model loading function to auto-connect by passing <kbd>TRUE</kbd> (boolean) via the third parameter,
 and connectivity settings, as defined in your database config file will be used:
 
-	<code>$this->load->model('<var>Model_name</var>', '', <kbd>TRUE</kbd>);</code>	
+	<code>$this->load->model('<var>Model_name</var>', '', <kbd>TRUE</kbd>);</code>
 	</li>
 
 
@@ -244,7 +244,7 @@ Previous Topic:&nbsp;&nbsp;<a href="views.html">Views</a>
 <a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 Next Topic:&nbsp;&nbsp;<a href="helpers.html">Helpers</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006-2010 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
+<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
 
 </body>
