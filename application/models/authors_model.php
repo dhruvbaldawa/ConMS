@@ -7,7 +7,7 @@
 *   Implement whatever appropriate. I would suggest 2nd method.
 */
 class Authors_model extends Model {
-	function Authors::__construct() {
+	function __construct() {
 		parent :: __construct();
 		$this->_table = 'authors';
 		$this->_paper_table = 'papers';
