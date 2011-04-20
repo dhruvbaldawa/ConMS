@@ -16,6 +16,16 @@ class Tracks extends Controller {
 		if ($this->auth_model->logged_in() === TRUE){
 			$data['tracks'] = $this->track_model->list_tracks();
             $data['title'] = "Tracks";
+
+        /**
+         * $data contains :
+         * title <string> : title to set the page title
+         * tracks <array> : each element contains information regarding tracks
+         *      id <number> : track id
+         *      name <string> : track name
+         *      mne <string> : track mnemonic
+         */
+
             $this->load->view('site/tracks',$data);
         }
 		else {

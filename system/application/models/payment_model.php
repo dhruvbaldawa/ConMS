@@ -1,6 +1,6 @@
 <?php
 	class Payment_model extends Model{
-		$table='payment';
+		$this->_payments_table='payment';
 		function Payment_model(){
 			parent::Model();
 		}
@@ -60,3 +60,6 @@
 		return $query->row_array();
 		}
 	}
+
+/* End of file payment_model.php */
+/* Location: ./system/application/models/payment_model.php */
