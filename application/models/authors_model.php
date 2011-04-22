@@ -38,12 +38,14 @@ class Authors_model extends Model {
 	function create_author($data) {
 		$CI = & get_instance();
 		$CI->load->model('auth_model');
-		$id = $CI->auth_model->create($data);
+		$row = $CI->auth_model->create($data);
+        $id = $row['id'];
+        $data = array('id' => $id);
 		if (!$id) {
 			return false;
 		}
-		if ($this->db->query("INSERT INTO " . $this->_table . " VALUES (" . $id['id'] . ")")) {
-			return $id;
+		if ($this->db->insert($this->_table,$data)) {
+			return $row;
 		}
 		else {
 			return false;

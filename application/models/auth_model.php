@@ -27,7 +27,12 @@ class Auth_model extends Model {
 	}
 	function create($data) {
 //Calculate the hash for password.
-		$data['password'] = $this->encrypt_password($data['password']);
+        if(!isset($data['password'])){
+            unset($data['password']);
+        }
+		else{
+		    $data['password'] = $this->encrypt_password($data['password']);
+        }
 //Empty because the 'id' is AUTO_INCREMENT in the database
 		$data['id'] = "";
 		if ($this->db->insert('users', $data)) {
