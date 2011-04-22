@@ -124,7 +124,7 @@ class Papers_model extends Model {
 		}
 		if ($this->auth_model->is_manager()) {
 			$managerid = $this->auth_model->get_user();
-			$query = $this->db->query("select * from paper where tracks_id in (select id from tracks where managers_id=" . $managerid . ")");
+			$query = $this->db->query("select * FROM " . $this->_table . " where tracks_id in (select id from tracks where managers_id=" . $managerid . ")");
 			$results = $query->result_array();
 			for ($i = 0; $i < sizeof($results); $i++) {
 				$temp = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='active'");
@@ -159,7 +159,7 @@ class Papers_model extends Model {
 		}
 		if ($this->auth_model->is_author()) {
 			$authorid = $this->auth_model->get_user();
-			$query = $this->db->query("select * from paper where id in (select paper_id from author_paper where authors_id=" . $authorid . ")");
+			$query = $this->db->query("select * FROM ". $this->_table . " where id in (select paper_id from author_paper where authors_id=" . $authorid . ")");
 			$results = $query->result_array();
 			for ($i = 0; $i < sizeof($results); $i++) {
 				$temp = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='active'");
