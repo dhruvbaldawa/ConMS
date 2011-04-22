@@ -1,0 +1,27 @@
+Everybody, just check this file, for new messages.
+
+[22 April 2011 10:35:10] : Updated CodeIgniter to 2.0.2
+Everybody pull into your repositories.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tip: when you try to put some entry in here and want to put date
+paste this into your addressbar : 
+javascript:document.write(new Date().toLocaleString());
