@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.4
+-- version 3.3.8
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 09, 2011 at 11:34 AM
+-- Generation Time: Apr 22, 2011 at 04:06 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -46,7 +46,7 @@ INSERT INTO `admin` (`id`) VALUES
 
 CREATE TABLE IF NOT EXISTS `authors` (
   `id` int(10) unsigned NOT NULL,
-  `registered` enum('yes','no') NOT NULL,
+  `registered` enum('yes','no') NOT NULL DEFAULT 'no',
   PRIMARY KEY (`id`),
   KEY `fk_author_users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -56,7 +56,6 @@ CREATE TABLE IF NOT EXISTS `authors` (
 --
 
 INSERT INTO `authors` (`id`, `registered`) VALUES
-(7, 'yes'),
 (14, 'yes'),
 (15, 'yes'),
 (16, 'yes'),
@@ -1098,7 +1097,7 @@ INSERT INTO `authors` (`id`, `registered`) VALUES
 (1052, 'yes'),
 (1053, 'yes'),
 (1054, 'yes'),
-(1111, 'yes');
+(1066, 'no');
 
 -- --------------------------------------------------------
 
@@ -2468,6 +2467,7 @@ CREATE TABLE IF NOT EXISTS `managers` (
 INSERT INTO `managers` (`id`) VALUES
 (2),
 (6),
+(7),
 (8),
 (9);
 
@@ -3179,7 +3179,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1112 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1067 ;
 
 --
 -- Dumping data for table `users`
@@ -3191,7 +3191,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `name`, `email`, `home_instit
 (3, 'entry', '230eb2bdf770ab658a74b7b35f88508ee6844703', 'Entry', '', 0, '', '', '', '', '', '', 'active'),
 (4, 'author', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author', 'dhruvbaldawa@gmail.com', 1, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India', 'active'),
 (5, 'chairperson', '56625fa95bb4d15cfe294da2df8c28f0d2692619', 'Chairperson', '', 0, '', '', '', '', '', '', 'active'),
-(6, 'reviewer', 'reviewer', 'reviewer', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India', 'active'),
+(6, 'author1', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 1', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India', 'active'),
 (7, 'author2', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 2', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India', 'active'),
 (8, 'author3', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 3', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India', 'active'),
 (9, 'author4', '65cb0d6c2e090e6f68305eea9b376b2595174ff0', 'Author 4', 'dhruvbaldawa@gmail.com', 0, '9323321233', '10/85,Unnat Nagar-1,Goregaon(W)', 'Mumbai', '400062', 'Maharashtra', 'India', 'active'),
@@ -4241,7 +4241,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `name`, `email`, `home_instit
 (1052, NULL, NULL, 'Ajay. Yadav', '', 0, '', '', '', '', '', '', 'active'),
 (1053, NULL, NULL, 'Abheek Misra', '', 0, '', '', '', '', '', '', 'active'),
 (1054, NULL, NULL, 'Mithun Muralidharan', '', 0, '', '', '', '', '', '', 'active'),
-(1111, 'viv', NULL, 'viv', 'abc', 0, '333wg', 'xdvset', 'wq3twe', 'segsd', 'v3tsdgs', 'dgs3twg', 'active');
+(1066, NULL, NULL, 'Dhruv Baldawa', 'dhruvbaldawa@gmail.com', 1, '9323321233', 'Dhruv', 'Dhruv', 'Dhruv', 'Dhruv', 'Dhruv', 'active');
 
 --
 -- Constraints for dumped tables
@@ -4301,7 +4301,3 @@ ALTER TABLE `payments`
 --
 ALTER TABLE `tracks`
   ADD CONSTRAINT `fk_tracks_managers1` FOREIGN KEY (`managers_id`) REFERENCES `managers` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
