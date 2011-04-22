@@ -1,57 +1,62 @@
 <?php
 	class Payment_model extends Model{
-		$this->_payments_table='payment';
-		function __construct(){
+   		function __construct(){
 			parent::__construct();
+            $this->_payments_table='payment';
 		}
 
 		function make_payment($data)
 		{
-			$query=$this->db->get_where($table,$data);
+			$query=$this->db->get_where($this->_payments_table,array('id' => $data));
 			if($query->num_rows>0)
 			{
 				echo('Payment already made');
-				reurn FALSE;
+			    	return FALSE;
 			}
 			else
 			{
-				$this->db->insert($table,$data);
+				$this->db->insert($this->_payments_table,array('id' => $data));
 				return TRUE;
 			}
 		}
-	
+
 		function get_payment($data)
 		{
-			$query=$this->db->get_where($table,$data);
+			$query=$this->db->get_where($this->_payments_table,array('id' => $data));
 			if($query->num_rows()==0)
 				return FALSE;
 			else
-				return ($query->result() as $row);
+			    {
+                    $row=$query->result();
+                    return ($row);
+                }
 		}
-		
+
 		function findrem($data)
 		{
-			$query=$this->db->get_where($table,$data);
-			return ($query->result() as $row);
+			$query=$this->db->get_where($this->_payments_table,array('id' => $data));
+            $row=$query->result();
+                    return ($row);
 		}
 
 		function payment_status($data){
 			$this->db->select('Payment_status');
-			$query=$this->db->where($table,$data);
-			return ($query->result() as $row);
+			$query=$this->db->where($this->_payments_table,array('id' => $data));
+			$row=$query->result();
+                    return ($row);
 		}
-		
+
 	        function update($data,$where){
-		         $this->db->update($this->_table,$data,$where);
+		         $this->db->update($this->_payments_table,array('id' => $data),$where);
         	}
-	
+
 		function author_details($data){
                 $CI =& get_instance();
                 $CI->load->model('authors_model');
 		$CI->authors_model->get_details($data);
-                $this->_authors_model = $CI->authors_model;		
+                $this->_authors_model = $CI->authors_model;
 		}
-	
+
 		function paper_details($data){
                 $CI =& get_instance();
                 $CI->load->model('Paper_model');
