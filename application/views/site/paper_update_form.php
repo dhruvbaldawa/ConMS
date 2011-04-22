@@ -12,7 +12,7 @@
 ?>
 <h1>Update Paper(<?php echo $id; ?>)</h1>
 
-<div style="min-width:600px;">
+<div style="min-width:600px;height:100%;">
 <div class = "message">
         	<a href="#" class="close" title="Close notification"><span>close</span></a>
 				<span class="icon"></span>
@@ -20,7 +20,7 @@
 </div>
 <form name = "update_paper_form" id = "update_paper_form">
 <input type="hidden" name="id" value="<?php echo $id; ?>" />
-<table class="ajax" width="600px">
+<table class="ajax" width="580px">
     <tr>
         <td><strong>Title</strong></td>
         <td><input type = "text" name = "title" size = "50" value="<?php echo $row['title']; ?>" /></td>
