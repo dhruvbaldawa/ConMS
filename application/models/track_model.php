@@ -12,7 +12,8 @@ class Track_model extends Model {
             $temp = $this->db->query("SELECT COUNT(*) AS count FROM paper WHERE tracks_id = '".$line['id']."'")->row_array();
             $returnData[$i]['count'] = $temp['count'];
             $returnData[$i]['id'] = $line['id'];
-            $returnData[$i]['name'] = $line['name'].' ('.$line['mne'].')';
+            $returnData[$i]['name'] = $line['name'];
+            $returnData[$i]['mne']= $line['mne'];
             $i++;
         }
         return $returnData;
