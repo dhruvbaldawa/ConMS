@@ -87,7 +87,7 @@ function getCSVData(){
 								<th class="bSortable"><input type="checkbox" class="checkbox select-all" /></th>
 								<th>ID</th>
 								<th>Title</th>
-                                <th>Mnemonic</th>
+
                                 <th>Count</th>
 								<th>Actions</th>
 							</tr>
@@ -98,8 +98,8 @@ function getCSVData(){
 							<tr>
 								<td><input type="checkbox" class="checkbox" /></td>
 								<td><?php echo $track['id']; ?></td>
-                                <td><?php echo $track['name']?></td>
-                                <td><?php echo $track['mne']?></td>
+                                <td><?php echo ($track['name'] ."  (".$track['mne'].")")?></td>
+
                                 <td><?php echo $track['count']?></td>
                                 <td>
 									<a href="#" class="update_author" rel="<?php echo base_url(); ?>authors/view/author_update_form" id="<?php echo $track['id']; ?>"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
