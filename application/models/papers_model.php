@@ -105,9 +105,7 @@ class Papers_model extends Model {
 			$results = $query->result_array();
 		}
 		/*else if($this->auth_model->is_chairperson()){
-			global $query;
-			global $results;
-			$chairpersonid=$this->auth_model->get_user();
+			$chairpersonid = $this->auth_model->get_user();
 			$query = $this->db->query("select * from paper where chairperson_id=".$chairpersonid.");
 			$results = $query->result_array();
 		}*/
