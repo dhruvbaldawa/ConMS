@@ -166,6 +166,14 @@ class Authors extends Controller {
       //Function to load any arbitrary view, which is passed as a parameter
         $this->load->view("site/".$name);
     }
+
+    function get_json_authors($name){
+      // Get JSON data regarding authors (used for autocomplete feature in the forms).
+        $name = strtolower($name);
+        $row = $this->db->query("SELECT id as value,name as caption FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM authors)")->result_array();
+        $json = json_encode($row);
+        echo $json;
+    }
 }
 /* End of file authors.php */
 /* Location: ./system/application/controllers/authors.php */

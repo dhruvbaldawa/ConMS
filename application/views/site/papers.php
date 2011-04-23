@@ -76,22 +76,22 @@ $('.update_paper').live("click",function (){
                 filter_hide: true,
 			    firstselected: true,
                 filter_selected: true,
-			    maxitems: 1,
+			    maxitems: 1
           });
           $("#chairperson_id").fcbkcomplete({
                 json_url: "<?php echo base_url(); ?>papers/get_json_chairpersons",
                 filter_case: false,
                 filter_hide: true,
-			    firstselected: true,
+		firstselected: true,
                 filter_selected: true,
-			    maxitems: 1,
+		maxitems: 1
           });
           $("#authors_id").fcbkcomplete({
-                json_url: "<?php echo base_url(); ?>papers/get_json_authors",
+                json_url: "<?php echo base_url(); ?>authors/get_json_authors",
                 filter_case: false,
                 filter_hide: true,
-			    firstselected: true,
-                filter_selected: true,
+                firstselected: true,
+                filter_selected: true
           });
         }
     });
@@ -111,24 +111,24 @@ $('.paper_link').live("click",function (){
                 json_url: "<?php echo base_url(); ?>papers/get_json_tracks",
                 filter_case: false,
                 filter_hide: true,
-			    firstselected: true,
+		firstselected: true,
                 filter_selected: true,
-			    maxitems: 1,
+			    maxitems: 1
           });
           $("#chairperson_id").fcbkcomplete({
                 json_url: "<?php echo base_url(); ?>papers/get_json_chairpersons",
                 filter_case: false,
                 filter_hide: true,
-			    firstselected: true,
+		firstselected: true,
                 filter_selected: true,
-			    maxitems: 1,
+			    maxitems: 1
           });
           $("#authors_id").fcbkcomplete({
-                json_url: "<?php echo base_url(); ?>papers/get_json_authors",
+                json_url: "<?php echo base_url(); ?>authors/get_json_authors",
                 filter_case: false,
                 filter_hide: true,
-			    firstselected: true,
-                filter_selected: true,
+		firstselected: true,
+                filter_selected: true
           });
         }
     });

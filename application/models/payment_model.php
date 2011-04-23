@@ -1,69 +1,56 @@
 <?php
-	class Payment_model extends Model{
-   		function __construct(){
-			parent::__construct();
-            $this->_payments_table='payment';
-		}
 
-		function make_payment($data)
-		{
-			$query=$this->db->get_where($this->_payments_table,array('id' => $data));
-			if($query->num_rows>0)
-			{
-				echo('Payment already made');
-			    	return FALSE;
-			}
-			else
-			{
-				$this->db->insert($this->_payments_table,array('id' => $data));
-				return TRUE;
-			}
-		}
+class Payment_model extends Model {
 
-		function get_payment($data)
-		{
-			$query=$this->db->get_where($this->_payments_table,array('id' => $data));
-			if($query->num_rows()==0)
-				return FALSE;
-			else
-			    {
-                    $row=$query->result();
-                    return ($row);
-                }
-		}
+    function __construct() {
+        parent::__construct();
+        $this->_table = 'payments';
+        $CI = &get_instance();
+        $CI->load->model('papers_model');
+        $CI->load->model('authors_model');
+    }
 
-		function findrem($data)
-		{
-			$query=$this->db->get_where($this->_payments_table,array('id' => $data));
-            $row=$query->result();
-                    return ($row);
-		}
+    /*
+     * $data contains :
+     * author_id : author's id
+     * paper_id : paper's id
+     * payment_type : type of payment (cheque,dd,cash,money transfer,other)
+     * amount : the amount
+     * details : the payment details
+     */
 
-		function payment_status($data){
-			$this->db->select('Payment_status');
-			$query=$this->db->where($this->_payments_table,array('id' => $data));
-			$row=$query->result();
-                    return ($row);
-		}
+    function add_payment_details($data) {
+        if(!$this->db->insert($this->_table,$data)){
+            return false;
+        }
+        $record = $this->db->get_where($this->_table,$data)->row_array();
+        if(!empty($record)){
+            return $record;
+        }
+        else{
+            return false;
+        }
+    }
 
-	        function update($data,$where){
-		         $this->db->update($this->_payments_table,array('id' => $data),$where);
-        	}
+    function list_payment_details(){
+        $rows = $this->db->get($this->_table)->result_array();
+        if(!empty($rows)){
+            return $rows;
+        }else{
+            return false;
+        }
+    }
 
-		function author_details($data){
-                $CI =& get_instance();
-                $CI->load->model('authors_model');
-		$CI->authors_model->get_details($data);
-                $this->_authors_model = $CI->authors_model;
-		}
+    function get_payment_details($where){
+        $rows = $this->db->get_where($this->_table)->result_array();
+        if(!empty($rows)){
+            return $rows;
+        }else{
+            return false;
+        }
+    }
 
-		function paper_details($data){
-                $CI =& get_instance();
-                $CI->load->model('Paper_model');
-		$query=$CI->Paper_model->get($data);
-                $this->_Paper_model = $CI->Paper_model;
-		return $query->row_array();
-		}
-	}
+}
+
 /* End of file payment_model.php */
 /* Location: ./system/application/models/payment_model.php */

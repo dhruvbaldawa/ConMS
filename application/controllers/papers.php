@@ -98,10 +98,10 @@ class Papers extends Controller {
         echo $json;
     }
 
-    function get_json_authors($name){
-      // Get JSON data regarding authors (used for autocomplete feature in the forms).
+    function get_json_papers($name,$paper = ''){
+      // Get JSON data regarding papers (used for autocomplete feature in the forms).
         $name = strtolower($name);
-        $row = $this->db->query("SELECT id as value,name as caption FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM authors)")->result_array();
+        $row = $this->db->query("SELECT id as value,title as caption FROM paper WHERE LOWER(title) LIKE '%".$name."%'")->result_array();
         $json = json_encode($row);
         echo $json;
     }
