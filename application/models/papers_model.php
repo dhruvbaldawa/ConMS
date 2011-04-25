@@ -6,6 +6,7 @@ class Papers_model extends Model {
 		$this->_table = 'paper';
 		$this->_author_paper_table = 'author_paper';
 		$this->_user_table = 'users';
+        $this->_reviewer_paper_table='reviwer_paper'
 	}
 	function get_paper_details($data) {
 		$query = $this->db->get_where($this->_table, array('id' => $data));
@@ -180,6 +181,10 @@ function list_papers($data) {
 	}
 	return $results;
 }
+
+/*Adding my functions for reviewer_paper module */
+
+
 
 /* End of file papers_model.php */
 /* Location: ./system/application/models/papers_model.php */
