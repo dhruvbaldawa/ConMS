@@ -118,6 +118,59 @@
         <div class="page clear">
           <h1>Add Paper Details <a href="#"><img src="<?php echo base_url(); ?>images/ico_help_32.png"
           class="help" alt="" /></a></h1><!-- CONTENT BOXES -->
+          <div class="content-box">
+            <div class="box-header clear">
+              <h2>Enter Details Of Papers</h2>
+            </div>
+            <div class="box-body clear c1">
+            <form name = "add_paper_form" id = "add_paper_form">
+                <table class="ajax" width="600px">
+                    <tr>
+                        <td><strong>Title</strong></td>
+                        <td><input type = "text" name = "title" size = "50"/></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Type</strong></td>
+                        <td><input type = "text" name = "type" size = "50"/></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Description</strong></td>
+                        <td><input type = "text" name = "description" size = "50"/></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Track of paper</strong></td>
+                        <td><select name="track_of_paper">
+                                <option value="IS">Intelligent Systems</option>
+                                <option value="CE">Communication Engineering</option>
+                                <option value="ACA">Advanced Computer Application</option>
+                                <option value="DE">Database Engineering</option>
+                                <option value="BIOT">Biomedical, Bio-Informatics & Biotechnology</option>
+                                <option value="EDC">Electronic, Microwave Devices & Circuits</option>
+                                <option value="GTES">Green Technology & Environmental Science</option>
+                                <option value="SE">Software Engineering</option>
+                                <option value="ALGO">Algorithms</option>
+                                <option value="ESA">Embedded Systems and Applications </option>
+
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Coptyright</strong></td>
+                        <td><input type = "text" name = "copyright" size = "50"/></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pages</strong></td>
+                        <td><input type = "text" name = "pages" size = "50"/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type = "submit" value = "Submit" /><img src="<?php echo base_url();?>images/loading.gif" class="loading" />
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+            </div>
+          </div>
 
         <?php
                     $this->load->view('includes/footer');

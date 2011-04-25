@@ -6,7 +6,7 @@ class Papers_model extends Model {
 		$this->_table = 'paper';
 		$this->_author_paper_table = 'author_paper';
 		$this->_user_table = 'users';
-        $this->_reviewer_paper_table='reviwer_paper'
+        $this->_reviewer_paper_table='reviwer_paper' ;
 	}
 	function get_paper_details($data) {
 		$query = $this->db->get_where($this->_table, array('id' => $data));
