@@ -24,7 +24,7 @@ $(document).ready(function(){
     InitNotifications();
     $(".message").hide();
     Cufon.replace('.logo .title');
-    $('.loading').hide();
+    $('.loading').hide();                                              
     $('form').submit(function(){
         $.ajax({
             url:'<?php echo base_url(); ?>site/login',
