@@ -11,11 +11,9 @@
 			<ul>
 
             <li><a href="<?php echo base_url(); ?>site/index">Dashboard</a></li>
-            <?php if(!$this->auth_model->is_author()){ ?>
-            <li><a href="<?php echo base_url(); ?>papers/view/add_paper">Add paper</a></li>
-            <?php }if($this->auth_model->is_admin() || $this->auth_model->is_chairperson() || $this->auth_model->is_entry()){ ?>
+            <?php if($this->auth_model->is_admin() || $this->auth_model->is_chairperson() || $this->auth_model->is_entry()){ ?>
             <li><a href="<?php echo base_url(); ?>authors">Authors</a></li>
-            <?php }if($this->auth_model->is_admin() || $this->auth_model->is_chairperson() || $this->auth_model->is_entry() || $this->auth_model->is_author() || $this->auth_model->is_reviewer()){ ?>
+            <?php }if($this->auth_model->is_admin() || $this->auth_model->is_chairperson() || $this->auth_model->is_entry() || !$this->auth_model->is_author() || $this->auth_model->is_reviewer()){ ?>
             <li><a href="<?php echo base_url(); ?>papers">Papers</a></li>
             <?php }if($this->auth_model->is_admin() || $this->auth_model->is_manager()){?>
             <li><a href="<?php echo base_url(); ?>tracks">Tracks</a></li>

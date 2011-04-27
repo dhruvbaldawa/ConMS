@@ -316,6 +316,7 @@ function getCSVData(){
 						</thead>
 						<tbody>
                         <?php
+                            if(!empty($rows))
                             foreach($rows as $arow){ ?>
 							<tr>
 								<td><input type="checkbox" class="checkbox" /></td>

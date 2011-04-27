@@ -115,6 +115,7 @@ class Papers_model extends Model {
 			$query = $this->db->query("select * from paper where id in (select paper_id from reviewer_paper where reviewer_id=" . $reviewerid . ")");
 			$results = $query->result_array();
 		}
+        if(!empty($results)){
 			for ($i = 0; $i < sizeof($results); $i++) {
 				$temp = $this->db->query("SELECT id,name FROM " . $this->_user_table . " WHERE id IN (SELECT authors_id FROM " . $this->_author_paper_table . " WHERE paper_id = " . $results[$i]['id'] . ") and status='active'");
 				if ($temp->num_rows > 0) {
@@ -145,7 +146,11 @@ class Papers_model extends Model {
 				}
 			}
 			return $results;
-	}
+	    }
+        else{
+          return "no paper is added";
+        }
+    }
 }
 function list_papers($data) {
 	$query = $this->db->get($this->_table);

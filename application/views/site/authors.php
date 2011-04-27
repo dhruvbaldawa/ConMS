@@ -27,7 +27,6 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.jeditable.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.ui.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/table2CSV.js"></script>
-
 <script type="text/javascript" src="<?php echo base_url(); ?>js/excanvas.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/cufon.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/Geometr231_Hv_BT_400.font.js"></script>
