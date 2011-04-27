@@ -39,8 +39,6 @@ class Payment extends Controller {
     function create(){
         if($this->auth_model->logged_in() && $this->input->post('ajax') == 1){
             unset($_POST['ajax']);
-            $_POST['author_id'] = $_POST['author_id'][0];
-            $_POST['paper_id'] = $_POST['paper_id'][0];
             $record = $this->payment_model->add_payment_details($_POST);
             if(!empty($record)){
                 $data['type'] = 'success';

@@ -167,13 +167,18 @@ class Authors extends Controller {
         $this->load->view("site/".$name);
     }
 
-    function get_json_authors($name){
+    function get_json_authors(){
       // Get JSON data regarding authors (used for autocomplete feature in the forms).
-        $name = strtolower($name);
-        $row = $this->db->query("SELECT id as value,name as caption FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM authors)")->result_array();
+        $name = strtolower($this->input->post('q'));
+        $paper_id = $this->input->post('paper_id');
+        $query = "SELECT name as 'key', id as 'value' FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM authors) LIMIT 10";
+        if(!empty($paper_id) && $paper_id != 'null'){
+            $query = "SELECT name as caption,users.id as value FROM users,author_paper WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM authors) AND author_paper.paper_id = ".$paper_id." LIMIT 10";
+        }
+        $row = $this->db->query($query)->result_array();
         $json = json_encode($row);
         echo $json;
-    }
+     }
 }
 /* End of file authors.php */
 /* Location: ./system/application/controllers/authors.php */

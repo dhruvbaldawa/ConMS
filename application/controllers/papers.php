@@ -79,29 +79,30 @@ class Papers extends Controller {
         $this->load->view("site/".$name);
     }
 
-    function get_json_tracks($name){
+    function get_json_tracks(){
       // Get JSON data regarding tracks (used for autocomplete feature in the forms).
-        $name = strtolower($name);
-        $row = $this->db->query("SELECT id,name FROM tracks WHERE LOWER(name) LIKE '%".$name."%'")->result_array();
+        $name = strtolower($this->input->post('q'));
+        $row = $this->db->query("SELECT id as 'value',name as 'key' FROM tracks WHERE LOWER(name) LIKE '%".$name."%'")->result_array();
         $json = json_encode($row);
-        $search = array('id','name');
-        $replace = array('value','caption');
 
-        echo str_replace($search,$replace,$json);
+        echo $json;
     }
 
-    function get_json_chairpersons($name){
+    function get_json_chairpersons(){
       // Get JSON data regarding chairpersons (used for autocomplete feature in the forms).
-        $name = strtolower($name);
-        $row = $this->db->query("SELECT id as value,name as caption FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM chairperson)")->result_array();
+        $name = strtolower($this->input->post('q'));
+        $row = $this->db->query("SELECT id as 'value',name as 'key' FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM chairperson)")->result_array();
         $json = json_encode($row);
         echo $json;
     }
 
-    function get_json_papers($name,$paper = ''){
+    function get_json_papers(){
       // Get JSON data regarding papers (used for autocomplete feature in the forms).
-        $name = strtolower($name);
-        $row = $this->db->query("SELECT id as value,title as caption FROM paper WHERE LOWER(title) LIKE '%".$name."%'")->result_array();
+        $name = strtolower($this->input->post('q'));
+        $author = $this->input->post('author_id');
+        $query = "SELECT id as 'value',title as 'key' FROM paper WHERE LOWER(title) LIKE '%".$name."%' LIMIT 10";
+
+        $row = $this->db->query($query)->result_array();
         $json = json_encode($row);
         echo $json;
     }

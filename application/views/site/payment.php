@@ -74,24 +74,18 @@
                         $("#tracks_id").fcbkcomplete({
                             json_url: "<?php echo base_url(); ?>papers/get_json_tracks",
                             filter_case: false,
-                            filter_hide: true,
-                            firstselected: true,
                             filter_selected: true,
                             maxitems: 1
                         });
                         $("#chairperson_id").fcbkcomplete({
                             json_url: "<?php echo base_url(); ?>papers/get_json_chairpersons",
                             filter_case: false,
-                            filter_hide: true,
-                            firstselected: true,
                             filter_selected: true,
                             maxitems: 1
                         });
                         $("#authors_id").fcbkcomplete({
                             json_url: "<?php echo base_url(); ?>authors/get_json_authors",
                             filter_case: false,
-                            filter_hide: true,
-                            firstselected: true,
                             filter_selected: true
                         });
                     }
@@ -109,20 +103,18 @@
                         $(".message").hide();
                         $('.loading').hide();
                         $("#paper_id").fcbkcomplete({
-                            json_url: "<?php echo base_url(); ?>papers/get_json_papers"+$("#author_id").val(),
+                            json_url: "<?php echo base_url(); ?>papers/get_json_papers",
                             filter_case: false,
-                            filter_hide: true,
                             firstselected: true,
                             filter_selected: true,
-                            maxitems: 1
+                            multiple: false
                         });
                         $("#author_id").fcbkcomplete({
-                            json_url: "<?php echo base_url(); ?>authors/get_json_authors"+$("#paper_id").val(),
+                            json_url: "<?php echo base_url(); ?>authors/get_json_authors",
                             filter_case: false,
-                            filter_hide: true,
                             firstselected: true,
                             filter_selected: true,
-                            maxitems: 1
+                            multiple: false
                         });
                     }
                 });
