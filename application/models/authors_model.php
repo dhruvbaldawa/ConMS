@@ -9,6 +9,7 @@
 class Authors_model extends Model {
 	function __construct() {
 		parent :: __construct();
+		$this->load->model('auth_model');
 		$this->_table = 'authors';
 		$this->_paper_table = 'papers';
 		$this->_user_table = 'users';
@@ -16,7 +17,21 @@ class Authors_model extends Model {
 	}
 	function list_authors() {
 // List all the authors
-		$query = $this->db->query("SELECT users.id,username,name,registered FROM " . $this->_user_table . "," . $this->_table . " WHERE users.id=authors.id");
+		if ($this->auth_model->is_admin()) {
+			$query = $this->db->query("SELECT users.id,username,name,registered FROM " . $this->_user_table . "," . $this->_table . " WHERE users.id=authors.id");
+		}
+		else if($this->auth_model->is_manager()) {
+			$managerid = $this->auth_model->get_user();
+			$query = $this->db->query("SELECT users.id,username,name,registered FROM " . $this->_user_table . "," . $this->_table . " WHERE users.id=authors.id and authors.id in (select authors_id from author_paper,paper where paper_id=paper.id and tracks_id in(select id from tracks where managers_id=".$managerid."))");
+		}
+		else if($this->auth_model->is_reviewer()) {
+			$reviewerid = $this->auth_model->get_user();
+			$query = $this->db->query("SELECT users.id,username,name,registered FROM " . $this->_user_table . "," . $this->_table . " WHERE users.id=authors.id and authors.id in(select authors_id from author_paper,paper,reviewer_paper where author_paper.paper_id=paper.id and paper.id=reviewer_paper.paper_id and reviewer_id=".$reviewerid.")");
+		}
+		else if($this->auth_model->is_chairperson()){
+			$chairpersonid = $this->auth_model->get_user();
+			$query = $this->db->query("SELECT users.id,username,name,registered FROM " . $this->_user_table . "," . $this->_table . " WHERE users.id=authors.id and authors.id in (select authors_id from author_paper,paper where paper_id=paper.id and chairperson_id=".$chairpersonid.")");
+		}
 		return $query->result_array();
 	}
 	function get_details($id) {

@@ -183,6 +183,68 @@ $('#add_paper_form').live("submit",function (){
     });
     return false;
 });
+
+/* Please link this up to the reviewer form and get it back*/
+$('.assign_reviewers').live("click",function (){
+    $.fancybox.showActivity();
+    $.ajax({
+        type:"POST",
+        url:this.rel,
+        data:"id="+this.id,
+        success:function (data){
+            $.fancybox(data);
+            $.fancybox.resize();
+            $(".message").hide();
+            $('.loading').hide();
+            $("#external_reviewer_id").fcbkcomplete({
+                json_url: "<?php echo base_url(); ?>papers/get_json_external_reviewers",
+                filter_case: false,
+                filter_hide: true,
+			    firstselected: true,
+                filter_selected: true,
+			    maxitems: 1,
+          });
+          $("#internal_reviewer_id").fcbkcomplete({
+                json_url: "<?php echo base_url(); ?>papers/get_json_internal_reviewers",
+                filter_case: false,
+                filter_hide: true,
+			    firstselected: true,
+                filter_selected: true,
+			    maxitems: 1,
+          });
+
+        }
+    });
+});
+
+    /*  Link This one as well */
+$('#reviwer_form_update').live("submit",function (){
+    var data = $(this).serialize();
+    $.ajax({
+        type:"POST",
+        url:"<?php echo base_url(); ?>papers/create",
+        data:"ajax=1&"+data,
+        dataType:"json",
+        beforeSend:function(){
+                $('.loading').fadeIn('slow');
+        },
+        success:function (data){
+            if(data.type == 'success'){
+                    $.fancybox(data.description);
+            }else{
+                    var div = $('.message');
+                    div.removeClass();
+                    div.addClass('message notification '+data.type);
+                    div.children('p').html(data.description);
+                    div.fadeIn('slow');
+                }
+                $('.loading').fadeOut('slow');
+        }
+    });
+    return false;
+});
+
+
 function getCSVData(){
     var csv_value = $("#data-table").table2CSV({
         delivery: 'value',
@@ -292,6 +354,8 @@ function getCSVData(){
                                 <td>
 									<a href="#" class="update_paper" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/paper_update_form"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
 									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
+                                    <a href="#" class="assign_reviewers" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/paper_update_form"><img src="<?php echo base_url(); ?>images/ico_attention_16.png" class="icon16 fl-space2" alt="" title="assign reviwers" /></a>
+
 								</td>
 							</tr>
                             <?php } ?>

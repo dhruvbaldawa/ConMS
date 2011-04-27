@@ -107,6 +107,19 @@ class Papers extends Controller {
         echo $json;
     }
 
+    function get_json_external_reviwer($name){
+        $name = strtolower($name);
+        $row = $this->db->query("SELECT id as value,name as caption FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM reviwer WHERE internal=0)")->result_array();
+        $json = json_encode($row);
+        echo $json;
+    }
+
+    function get_json_internal_reviwer($name){
+        $name = strtolower($name);
+        $row = $this->db->query("SELECT id as value,name as caption FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM reviwer WHERE internal=1)")->result_array();
+        $json = json_encode($row);
+        echo $json;
+    }
     function update(){
       // Only if the request is a AJAX request
         if($_POST['ajax'] == 1){
