@@ -24,7 +24,7 @@ class Site extends Controller {
  * title <string> : title of the page
  */
 			$this->load->view('site/login', $data);
-		}
+		}                                                                
 	}
 	function dashboard($condition = FALSE) {
 		if ($condition === TRUE || $this->auth_model->logged_in() === TRUE) {
