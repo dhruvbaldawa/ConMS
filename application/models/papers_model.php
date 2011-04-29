@@ -1,7 +1,7 @@
 <?php
 
 class Papers_model extends Model {
-<<<<<<< HEAD
+
 	function __construct() {
 		parent :: __construct();
 		$this->load->model('auth_model');
