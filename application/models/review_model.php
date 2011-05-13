@@ -51,6 +51,21 @@ class Review_model extends Model {
         }
     }
 
+    function_assign_reviewer_paper($data)
+    {
+        $rows = $this->db->get_where('$this->_table2',array()->result_array();
+        if(!empty($rows)){
+            return $rows;
+        }else{
+            return false;
+        }
+
+    }
+
+    
+
+
+
 }
 
 /* End of file payment_model.php */
