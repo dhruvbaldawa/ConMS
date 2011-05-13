@@ -218,11 +218,11 @@ $('.assign_reviewers').live("click",function (){
 });
 
     /*  Link This one as well */
-$('#reviwer_form_update').live("submit",function (){
+$('#assign_reviewer_form').live("submit",function (){
     var data = $(this).serialize();
     $.ajax({
         type:"POST",
-        url:"<?php echo base_url(); ?>papers/create",
+        url:"<?php echo base_url(); ?>reviewers/create",
         data:"ajax=1&"+data,
         dataType:"json",
         beforeSend:function(){
@@ -355,7 +355,7 @@ function getCSVData(){
                                 <td>
 									<a href="#" class="update_paper" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/paper_update_form"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
 									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
-                                    <a href="#" class="assign_reviewers" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/paper_update_form"><img src="<?php echo base_url(); ?>images/ico_attention_16.png" class="icon16 fl-space2" alt="" title="assign reviwers" /></a>
+                                    <a href="#" class="assign_reviewers" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/reviewer_form"><img src="<?php echo base_url(); ?>images/ico_attention_16.png" class="icon16 fl-space2" alt="" title="assign reviwers" /></a>
 
 								</td>
 							</tr>
