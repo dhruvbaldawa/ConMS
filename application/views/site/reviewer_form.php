@@ -6,16 +6,18 @@
 				<span class="icon"></span>
 			<p></p>
 </div>
-<form name = "assign_reviewer_form" id = "alot_reviewer_form">
+<form name = "assign_reviewer_form" id = "assign_reviewer_form">
 <table class="ajax" width="600px">
     <tr>
         <td><strong>External Reviewer:</strong></td>
-        <td><input type = "text" name = "external_reviewer" size = "50" /></td>
+        <td><select id="external_reviewer_id" name="external_reviewer_id">
+        </select></td>
     </tr>
 
     <tr>
         <td><strong>Internal Reviewer</strong></td>
-       <td><input type = "text" name = "internal_reviewer" size = "50" /></td>
+        <td><select id="internal_reviewer_id" name="internal_reviewer_id">
+        </select></td>
     </tr>
         <tr>
         <td></td>

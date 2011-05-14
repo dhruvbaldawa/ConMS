@@ -222,7 +222,7 @@ $('#assign_reviewer_form').live("submit",function (){
     var data = $(this).serialize();
     $.ajax({
         type:"POST",
-        url:"<?php echo base_url(); ?>reviewers/create",
+        url:"<?php echo base_url(); ?>review/create",
         data:"ajax=1&"+data,
         dataType:"json",
         beforeSend:function(){

@@ -80,7 +80,7 @@ class Papers extends Controller {
         $this->load->view("site/".$name);
     }
 
-    function get_json_tracks(){
+/*    function get_json_tracks(){
       // Get JSON data regarding tracks (used for autocomplete feature in the forms).
         $name = strtolower($this->input->post('q'));
         $row = $this->db->query("SELECT id as 'value',name as 'key' FROM tracks WHERE LOWER(name) LIKE '%".$name."%'")->result_array();
@@ -107,7 +107,7 @@ class Papers extends Controller {
         $json = json_encode($row);
         echo $json;
     }
-
+*/
     function get_json_external_reviwer($name){
         $name = strtolower($name);
         $row = $this->db->query("SELECT id as value,name as caption FROM users WHERE LOWER(name) LIKE '%".$name."%' AND id IN (SELECT id FROM reviwer WHERE internal=0)")->result_array();
@@ -121,7 +121,7 @@ class Papers extends Controller {
         $json = json_encode($row);
         echo $json;
     }
-    function update(){
+/*    function update(){
       // Only if the request is a AJAX request
         if($_POST['ajax'] == 1){
             $_POST['tracks_id'] = $_POST['tracks_id'][0];
@@ -146,11 +146,11 @@ class Papers extends Controller {
              * type <string> : the type of message
              * description <string> : the description of the message
              */
-
+  /*
             die(json_encode($data));
         }
     }
-
+    */
     function create(){
       // Only if the request is AJAX request
         if($_POST['ajax'] == 1){
@@ -159,15 +159,14 @@ class Papers extends Controller {
 
             //Remove AJAX parameter from the POST variables
             unset($_POST['ajax']);
-            $_POST['tracks_id'] = $_POST['tracks_id'][0];
-            if(isset($_POST['chairperson_id'][0]))
-                $_POST['chairperson_id'] = $_POST['chairperson_id'][0];
-            if($this->papers_model->create($_POST)){
+            $_POST['reviewer_id'] = $_POST['reviewer_id'][0];
+            $_POST['paper_id']=$_POST['paper_id'][0];
+            if($this->review_model->create($_POST)){
                 $data['type'] = 'success';
-                $data['description'] = 'Paper ('.$_POST['title'].') added successfully.';
+                $data['description'] = 'Reviewer for Paper ('.$_POST['title'].') added successfully.';
             }else{
                 $data['type'] = 'error';
-                $data['description'] = 'Error occured while adding the paper.';
+                $data['description'] = 'Error occured while adding the reviewer paper.';
             }
 
             /**

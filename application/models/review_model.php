@@ -53,7 +53,7 @@ class Review_model extends Model {
 
     function_assign_reviewer_paper($data)
     {
-        $rows = $this->db->get_where('$this->_table2',array()->result_array();
+        $rows = $this->db->get_where('$this->_table2',array()->result_array());
         if(!empty($rows)){
             return $rows;
         }else{
@@ -62,7 +62,27 @@ class Review_model extends Model {
 
     }
 
-    
+    function create($data)
+    {
+     	$reviewer_id = $data['external_reviewer_id'];
+		unset ($data['external_reviewer_id']);
+		if (!$this->db->insert($this->_table2, $data))
+			return false;
+		$record = $this->db->get_where($this->_table, $data)->row_array();
+		$id = $record['id'];
+		unset ($record);
+		if (isset ($authors[0])) {
+			foreach ($authors as $author) {
+				if (!$this->db->query("REPLACE INTO " . $this->_author_paper_table . " VALUES (" . $author . "," . $id . ")")) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+
+
 
 
 
