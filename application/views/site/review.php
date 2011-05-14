@@ -304,8 +304,6 @@ function getCSVData(){
 								<th>ID</th>
 								<th>Title</th>
                                 <th>Track</th>
-                                <th>CRC</th>
-                                <th>Copyright</th>
                                 <th>Actions</th>
 							</tr>
 						</thead>
@@ -317,10 +315,8 @@ function getCSVData(){
 								<td><input type="checkbox" class="checkbox" /></td>
 								<td><?php echo $arow['id']; ?></td>
                                 <td><?php echo $arow['track']['name']; ?></td>
-                                <td><?php echo $arow['crc']?></td>
-                                <td><?php echo $arow['copyright']?></td>
                                 <td>
-									<a href="#" class="update_paper" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/paper_update_form"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
+									<a href="#" class="review_paper" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/review_form"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
 									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
                                     <a href="#" class="assign_reviewers" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/reviewer_form"><img src="<?php echo base_url(); ?>images/ico_attention_16.png" class="icon16 fl-space2" alt="" title="assign reviwers" /></a>
 

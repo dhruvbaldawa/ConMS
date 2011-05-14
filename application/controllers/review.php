@@ -183,3 +183,4 @@ class Papers extends Controller {
 }
 /* End of file papers.php */
 /* Location: ./system/application/controllers/papers.php */
+?>
