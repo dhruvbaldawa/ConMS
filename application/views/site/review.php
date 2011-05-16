@@ -59,7 +59,7 @@ $('#paper').live("click",function (){
     });
 });
 
-$('.update_paper').live("click",function (){
+$('.review_paper').live("click",function (){
     $.fancybox.showActivity();
     $.ajax({
         type:"POST",
@@ -78,21 +78,7 @@ $('.update_paper').live("click",function (){
                 filter_selected: true,
 			    maxitems: 1
           });
-          $("#chairperson_id").fcbkcomplete({
-                json_url: "<?php echo base_url(); ?>papers/get_json_chairpersons",
-                filter_case: false,
-                filter_hide: true,
-		firstselected: true,
-                filter_selected: true,
-		maxitems: 1
-          });
-          $("#authors_id").fcbkcomplete({
-                json_url: "<?php echo base_url(); ?>authors/get_json_authors",
-                filter_case: false,
-                filter_hide: true,
-                firstselected: true,
-                filter_selected: true
-          });
+
         }
     });
 });
@@ -318,7 +304,6 @@ function getCSVData(){
                                 <td>
 									<a href="#" class="review_paper" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/review_form"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
 									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
-                                    <a href="#" class="assign_reviewers" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/reviewer_form"><img src="<?php echo base_url(); ?>images/ico_attention_16.png" class="icon16 fl-space2" alt="" title="assign reviwers" /></a>
 
 								</td>
 							</tr>

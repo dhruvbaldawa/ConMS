@@ -48,14 +48,6 @@
         <td><input type = "submit" value = "Submit" /><img src="<?php echo base_url();?>images/loading.gif" class="loading" />
 </td>
     </tr>
-    <tr>
-        <td><strong>Upload Paper</strong></td>
-        <td><input type="file" name="paper_upload" size="20" /></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td><input type="submit" value="upload" /></td>
-    </tr>
 </table>
 
 </form>
