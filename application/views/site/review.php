@@ -59,7 +59,7 @@ $('#paper').live("click",function (){
     });
 });
 
-$('.update_paper').live("click",function (){
+$('.review_paper').live("click",function (){
     $.fancybox.showActivity();
     $.ajax({
         type:"POST",
@@ -78,21 +78,7 @@ $('.update_paper').live("click",function (){
                 filter_selected: true,
 			    maxitems: 1
           });
-          $("#chairperson_id").fcbkcomplete({
-                json_url: "<?php echo base_url(); ?>papers/get_json_chairpersons",
-                filter_case: false,
-                filter_hide: true,
-		firstselected: true,
-                filter_selected: true,
-		maxitems: 1
-          });
-          $("#authors_id").fcbkcomplete({
-                json_url: "<?php echo base_url(); ?>authors/get_json_authors",
-                filter_case: false,
-                filter_hide: true,
-                firstselected: true,
-                filter_selected: true
-          });
+
         }
     });
 });
@@ -222,7 +208,7 @@ $('#assign_reviewer_form').live("submit",function (){
     var data = $(this).serialize();
     $.ajax({
         type:"POST",
-        url:"<?php echo base_url(); ?>review/create",
+        url:"<?php echo base_url(); ?>reviewers/create",
         data:"ajax=1&"+data,
         dataType:"json",
         beforeSend:function(){
@@ -303,14 +289,7 @@ function getCSVData(){
 								<th class="bSortable"><input type="checkbox" class="checkbox select-all" /></th>
 								<th>ID</th>
 								<th>Title</th>
-								<th>Type</th>
-                                <th>Pages</th>
-								<th>Description</th>
-                                <th>Authors</th>
-                                <th>Chairperson</th>
                                 <th>Track</th>
-                                <th>CRC</th>
-                                <th>Copyright</th>
                                 <th>Actions</th>
 							</tr>
 						</thead>
@@ -321,41 +300,10 @@ function getCSVData(){
 							<tr>
 								<td><input type="checkbox" class="checkbox" /></td>
 								<td><?php echo $arow['id']; ?></td>
-								<td><a href="#" id="paper" rel="<?php echo $arow['id']; ?>"><?php echo $arow['title']; ?></a></td>
-                                <td><?php
-                                    if($arow['type'] == 'ltp')
-                                        echo "Long Paper";
-                                    else if($arow['type'] == 'stp')
-                                        echo "Short Paper";
-                                    else if($arow['type'] == 'pst')
-                                        echo "Poster";
-                                    else
-                                        echo "No status";
-                                 ?></td>
-                                 <td><?php echo $arow['pages']?></td>
-                                <td><?php echo $arow['description']; ?></td>
-                                <td>
-                                <?php
-                                    $started = false;
-                                    foreach($arow['authors'] as $author){
-                                        if(isset($author['id'])){ if($started) {echo ",";} ?> <a href="#" id="author" rel="<?php echo $author['id']; ?>"><?php  echo $author['name'];if(!$started){$started = true;}?></a><br /><?php } else{
-                                            echo $author['name'];
-                                   }
-                                   }
-                                   ?>
-                                </td>
-                                <td>
-                                <?php if($arow['chairperson_id']!=0){ ?>
-                                <a href="#" id="chairperson" rel="<?php echo $arow['chairperson_id']; ?>"><?php echo $arow['chairperson']['name']; ?></a>
-<?php } else { echo $arow['chairperson']['name']; } ?>
-</td>
                                 <td><?php echo $arow['track']['name']; ?></td>
-                                <td><?php echo $arow['crc']?></td>
-                                <td><?php echo $arow['copyright']?></td>
                                 <td>
-									<a href="#" class="update_paper" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/paper_update_form"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
+									<a href="#" class="review_paper" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/review_form"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
 									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
-                                    <a href="#" class="assign_reviewers" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/review_form"><img src="<?php echo base_url(); ?>images/ico_attention_16.png" class="icon16 fl-space2" alt="" title="assign reviwers" /></a>
 
 								</td>
 							</tr>
