@@ -21,7 +21,8 @@
     </tr>
         <tr>
         <td></td>
-        <td><input type="submit" value="Assign" /></td>
+        <td><input type="submit" value="Assign" /><img src="<?php echo base_url();?>images/loading.gif" class="loading" />
+        </td>
     </tr>
 
 </table>
