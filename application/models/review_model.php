@@ -5,7 +5,8 @@ class Review_model extends Model {
     function __construct() {
         parent::__construct();
         $this->_table = 'reviewer';
-        $this->_table2='reviewer_paper'
+        $this->_table2='reviewer_paper';
+        $this->_user_table = 'users';
         $CI = &get_instance();
         $CI->load->model('papers_model');
         $CI->load->model('authors_model');
@@ -20,7 +21,7 @@ class Review_model extends Model {
      * details : the payment details
      */
 
-    function add_reviewer_details($data) {
+/*    function add_reviewer_details($data) {
         if(!$this->db->insert($this->_table,$data)){
             return false;
         }
@@ -32,7 +33,7 @@ class Review_model extends Model {
             return false;
         }
     }
-
+*/
     function list_reviewer_details(){
         $rows = $this->db->get($this->_table)->result_array();
         if(!empty($rows)){
@@ -43,7 +44,7 @@ class Review_model extends Model {
     }
 
     function get_reviewer_details($where){
-        $rows = $this->db->get_where($this->_table)->result_array();
+        $rows = $this->db->get_where($this->_table,array('id'=>$where['id']))->result_array();
         if(!empty($rows)){
             return $rows;
         }else{
@@ -51,9 +52,9 @@ class Review_model extends Model {
         }
     }
 
-    function_assign_reviewer_paper($data)
+    function assign_reviewer_paper($data)
     {
-        $rows = $this->db->get_where('$this->_table2',array()->result_array());
+        $rows = $this->db->get_where($this->_table2)->result_array();
         if(!empty($rows)){
             return $rows;
         }else{
@@ -83,9 +84,11 @@ class Review_model extends Model {
 
 
 
+	function list_papers() {
+	  $rows=$this->papers_model->list_papers();
+      return $rows;
 
-
-
+}
 }
 
 /* End of file payment_model.php */

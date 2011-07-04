@@ -1,5 +1,5 @@
 <?php
-class Papers extends Controller {
+class Review extends Controller {
     function __construct(){
         parent::__construct();
         $this->load->model('review_model');
@@ -10,7 +10,7 @@ class Papers extends Controller {
     function index(){
         if($this->auth_model->logged_in()){
             //List all the papers
-            $rows = $this->papers_model->list_papers();
+            $rows = $this->review_model->list_papers();
             $data['title'] = "Review";
             $data['rows'] = $rows;
 

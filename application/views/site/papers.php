@@ -197,7 +197,7 @@ $('.assign_reviewers').live("click",function (){
             $(".message").hide();
             $('.loading').hide();
             $("#external_reviewer_id").fcbkcomplete({
-                json_url: "<?php echo base_url(); ?>papers/get_json_external_reviewers",
+                json_url: "<?php echo base_url(); ?>review/get_json_external_reviewers",
                 filter_case: false,
                 filter_hide: true,
 			    firstselected: true,
@@ -205,7 +205,7 @@ $('.assign_reviewers').live("click",function (){
 			    maxitems: 1,
           });
           $("#internal_reviewer_id").fcbkcomplete({
-                json_url: "<?php echo base_url(); ?>papers/get_json_internal_reviewers",
+                json_url: "<?php echo base_url(); ?>review/get_json_internal_reviewers",
                 filter_case: false,
                 filter_hide: true,
 			    firstselected: true,
@@ -242,6 +242,38 @@ $('#assign_reviewer_form').live("submit",function (){
         }
     });
     return false;
+});
+
+$('.assign_review').live("click",function (){
+    $.fancybox.showActivity();
+    $.ajax({
+        type:"POST",
+        url:this.rel,
+        data:"id="+this.id,
+        success:function (data){
+            $.fancybox(data);
+            $.fancybox.resize();
+            $(".message").hide();
+            $('.loading').hide();
+            $("#external_reviewer_id").fcbkcomplete({
+                json_url: "<?php echo base_url(); ?>papers/get_json_external_reviewers",
+                filter_case: false,
+                filter_hide: true,
+			    firstselected: true,
+                filter_selected: true,
+			    maxitems: 1,
+          });
+          $("#internal_reviewer_id").fcbkcomplete({
+                json_url: "<?php echo base_url(); ?>papers/get_json_internal_reviewers",
+                filter_case: false,
+                filter_hide: true,
+			    firstselected: true,
+                filter_selected: true,
+			    maxitems: 1,
+          });
+
+        }
+    });
 });
 
 
@@ -362,7 +394,7 @@ function getCSVData(){
 
 		<?php } else if($this->auth_model->is_reviewer()){?>
 
-		     <a href="#" class="assign_reviewers" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/review_form"><img src="<?php echo base_url(); ?>images/ico_attention_16.png" class="icon16 fl-space2" alt="" title="assign reviwers" /></a>
+		     <a href="#" class="review_form" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/review_form"><img src="<?php echo base_url(); ?>images/ico_attention_16.png" class="icon16 fl-space2" alt="" title="assign reviwers" /></a>
 		<?php }?>
 
 								</td>
