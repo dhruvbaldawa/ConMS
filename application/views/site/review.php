@@ -304,7 +304,6 @@ function getCSVData(){
                                 <td><?php echo $arow['track']['name']; ?></td>
                                 <td>
 									<a href="#" class="review_paper" id="<?php echo $arow['id']; ?>" rel="<?php echo base_url(); ?>papers/view/review_form"><img src="<?php echo base_url(); ?>images/ico_edit_16.png" class="icon16 fl-space2" alt="" title="edit" /></a>
-									<a href="#"><img src="<?php echo base_url(); ?>images/ico_delete_16.png" class="icon16 fl-space2" alt="" title="delete" /></a>
 
 								</td>
 							</tr>
