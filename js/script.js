@@ -17,7 +17,7 @@ function InitMenuEffects () {
 	/* Sliding submenus */
 	$('.sidebar .menu ul ul').hide();
 	$('.sidebar .menu ul li.active ul').show();
-	
+
 /*	$('.sidebar .menu ul li').click(function () {
 		submenu = $(this).find('ul');
 		if (submenu.is(':visible'))
@@ -43,9 +43,9 @@ function InitContentBoxes () {
 		if ($(this).is(':checked'))
 			$(this).parent().parent().parent().parent().find(':checkbox').attr('checked', true);
 		else
-			$(this).parent().parent().parent().parent().find(':checkbox').attr('checked', false); 
+			$(this).parent().parent().parent().parent().find(':checkbox').attr('checked', false);
 	});
-	
+
 	/* Tabs */
 	$('.content-box .tabs').idTabs();
 }
@@ -57,7 +57,7 @@ function InitNotifications () {
 	$('.notification .close').click(function () {
 		$(this).parent().fadeOut(1000, function() {
 			$(this).find('p').fixClearType ();
-		});		
+		});
 		return false;
 	});
 }
@@ -70,12 +70,12 @@ function InitTables () {
 		'bLengthChange': true,
 		'bPaginate': true,
 		'sPaginationType': 'full_numbers',
-		'iDisplayLength': -1,
+		'iDisplayLength': 50,
 		'bInfo': false,
-		'oLanguage': 
+		'oLanguage':
 		{
 			'sSearch': 'Search all columns:',
-			'oPaginate': 
+			'oPaginate':
 			{
 				'sNext': '&gt;',
 				'sLast': '&gt;&gt;',
@@ -95,12 +95,12 @@ function InitFancybox () {
 		'hideOnOverlayClick' 	: 'true',
 		'hideOnContentClick' 	: 'true',
 		'enableEscapeButton' 	: true,
-		'showCloseButton' 		: true		
+		'showCloseButton' 		: true
 	});
-	
+
 	$("a[href$='gif']").fancybox();
 	$("a[href$='jpg']").fancybox();
-	$("a[href$='png']").fancybox(); 	
+	$("a[href$='png']").fancybox();
 }
 
 /* *********************************************************************
@@ -196,11 +196,11 @@ function InitQuickEdit () {
         $('.edit-date').editable('date.html', {
              'type' : 'datepicker'
         });
-       
+
         $('.edit-textarea').editable('http://www.google.com/', {
                 'type': 'textarea'
         });
-        
+
         $('.edit-select').editable('http://www.google.com/', {
                 'data': "{'true': 'Active', 'false': 'Inactive'}",
                 'type': 'select'
@@ -213,4 +213,4 @@ jQuery.fn.fixClearType = function(){
             this.style.removeAttribute("filter");
     })
 
-} 
+}
