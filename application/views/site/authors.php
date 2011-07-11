@@ -19,34 +19,6 @@
         <!--[if IE 7]>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/ie7.css" />
         <![endif]-->
-
-<<<<<<< HEAD
-<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.wysiwyg.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.fancybox.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.idtabs.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.datatables.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.jeditable.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.ui.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/table2CSV.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/excanvas.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/cufon.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/Geometr231_Hv_BT_400.font.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/script.js"></script>
-<script type="text/javascript">
-    InitNotifications();
-$('#author').live("click",function (){
-    $.fancybox.showActivity();
-    $.ajax({
-        type:"POST",
-        url:"<?php echo base_url(); ?>authors/get_all_info",
-        data:"ajax=1&id="+this.rel,
-        success:function (data){
-            $.fancybox(data);
-        }
-    });
-});
-=======
         <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.wysiwyg.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.fancybox.js"></script>
@@ -73,8 +45,6 @@ $('#author').live("click",function (){
                     }
                 });
             });
->>>>>>> ed7fad5bf723625a7e6e168681fea73b79af3586
-
             $('.author_link,.update_author').live("click",function (){
                 $.fancybox.showActivity();
                 $.ajax({
